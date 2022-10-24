@@ -1,3 +1,4 @@
+#ifndef DOADOR_H
 
 #include "./Pessoa/pessoa.h";
 #include "./Doacao/doacao.h";
@@ -26,6 +27,8 @@ class Doador: private Pessoa{
         int getPeso();
         //Revisar esse retorno
         int getData();
-        int getSangue();
+        int getSangue() const;
         bool isApto();
 }
+
+#endif

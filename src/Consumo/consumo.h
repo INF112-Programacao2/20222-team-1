@@ -1,3 +1,5 @@
+#ifndef CONSUMO_H
+
 #include "./Doador/doador.h";
 #include "./Doacao/doacao.h";
 #include "./Pessoa/pessoa.h";
@@ -18,14 +20,16 @@ class Consumo{
     public:
         Consumo();
         ~Consumo();
-        Consumo getConsumoById(int n);
+        Consumo getConsumoById(int n) const;
         void setDoador(int n);
         void setDoacao(int n);
         void setData(int dia, int mes, int ano);
         void setLocal(std::string local);
-        int getDoador();
-        int getDoador();
+        int getDoador() const;
+        int getDoacao() const;
         //Revisar esse retorno
         int getData();
         std::string getLocal();
 }
+
+#endif
