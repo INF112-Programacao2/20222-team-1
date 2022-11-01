@@ -14,7 +14,7 @@ private:
     int _dia;
     int _mes;
     int _ano;
-    int _tipoSangue;
+    int _idSangue;
 
 public:
     Doador();
