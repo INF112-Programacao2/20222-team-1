@@ -1,27 +1,27 @@
 #include <string>
 #include <vector>
 
-static enum Rh = (Rh positivo, Rh negativo);
+enum Rh {POSITIVO, NEGATIVO};
 
 class Sangue
 {
 private:
     static int _numSangue;
-    char[3] _nome;
+    std::string _nome;
     Rh _Rh_do_sangue;
     int _id;
-    vector<int> _receptores;
-    vector<int> _doadores;
+    std::vector<int> _receptores;
+    std::vector<int> _doadores;
 
 public:
-    Sangue(char[3] nome, Rh Rh_do_sangue);
+    Sangue(std::string nome, Rh Rh_do_sangue);
     ~Sangue();
 
-    char[3] get_nome();
+    std::string get_nome();
     Rh get_Rh_do_sangue();
     int get_id();
-    vector<int> get_receptores();
-    vector<int> get_doadores();
+    std::vector<int> get_receptores();
+    std::vector<int> get_doadores();
 
     bool isReceptor(int id);
     bool isDoador(int id);
