@@ -44,3 +44,6 @@ Projeto final da disciplina de Programação II (INF112) do semestre letivo 2022
     - [Instalação Dotenv (Variáveis de desenvolvimento local)](/docs/install-dotenv.md)
     - [Instalação do WxWidgets (Interface gráfica)](/docs/install-wxwidgets.md)
     - [Instalação do conector MySql (Banco de Dados)](docs/install-mysql.md)
+
+- Diagrama de Classe
+ ![Classes](diagrama.png)
