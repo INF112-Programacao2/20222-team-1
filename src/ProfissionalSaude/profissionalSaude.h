@@ -16,7 +16,7 @@ private:
     int _idInstituicao;
 
 public:
-    ProfissionalSaude(std::string nome, std::string numIdentidade, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo, int idProfissional, int idInstituicao);
+    ProfissionalSaude(std::string nome, std::string numIdentidade, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo, int idInstituicao);
 
     std::string get_login();
     std::string get_senha();

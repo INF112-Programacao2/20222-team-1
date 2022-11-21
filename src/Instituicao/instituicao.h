@@ -24,7 +24,7 @@ public:
     std::string set_nome();
     std::string set_endereco();
 
-    ProfissionalSaude _newProfissional();
+    void _newProfissional(std::string nome, std::string numIdentidade, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo);
     Instituicao _newInstituicao();
 };
 
