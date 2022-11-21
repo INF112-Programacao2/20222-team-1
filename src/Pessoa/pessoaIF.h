@@ -12,11 +12,11 @@ private:
     std::string _nome;
     std::string _numIdentidade;
     int _dia;
-    int _mes;       // arrumar para o tipo data 
+    int _mes; // arrumar para o tipo data
     int _ano;
 
 public:
-    ~PessoaIF() {};
+    ~PessoaIF(){};
 
     virtual int getPessoaById() const = 0;
     virtual int get_id() = 0;

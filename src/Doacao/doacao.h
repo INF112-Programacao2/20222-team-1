@@ -1,6 +1,9 @@
+#ifndef DOACAO_H
+#define DOACAO_H
+
 #include <ctime>
 #include "./Instituicao/instituicao.h"
-#include "./Pessoa/pessoa.h"
+#include "./Pessoa/pessoaIF.h"
 #include "./Doador/Doador.h"
 
 enum Situacao
@@ -32,3 +35,5 @@ public:
 
     ~Doacao();
 };
+
+#endif

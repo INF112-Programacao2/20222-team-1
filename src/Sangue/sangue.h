@@ -1,7 +1,14 @@
+#ifndef SANGUE_H
+#define SANGUE_H
+
 #include <string>
 #include <vector>
 
-enum Rh {POSITIVO, NEGATIVO};
+enum Rh
+{
+    POSITIVO,
+    NEGATIVO
+};
 
 class Sangue
 {
@@ -30,3 +37,4 @@ public:
     void set_doadores(int id);
 };
 
+#endif

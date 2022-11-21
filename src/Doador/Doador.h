@@ -1,6 +1,7 @@
 #ifndef DOADOR_H
+#define DOADOR_H
 
-#include "./Pessoa/pessoa.h";
+#include "./Pessoa/pessoaIF.h";
 #include "./Doacao/doacao.h";
 #include "./Sangue/sangue.h";
 
@@ -30,6 +31,6 @@ public:
     int getData();
     int getSangue() const;
     bool isApto();
-}
+};
 
 #endif

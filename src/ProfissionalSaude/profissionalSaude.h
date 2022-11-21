@@ -1,8 +1,11 @@
+#ifndef PROFISSIOANLSAUDE_H
+#define PROFISSIOANLSAUDE_H
+
 #include <bits/stdc++.h>
 
-#include "./Pessoa/pessoa.h"
+#include "./Pessoa/pessoaIF.h"
 
-class profissionalSaude : public Pessoa
+class ProfissionalSaude : public PessoaIF
 {
 private:
     static int _numProfissional;
@@ -13,7 +16,7 @@ private:
     int _idInstituicao;
 
 public:
-    profissionalSaude(std::string nome, std::string numIdentidade, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo, int idProfissional, int idInstituicao);
+    ProfissionalSaude(std::string nome, std::string numIdentidade, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo, int idProfissional, int idInstituicao);
 
     std::string get_login();
     std::string get_senha();
@@ -25,5 +28,7 @@ public:
     std::string set_senha();
     std::string set_cargo();
 
-    ~profissionalSaude();
+    ~ProfissionalSaude();
 };
+
+#endif
