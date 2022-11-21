@@ -6,7 +6,7 @@
 
 class PessoaIF
 {
-private:
+protected:
     static int _numPessoa;
     int _id;
     std::string _nome;
