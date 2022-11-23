@@ -13,20 +13,25 @@ enum Rh
 class Sangue
 {
 private:
+    static std::vector<Sangue> _instance;
     static int _numSangue;
-    std::string _nome;
-    Rh _Rh_do_sangue;
+    
     int _id;
+    std::string _nome;
+    Rh _rhTipo;
     std::vector<int> _receptores;
     std::vector<int> _doadores;
 
-public:
     Sangue(std::string nome, Rh Rh_do_sangue);
+
+public:
     ~Sangue();
+    std::vector<Sangue> getInstance();
 
     std::string get_nome();
-    Rh get_Rh_do_sangue();
+    Rh get_rh_sangue();
     int get_id();
+    Sangue get_sangue_by_id(int id);
     std::vector<int> get_receptores();
     std::vector<int> get_doadores();
 
@@ -35,6 +40,7 @@ public:
 
     void set_receptores(int id);
     void set_doadores(int id);
+
 };
 
 #endif
