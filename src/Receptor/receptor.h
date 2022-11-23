@@ -19,7 +19,7 @@ public:
     virtual std::string get_nome();
     virtual std::string get_numIdentidade();
     virtual time_t get_dataNascimento();
-    int get_idSangue();
+    int get_idSangue() const;
 
     virtual void set_nome(std::string nome);
 };

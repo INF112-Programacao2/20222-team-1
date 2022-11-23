@@ -26,7 +26,7 @@ time_t Receptor::get_dataNascimento()
     return _dataNascimento;
 }
 
-int Receptor::get_idSangue()
+int Receptor::get_idSangue() const
 {
     return _idSangue;
 }
@@ -42,5 +42,9 @@ int Receptor::get_id()
 }
 
 int Receptor::getPessoaById(int id) const
+{
+}
+
+Receptor::~Receptor()
 {
 }
