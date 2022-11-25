@@ -30,7 +30,7 @@ std::string ProfissionalSaude::get_numIdentidade()
 {
     return _numIdentidade;
 }
-time_t ProfissionalSaude::get_dataNascimento()
+struct tm ProfissionalSaude::get_dataNascimento()
 {
     return _dataNascimento;
 }

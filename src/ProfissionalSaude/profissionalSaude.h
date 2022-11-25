@@ -19,7 +19,7 @@ public:
     virtual int get_id();
     virtual std::string get_nome();
     virtual std::string get_numIdentidade();
-    virtual time_t get_dataNascimento();
+    virtual struct tm get_dataNascimento();
     std::string get_login();
     std::string get_senha();
     std::string get_cargo();

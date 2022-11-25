@@ -16,8 +16,8 @@ private:
     int _id;
     int _idInstituicao;
 
-    time_t _dataColeta;
-    time_t _dataValidade;
+    struct tm _dataColeta;
+    struct tm _dataValidade;
     double _quantidade;
     Situacao _situacao;
 

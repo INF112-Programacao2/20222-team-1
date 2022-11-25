@@ -11,14 +11,14 @@ private:
     int _idSangue;
 
 public:
-    Receptor(std::string nome, std::string numIdentidade, time_t dataNascimento, int idSangue);
+    Receptor(std::string nome, std::string numIdentidade, struct tm dataNascimento, int idSangue);
     ~Receptor();
 
     virtual int getPessoaById(int id) const;
     virtual int get_id();
     virtual std::string get_nome();
     virtual std::string get_numIdentidade();
-    virtual time_t get_dataNascimento();
+    virtual struct tm get_dataNascimento();
     int get_idSangue() const;
 
     virtual void set_nome(std::string nome);

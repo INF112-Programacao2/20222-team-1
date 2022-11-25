@@ -3,7 +3,7 @@
 #include "./Pessoa/pessoaIF.h"
 #include "Doador.h"
 
-Doador::Doador(std::string nome, std::string numIdentidade, time_t dataNascimento, double peso, double altura, time_t dataUltimaDoacao, int idSangue)
+Doador::Doador(std::string nome, std::string numIdentidade, struct tm dataNascimento, double peso, double altura, struct tm dataUltimaDoacao, int idSangue)
 {
     _nome = nome;
     _numIdentidade = numIdentidade;
@@ -24,7 +24,7 @@ std::string Doador::get_numIdentidade()
     return _numIdentidade;
 }
 
-time_t Doador::get_dataNascimento()
+struct tm Doador::get_dataNascimento()
 {
     return _dataNascimento;
 }
@@ -77,12 +77,12 @@ void Doador::setSangue(int id)
     _idSangue = id;
 }
 
-void Doador::setData(time_t dataUltimaDoacao)
-{   
+void Doador::setData(struct tm dataUltimaDoacao)
+{
     _dataUltimaDoacao = dataUltimaDoacao;
 }
 
-time_t Doador::get_dataUltimaDoacao()
+struct tm Doador::get_dataUltimaDoacao()
 {
     return _dataUltimaDoacao;
 }
@@ -92,7 +92,5 @@ bool Doador::isApto()
 }
 
 Doador::~Doador()
-{    
+{
 }
-
-
