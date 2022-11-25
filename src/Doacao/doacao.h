@@ -6,10 +6,6 @@
 #include "./Pessoa/pessoaIF.h"
 #include "./Doador/Doador.h"
 
-enum Situacao
-{
-};
-
 class Doacao
 {
 private:
@@ -19,19 +15,19 @@ private:
     struct tm _dataColeta;
     struct tm _dataValidade;
     double _quantidade;
-    Situacao _situacao;
+    bool _situacao;
 
 public:
-    Doacao(time_t dataColeta, time_t dataValidade, double quantity, Situacao situacao) {}
-    void setDataColeta(time_t dataColeta);
-    void setValidade(time_t dataValidade);
+    Doacao(struct tm dataColeta, struct tm dataValidade, double quantidade);
+    void setDataColeta(struct tm dataColeta);
+    void setValidade(struct tm dataValidade);
     void setQuantidade(double quantidade);
-    void setSituacao(Situacao situacao);
+    void setSituacao(bool situacao);
 
-    time_t getDataColeta();
-    time_t getDataValidade();
+    struct tm getDataColeta();
+    struct tm getDataValidade();
     double getQuantidade();
-    Situacao getSituacao();
+    bool getSituacao();
 
     ~Doacao();
 };

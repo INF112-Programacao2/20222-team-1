@@ -10,6 +10,9 @@ ProfissionalSaude::ProfissionalSaude(std::string nome, std::string numIdentidade
     _dataNascimento.tm_mday = dia;
     _dataNascimento.tm_mon = mes - 1;
     _dataNascimento.tm_year = ano - 1900;
+    _dataNascimento.tm_hour = 0;
+    _dataNascimento.tm_min = 0;
+    _dataNascimento.tm_sec = 0;
     _login = login;
     _senha = senha;
     _cargo = cargo;
