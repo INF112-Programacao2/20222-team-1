@@ -5,6 +5,7 @@ project(20222-team-1 VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -17,10 +18,14 @@ set(PROJECT_SOURCES
         src/Graphics/Splash/splash.h
         src/Graphics/Splash/splash.ui
         src/main.cpp
+        src/Graphics/Login/login.h
+        src/Graphics/Login/login.cpp
+        src/Graphics/Login/login.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(20222-team-1
+        resouces.qrc
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )

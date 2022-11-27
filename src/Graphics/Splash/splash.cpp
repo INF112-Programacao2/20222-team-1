@@ -7,6 +7,7 @@ Splash::Splash(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+
 }
 
 Splash::~Splash()

@@ -1,11 +1,15 @@
 #include "Graphics/Splash/splash.h"
-
+#include "Graphics/Login/login.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     Splash w;
-    w.show();
-    return a.exec();
+    Login l;
+    l.show();
+    //w.show();
+    a.exec();
+    
+    return 0;
 }

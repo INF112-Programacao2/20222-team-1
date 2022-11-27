@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Login</class>
+ <widget class="QMainWindow" name="Login">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>572</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>572</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1000</width>
+    <height>572</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Acesso Sistema</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonTextUnderIcon</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#centralwidget{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255,118,118,1), stop:1 rgba(255,210,210,1));}</string>
+   </property>
+   <widget class="QListView" name="listView">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>30</y>
+      <width>420</width>
+      <height>485</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #FFFFFF;
+border-radius: 50px;
+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>90</y>
+      <width>231</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: 700;
+font-size: 30px;
+line-height: 36px;
+color: #000000;
+
+</string>
+    </property>
+    <property name="text">
+     <string>Acessar sistema</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>210</y>
+      <width>324</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+
+background: #E13833;
+border-radius: 10px;
+color:#ffffff;
+}
+QPushButton:hover{
+background: #992C29;
+border-radius: 10px;
+color:#ffffff;
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>Instituição</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>320</y>
+      <width>324</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+
+background: #E13833;
+border-radius: 10px;
+color:#ffffff;
+}
+QPushButton:hover{
+background: #992C29;
+border-radius: 10px;
+color:#ffffff;
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>Profissional de Saúde</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>30</y>
+      <width>318</width>
+      <height>474</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>318</width>
+      <height>474</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>318</width>
+      <height>474</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../../../resouces.qrc">:/assets/doesangue_splash_logo.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../../../resouces.qrc">:/assets/icons/home.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../../resouces.qrc"/>
+ </resources>
+ <connections/>
+</ui>
