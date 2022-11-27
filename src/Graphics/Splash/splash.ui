@@ -72,51 +72,26 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>90</y>
-      <width>81</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font-size:35px;
-font-weight:bold;</string>
-    </property>
-    <property name="text">
-     <string>DOE
-DOE </string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>100</y>
-      <width>151</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font-size:35px;
-color: #E13833;
-font-weight:bold;</string>
-    </property>
-    <property name="text">
-     <string>SANGUE,
-VIDA!</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>60</x>
       <y>20</y>
       <width>161</width>
       <height>261</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>161</width>
+      <height>261</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>161</width>
+      <height>261</height>
+     </size>
     </property>
     <property name="text">
      <string/>
@@ -127,6 +102,43 @@ VIDA!</string>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>110</y>
+      <width>251</width>
+      <height>83</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">font-size:35px;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>DOE
+DOE </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">font-size:35px;
+color: #E13833;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>SANGUE,
+VIDA!</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>
