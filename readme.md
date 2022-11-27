@@ -46,4 +46,4 @@ Projeto final da disciplina de Programação II (INF112) do semestre letivo 2022
     - [Instalação do conector MySql (Banco de Dados)](docs/install-mysql.md)
 
 - Diagrama de Classe
- ![Classes](diagrama.png)
+ ![Classes](/assets/project/diagrama.png)
