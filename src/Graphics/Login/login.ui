@@ -371,7 +371,7 @@ color: #FFFFFF;
   </widget>
   <widget class="QStatusBar" name="statusbar">
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">QStatusBar{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255,118,118,1), stop:1 rgba(255,210,210,1));}</string>
    </property>
   </widget>
  </widget>
