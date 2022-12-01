@@ -5,7 +5,6 @@ project(20222-team-1 VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -21,6 +20,9 @@ set(PROJECT_SOURCES
         src/Graphics/Login/login.h
         src/Graphics/Login/login.cpp
         src/Graphics/Login/login.ui
+        src/Graphics/Dashboard/dashboard.h
+        src/Graphics/Dashboard/dashboard.cpp
+        src/Graphics/Dashboard/dashboard.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
