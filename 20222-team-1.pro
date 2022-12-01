@@ -25,6 +25,9 @@ FORMS += \
     src/Graphics/Login/login.ui \
     src/Graphics/Dashboard/dashboard.ui
 
+RESOURCES += \
+    resouces.qrc
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
