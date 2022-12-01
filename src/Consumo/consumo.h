@@ -1,10 +1,12 @@
 #ifndef CONSUMO_H
 #define CONSUMO_H
 
-#include "./Doador/doador.h";
-#include "./Doacao/doacao.h";
-#include "./Pessoa/pessoaIF.h";
-#include "./Instituicao/instituicao.h";
+#include <ctime>
+
+#include "../Doador/doador.h";
+#include "../Doacao/doacao.h";
+#include "../Pessoa/pessoaIF.h";
+#include "../Instituicao/instituicao.h";
 
 class Consumo
 {
@@ -13,10 +15,7 @@ private:
     int _id;
     int _idDoador;
     int _idDoacao;
-    // date
-    int _dia;
-    int _mes;
-    int _ano;
+    tm _dataConsumo;
     std::string _local;
 
 public:
@@ -25,12 +24,11 @@ public:
     Consumo getConsumoById(int n) const;
     void setDoador(int n);
     void setDoacao(int n);
-    void setData(int dia, int mes, int ano);
+    void setData(tm data);
     void setLocal(std::string local);
     int getDoador() const;
     int getDoacao() const;
-    // Revisar esse retorno
-    int getData();
+    tm getData() const;
     std::string getLocal();
 };
 
