@@ -15,6 +15,15 @@ public:
     explicit Login(QWidget *parent = nullptr);
     ~Login();
 
+private slots:
+    void on_homeButton_clicked();
+
+    void on_btInstituicaoLogin_clicked();
+
+    void on_btProfissionalSaudeLogin_clicked();
+
+    void on_btLogin_clicked();
+
 private:
     Ui::Login *ui;
 };
