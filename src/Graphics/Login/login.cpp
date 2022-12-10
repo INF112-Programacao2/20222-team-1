@@ -1,6 +1,5 @@
 #include "login.h"
 #include "ui_login.h"
-#include "../Banco/Banco.h"
 
 Banco i;
 
@@ -31,8 +30,9 @@ bool isCpf(std::string palavra){
     return 0;   
 }
 
-
-Login::Login(QWidget *parent) : QMainWindow(parent), ui(new Ui::Login)
+Login::Login(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::Login)
 {
     ui->setupUi(this);
     ui->frSelectTypeUser->setVisible(true);
@@ -44,27 +44,26 @@ Login::~Login()
     delete ui;
 }
 
-void Login::on_homeButton_clicked()
-{
-
-}
-
-
-void Login::on_btInstituicaoLogin_clicked()
+void Login::on_buttonInstituicaoLogin_clicked()
 {
     ui->frSelectTypeUser->setVisible(false);
     ui->frLogarForm->setVisible(true);
 }
 
+void Login::on_buttonProfissionalSaudeLogin_clicked()
+{
+    ui->frSelectTypeUser->setVisible(false);
+    ui->frLogarForm->setVisible(true);
+}
 
-void Login::on_btProfissionalSaudeLogin_clicked()
+void Login::on_buttonLogin_clicked()
 {
     try{
-        std::string login = ui->lineEdit->text();
+        std::string login = ui->inputDocumento->text().toStdString();
         if(isCpf(login)){
             ProfissionalSaude* user = i.isProfissional(login);
             if(user != nullptr){
-                if(user->get_senha() == ui->lineEdit2->text())
+                if(user->get_senha() == ui->inputSenha->text().toStdString())
                     std::cout<<"bonaceta natasha";
                 else
                     throw std::out_of_range("Verifique sua senha");
@@ -73,19 +72,15 @@ void Login::on_btProfissionalSaudeLogin_clicked()
         }
 
     }catch(std::invalid_argument &e){
-        QMessageBox::information(this, "Atencao", e,what());
+        QMessageBox::information(this, "Atencao", e.what());
     }catch(std::out_of_range &e){
-        QMessageBox::information(this, "Atencao", e,what());
+        QMessageBox::information(this, "Atencao", e.what());
     }catch(std::exception &e){
-        QMessageBox::information(this, "Atencao", e,what());
+        QMessageBox::information(this, "Atencao", e.what());
     }
-
-    ui->frSelectTypeUser->setVisible(false);
-    ui->frLogarForm->setVisible(true);
 }
 
-
-void Login::on_btLogin_clicked()
+void Login::on_buttonRegistrarInstituicao_clicked()
 {
 
 }

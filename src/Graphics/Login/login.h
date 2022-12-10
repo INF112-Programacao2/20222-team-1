@@ -2,6 +2,11 @@
 #define LOGIN_H
 
 #include <QMainWindow>
+#include <exception>
+#include <iostream>
+#include <QMessageBox>
+#include "../AlertDialog/alertdialog.h"
+#include "../../Banco/Banco.h"
 
 namespace Ui {
 class Login;
@@ -18,11 +23,13 @@ public:
 private slots:
     void on_homeButton_clicked();
 
-    void on_btInstituicaoLogin_clicked();
+    void on_buttonInstituicaoLogin_clicked();
 
-    void on_btProfissionalSaudeLogin_clicked();
+    void on_buttonProfissionalSaudeLogin_clicked();
 
-    void on_btLogin_clicked();
+    void on_buttonLogin_clicked();
+
+    void on_buttonRegistrarInstituicao_clicked();
 
 private:
     Ui::Login *ui;
