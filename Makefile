@@ -10,4 +10,4 @@ cmakeBuild:
 	cd build && make
 
 run: 
-	cd build && ./20222-team-1
+	cd build && ./20222-team-1

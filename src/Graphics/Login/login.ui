@@ -388,18 +388,12 @@ color: #FFFFFF;
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>31</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <widget class="QMenu" name="menuLogin">
-    <property name="title">
-     <string>Login</string>
-    </property>
-   </widget>
-   <addaction name="menuLogin"/>
   </widget>
   <widget class="QStatusBar" name="statusbar">
    <property name="styleSheet">
