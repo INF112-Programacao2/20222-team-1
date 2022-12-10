@@ -1,6 +1,7 @@
 #ifndef BANCO_H
 #define BANCO_H
 
+#include <vector>
 #include "../Pessoa/pessoaIF.h"
 #include "../Receptor/receptor.h"
 #include "../Doador/doador.h"
@@ -13,7 +14,7 @@
 class Banco
 {
 private:
-    static Banco _instance;
+    static Banco *_instance;
     vector<Doador> _doadores;
     vector<Receptor> _receptores;
     vector<ProfissionalSaude> _profissionais;
@@ -24,6 +25,7 @@ private:
     Banco();
 
 public:
+    Banco* getInstance();
     ~Banco();
 
     void setReceptor(Receptor receptor);
@@ -39,6 +41,8 @@ public:
     Doador getDoadorById(int id);
     Consumo getConsumoById(int id);
     Instituicao getInstituicaoById(int id);
+
+    vector<Doacoes> getDoacoesCompativeis(int idSangue);
 };
 
 #endif

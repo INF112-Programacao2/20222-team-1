@@ -210,8 +210,8 @@ color:#ffffff;
      <rect>
       <x>500</x>
       <y>30</y>
-      <width>420</width>
-      <height>485</height>
+      <width>421</width>
+      <height>481</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -388,12 +388,18 @@ color: #FFFFFF;
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>22</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
+   <widget class="QMenu" name="menuLogin">
+    <property name="title">
+     <string>Login</string>
+    </property>
+   </widget>
+   <addaction name="menuLogin"/>
   </widget>
   <widget class="QStatusBar" name="statusbar">
    <property name="styleSheet">
