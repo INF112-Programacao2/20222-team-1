@@ -13,15 +13,15 @@ private:
     int _idInstituicao;
 
 public:
-    ProfissionalSaude(std::string nome, std::string numIdentidade, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo, int idInstituicao);
+    ProfissionalSaude(std::string nome, std::string cpf, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo, int idInstituicao);
 
     virtual int getPessoaById(int id) const;
     virtual int get_id();
-    virtual std::string get_nome();
-    virtual std::string get_numIdentidade();
+    virtual std::string get_cpf();
     virtual struct tm get_dataNascimento();
     std::string get_login();
     std::string get_senha();
+    std::string get_nome();
     std::string get_cargo();
     int get_idProfissional();
     int get_idInstituicao();

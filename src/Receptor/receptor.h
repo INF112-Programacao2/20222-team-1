@@ -17,7 +17,7 @@ public:
     virtual int getPessoaById(int id) const;
     virtual int get_id();
     virtual std::string get_nome();
-    virtual std::string get_numIdentidade();
+    virtual std::string get_cpf();
     virtual struct tm get_dataNascimento();
     int get_idSangue() const;
 

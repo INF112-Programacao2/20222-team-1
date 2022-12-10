@@ -3,10 +3,10 @@
 #include "./Pessoa/pessoaIF.h"
 #include "Doador.h"
 
-Doador::Doador(std::string nome, std::string numIdentidade, struct tm dataNascimento, double peso, double altura, struct tm dataUltimaDoacao, int idSangue)
+Doador::Doador(std::string nome, std::string cpf, struct tm dataNascimento, double peso, double altura, struct tm dataUltimaDoacao, int idSangue)
 {
     _nome = nome;
-    _numIdentidade = numIdentidade;
+    _cpf = cpf;
     _dataNascimento = dataNascimento;
     _peso = peso;
     _altura = altura;
@@ -19,9 +19,9 @@ std::string Doador::get_nome()
     return _nome;
 }
 
-std::string Doador::get_numIdentidade()
+std::string Doador::get_cpf()
 {
-    return _numIdentidade;
+    return _cpf;
 }
 
 struct tm Doador::get_dataNascimento()
@@ -52,14 +52,6 @@ void Doador::set_nome(std::string nome)
 int Doador::get_id()
 {
     return _id;
-}
-
-int Doador::getDoadorById(int id) const
-{
-}
-
-int Doador::getPessoaById(int id) const
-{
 }
 
 void Doador::setAltura(double altura)

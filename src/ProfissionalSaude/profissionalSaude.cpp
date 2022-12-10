@@ -3,10 +3,10 @@
 #include "profissionalSaude.h"
 #include "./Pessoa/pessoaIF.h"
 
-ProfissionalSaude::ProfissionalSaude(std::string nome, std::string numIdentidade, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo, int idInstituicao)
+ProfissionalSaude::ProfissionalSaude(std::string nome, std::string cpf, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo, int idInstituicao)
 {
     _nome = nome;
-    _numIdentidade = numIdentidade;
+    _cpf = cpf;
     _dataNascimento.tm_mday = dia;
     _dataNascimento.tm_mon = mes - 1;
     _dataNascimento.tm_year = ano - 1900;
@@ -18,9 +18,7 @@ ProfissionalSaude::ProfissionalSaude(std::string nome, std::string numIdentidade
     _cargo = cargo;
     _idInstituicao = idInstituicao;
 }
-int ProfissionalSaude::getPessoaById(int id) const
-{
-}
+
 int ProfissionalSaude::get_id()
 {
     return _id;
@@ -29,9 +27,9 @@ std::string ProfissionalSaude::get_nome()
 {
     return _nome;
 }
-std::string ProfissionalSaude::get_numIdentidade()
+std::string ProfissionalSaude::get_cpf()
 {
-    return _numIdentidade;
+    return _cpf;
 }
 struct tm ProfissionalSaude::get_dataNascimento()
 {
