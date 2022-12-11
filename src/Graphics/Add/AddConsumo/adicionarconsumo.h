@@ -15,6 +15,9 @@ public:
     explicit AdicionarConsumo(QWidget *parent = nullptr);
     ~AdicionarConsumo();
 
+private slots:
+    void on_buttonAdd_clicked();
+
 private:
     Ui::AdicionarConsumo *ui;
 };

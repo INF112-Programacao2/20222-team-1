@@ -228,7 +228,7 @@ border-radius: 10px;
       <string/>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #F06969;</string>
+      <string notr="true">border: 1px solid black;</string>
      </property>
     </widget>
     <widget class="QLabel" name="txtEndereco_2">
@@ -273,7 +273,7 @@ color: #000000;
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="buttonReturn">
+   <widget class="QPushButton" name="buttonReturn_2">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -319,7 +319,7 @@ color:#ffffff;
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="../../../../resouces.qrc">
       <normaloff>:/assets/icons/return.png</normaloff>:/assets/icons/return.png</iconset>
     </property>
    </widget>
@@ -351,6 +351,7 @@ color:#ffffff;
  </widget>
  <resources>
   <include location="../../../resouces.qrc"/>
+  <include location="../../../../resouces.qrc"/>
  </resources>
  <connections/>
 </ui>

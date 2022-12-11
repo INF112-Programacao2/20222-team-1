@@ -9,7 +9,8 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    src/Graphics/Add/adicionardoacao.cpp \
+    src/Graphics/Add/AddDoacao/adicionardoacao.cpp \
+    src/Graphics/Add/AddConsumo/adicionarconsumo.cpp \
     src/Graphics/ItemView/itemview.cpp \
     src/main.cpp \
     src/Banco/banco.cpp \
@@ -28,7 +29,8 @@ SOURCES += \
     src/Graphics/Splash/splash.cpp
 
 HEADERS += \
-    src/Graphics/Add/adicionardoacao.h \
+    src/Graphics/Add/AddDoacao/adicionardoacao.h \
+    src/Graphics/Add/AddConsumo/adicionarconsumo.h \
     src/Graphics/ItemView/itemview.h \
     src/main.cpp \
     src/Banco/Banco.h \
@@ -48,7 +50,8 @@ HEADERS += \
     src/Graphics/Splash/splash.h
 
 FORMS += \
-    src/Graphics/Add/adicionardoacao.ui \
+    src/Graphics/Add/AddDoacao/adicionardoacao.ui \
+    src/Graphics/Add/AddConsumo/adicionarconsumo.ui \
     src/Graphics/AlertDialog/alertdialog.ui \
     src/Graphics/Dashboard/dashboard.ui \
     src/Graphics/ItemView/itemview.ui \

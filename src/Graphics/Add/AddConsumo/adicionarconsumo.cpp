@@ -12,3 +12,9 @@ AdicionarConsumo::~AdicionarConsumo()
 {
     delete ui;
 }
+
+void AdicionarConsumo::on_buttonAdd_clicked()
+{
+
+}
+

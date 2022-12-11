@@ -88,11 +88,11 @@ color: #000000;
       <string>Adicionar Consumo</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="buttonRegister">
+    <widget class="QPushButton" name="buttonAdd">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>370</y>
+       <x>330</x>
+       <y>360</y>
        <width>251</width>
        <height>64</height>
       </rect>
