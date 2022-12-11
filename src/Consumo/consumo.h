@@ -20,8 +20,10 @@ private:
 
 public:
     Consumo(int idReceptor, int idInstituicao, int idDoacao, struct tm dataConsumo);
+    Consumo(int id, int idReceptor, int idInstituicao, int idDoacao, struct tm dataConsumo);
     ~Consumo();
     void setData(struct tm data);
+    void setStatic(int n);
     int getDoacao() const;
     struct tm getData() const;
 };

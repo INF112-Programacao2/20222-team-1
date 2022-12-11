@@ -14,8 +14,8 @@ private:
 
 public:
     ProfissionalSaude(std::string nome, std::string cpf, struct tm dataNascimento, std::string senha, std::string cargo, int idInstituicao);
+    ProfissionalSaude(int id,std::string nome, std::string cpf, struct tm dataNascimento, std::string senha, std::string cargo, int idInstituicao);
 
-    int getPessoaById(int id) const;
     int get_id();
     std::string get_cpf();
     struct tm get_dataNascimento();
@@ -27,6 +27,7 @@ public:
     int get_idInstituicao();
 
     void set_nome(std::string nome);
+    void set_static(int n);
     //void set_login(std::string login);
     void set_senha(std::string senha);
     void set_cargo(std::string cargo);

@@ -17,6 +17,19 @@ Doacao::Doacao(struct tm dataColeta, struct tm dataValidade, double quantidade, 
     _idInstituicao = idInstituicao;
     _situacao = true;
 }
+
+Doacao::Doacao(int id, struct tm dataColeta, struct tm dataValidade, double quantidade, int idInstituicao, int idProfissional, int idDoador)
+{
+    _id = id;
+    _idInstituicao = idInstituicao;
+    _idProfissional = idProfissional;
+    _idDoador = idDoador;
+    _dataColeta = dataColeta;
+    _quantidade = quantidade;
+    _idInstituicao = idInstituicao;
+    _situacao = true;
+}
+
 void Doacao::setDataColeta(struct tm dataColeta)
 {
     _dataColeta = dataColeta;
@@ -29,6 +42,11 @@ void Doacao::setQuantidade(double quantidade)
 void Doacao::setSituacao(bool situacao)
 {
     _situacao = situacao;
+}
+
+void Doacao::setStatic(int n)
+{
+    Doacao::_numDoacao = n;
 }
 
 void Doacao::setInstituicao(int idInstituicao){

@@ -10,6 +10,18 @@ int Instituicao::_numInstituicao = 0;
 Instituicao::~Instituicao() {}
 
 Instituicao::Instituicao(std::string nome, std::string endereco, std::string cnpj, std::string senha) {
+    _id = _numInstituicao;
+    _numInstituicao ++;
+    _nome = nome;
+    _endereco = endereco;
+    _cnpj = cnpj;
+    _id = _numInstituicao;
+    _senha = senha;
+    _numInstituicao++;
+}
+
+Instituicao::Instituicao(int id, std::string nome, std::string endereco, std::string cnpj, std::string senha) {
+    _id = id;
     _nome = nome;
     _endereco = endereco;
     _cnpj = cnpj;
@@ -31,6 +43,10 @@ std::string Instituicao::get_endereco() {
 
 void Instituicao::set_nome(std::string nome) {
     _nome = nome;
+}
+
+void Instituicao::set_static(int id) {
+    Instituicao::_numInstituicao = id;
 }
 
 void  Instituicao::set_endereco(std::string endereco) {

@@ -3,8 +3,23 @@
 #include "profissionalSaude.h"
 #include "../Pessoa/pessoaIF.h"
 
+int ProfissionalSaude::_numProfissional = 0;
+
 ProfissionalSaude::ProfissionalSaude(std::string nome, std::string cpf, struct tm dataNascimento, std::string senha, std::string cargo, int idInstituicao)
 {
+    _id = _numProfissional;
+    _numProfissional ++;
+    _nome = nome;
+    _cpf = cpf;
+    _dataNascimento = dataNascimento;
+    _senha = senha;
+    _cargo = cargo;
+    _idInstituicao = idInstituicao;
+}
+
+ProfissionalSaude::ProfissionalSaude(int id, std::string nome, std::string cpf, struct tm dataNascimento, std::string senha, std::string cargo, int idInstituicao)
+{
+    _id = id;
     _nome = nome;
     _cpf = cpf;
     _dataNascimento = dataNascimento;
@@ -48,6 +63,10 @@ int ProfissionalSaude::get_idInstituicao()
 void ProfissionalSaude::set_nome(std::string nome)
 {
     _nome = nome;
+}
+void ProfissionalSaude::set_static(int n)
+{
+    ProfissionalSaude::_numProfissional = n;
 }
 void ProfissionalSaude::set_senha(std::string senha)
 {

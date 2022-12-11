@@ -3,12 +3,29 @@
 #include <ctime>
 #include "../Pessoa/pessoaIF.h"
 
+int Receptor::_numReceptor = 0;
+
 Receptor::Receptor(std::string nome, std::string cpf, struct tm dataNascimento, int idSangue)
 {
+    _id = _numReceptor;
+    _numReceptor++;
     _nome = nome;
     _cpf = cpf;
     _dataNascimento = dataNascimento;
     _idSangue = idSangue;
+}
+
+Receptor::Receptor(int id, std::string nome, std::string cpf, struct tm dataNascimento, int idSangue)
+{
+    _id = id;
+    _nome = nome;
+    _cpf = cpf;
+    _dataNascimento = dataNascimento;
+    _idSangue = idSangue;
+}
+
+int Receptor::set_static(int n){
+    _numReceptor = n;
 }
 
 std::string Receptor::get_nome()
@@ -26,7 +43,7 @@ struct tm Receptor::get_dataNascimento()
     return _dataNascimento;
 }
 
-int Receptor::get_idSangue() const
+int Receptor::get_sangue() const
 {
     return _idSangue;
 }

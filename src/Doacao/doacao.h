@@ -21,12 +21,16 @@ private:
 
 public:
     Doacao(struct tm dataColeta, struct tm dataValidade, double quantidade, int idInstituicao, int idProfissional, int idDoador);
+    Doacao(int id, struct tm dataColeta, struct tm dataValidade, double quantidade, int idInstituicao, int idProfissional, int idDoador);
+
     void setDataColeta(struct tm dataColeta);
     void setQuantidade(double quantidade);
     void setSituacao(bool situacao);
     void setInstituicao(int idInstituicao);
     void setProfissional(int idProfissional);
     void setDoador(int idDoador);
+    void setStatic(int n);
+
     struct tm getDataColeta();
     struct tm getDataValidade();
     double getQuantidade();
