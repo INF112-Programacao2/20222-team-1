@@ -15,4 +15,5 @@ AlertDialog::~AlertDialog()
 
 void AlertDialog::SetMessage(std::string message){
     this->ui->label->setText(QString::fromStdString(message));
+    this->ui->label->setWordWrap(true);
 }

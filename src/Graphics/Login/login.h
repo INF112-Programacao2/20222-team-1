@@ -5,6 +5,7 @@
 #include <exception>
 #include <iostream>
 #include <QMessageBox>
+#include "../Dashboard/dashboard.h"
 #include "../AlertDialog/alertdialog.h"
 #include "../../Banco/Banco.h"
 

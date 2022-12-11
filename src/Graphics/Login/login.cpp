@@ -37,31 +37,38 @@ void Login::on_buttonLogin_clicked()
 {
     AlertDialog *dialog = new AlertDialog(this);
 
+    //Autentica instituicao
     if(this->isInstituicao){
         try{
              std::string login = ui->inputDocumento->text().toStdString();
-             if(i.isCnpj(login)){
+             if(!i.isCnpj(login)){
                  Instituicao* user = i.isInstituicao(login);
                  if(user != nullptr){
                      if(user->get_senha() != ui->inputSenha->text().toStdString())
-                        throw std::out_of_range("Não foi possível autenticar. Verifique os dados fornecidos e tente novamente.");
+                        throw std::out_of_range("Senha incorreta.");
                  }else
                      throw std::invalid_argument("Nao existe nenhuma conta com essas credenciais.");
              }
 
          }catch(std::invalid_argument &e){
             dialog->SetMessage(e.what());
+            dialog->exec();
+            return;
          }catch(std::out_of_range &e){
             dialog->SetMessage(e.what());
+            dialog->exec();
+            return;
          }catch(std::exception &e){
             dialog->SetMessage(e.what());
+            dialog->exec();
+            return;
          }
-        dialog->show();
     }
+    //Autentica instituição
     else{
         try{
             std::string login = ui->inputDocumento->text().toStdString();
-            if(i.isCpf(login)){
+            if(!i.isCpf(login)){
                 ProfissionalSaude* user = i.isProfissional(login);
                 if(user != nullptr){
                     if(user->get_senha() != ui->inputSenha->text().toStdString())
@@ -71,19 +78,21 @@ void Login::on_buttonLogin_clicked()
             }
 
         }catch(std::invalid_argument &e){
-            AlertDialog a(this);
-            a.SetMessage(e.what());
-            a.show();
+            dialog->SetMessage(e.what());
+            dialog->exec();
+            return;
         }catch(std::out_of_range &e){
-            AlertDialog a(this);
-            a.SetMessage(e.what());
-            a.show();
+            dialog->SetMessage(e.what());
+            dialog->exec();
+            return;
         }catch(std::exception &e){
-            AlertDialog a(this);
-            a.SetMessage(e.what());
-            a.show();
+            dialog->SetMessage(e.what());
+            dialog->exec();
+            return;
         }
     }
+
+    delete dialog;
 }
 
 void Login::on_buttonRegistrarInstituicao_clicked()
