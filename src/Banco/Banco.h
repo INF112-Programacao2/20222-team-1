@@ -44,7 +44,8 @@ public:
     void setReceptor(Receptor *receptor);
     void setDoador(Doador *doador);
     void setProfissional(ProfissionalSaude *profissional);
-    void setConsumo(Consumo *consumxo);
+    void setConsumo(Consumo *consumo);
+    void setDoacao(Doacao *doacao);
     void setInstituicao(Instituicao *instituicao);
 
     Receptor *getReceptorById(int id);

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Banco.h"
 #include <vector>
 #include <fstream>
@@ -38,13 +39,14 @@ void Banco::leArquivoDoador()
 {
     std::ifstream doador_txt("doador.txt");
 
-    while (!doador_txt.eof())
+    if(doador_txt.tellg() != -1)
+        while (!doador_txt.eof())
     {
         int idPessoa;
         std::string nome, cpf;
-        struct tm *dataNascimento;
+        struct tm *dataNascimento = new struct tm;
         double peso, altura;
-        struct tm *dataUltimaDoacao;
+        struct tm *dataUltimaDoacao = new struct tm;
         int idSangue;
 
         int dia, mes, ano;
@@ -71,7 +73,7 @@ void Banco::leArquivoDoador()
         doador_txt >> idSangue;
         doador_txt >> aux;
 
-        Banco::_instance->_doadores.push_back(new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue));
+        Banco::_instance->setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue)));
     }
 
     doador_txt.close();
@@ -81,11 +83,12 @@ void Banco::leArquivoReceptor()
 {
     std::ifstream receptor_txt("receptor.txt");
 
-    while (!receptor_txt.eof())
+    if(receptor_txt.tellg() != -1)
+        while (!receptor_txt.eof())
     {
         int idPessoa;
         std::string nome, cpf;
-        struct tm *dataNascimento;
+        struct tm *dataNascimento = new struct tm;
         int idSangue;
 
         int dia, mes, ano;
@@ -103,7 +106,7 @@ void Banco::leArquivoReceptor()
         dataNascimento->tm_sec = 0;
         receptor_txt >> idSangue >> aux;
 
-        Banco::_instance->_receptores.push_back(new Receptor(idPessoa, nome, cpf, dataNascimento, idSangue));
+        Banco::_instance->setReceptor((new Receptor(idPessoa, nome, cpf, dataNascimento, idSangue)));
     }
 
     receptor_txt.close();
@@ -112,12 +115,13 @@ void Banco::leArquivoReceptor()
 void Banco::leArquivoProfissional()
 {
     std::ifstream profissional_txt("profissional.txt");
-
-    while (!profissional_txt.eof())
+    
+    if(profissional_txt.tellg() != -1)
+        while (!profissional_txt.eof())
     {
         int idPessoa;
         std::string nome, cpf;
-        struct tm *dataNascimento;
+        struct tm *dataNascimento = new struct tm;
         std::string senha;
         int cargo;
         int idInstituicao;
@@ -138,9 +142,9 @@ void Banco::leArquivoProfissional()
         profissional_txt >> senha >> cargo >> idInstituicao >> aux;
 
         if (cargo == 0)
-            Banco::_instance->_profissionais.push_back(new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::MEDICX, idInstituicao));
+            Banco::_instance->setProfissional((new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::MEDICX, idInstituicao)));
         else if (cargo == 1)
-            Banco::_instance->_profissionais.push_back(new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::ENFERMEIRX, idInstituicao));
+            Banco::_instance->setProfissional((new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::ENFERMEIRX, idInstituicao)));
     }
 
     profissional_txt.close();
@@ -149,11 +153,12 @@ void Banco::leArquivoProfissional()
 void Banco::leArquivoDoacao()
 {
     std::ifstream doacao_txt("doacao.txt");
-
-    while (!doacao_txt.eof())
+    //std::cout<<doacao_txt.tellg()<<std::endl;
+    if(doacao_txt.tellg() != -1)
+        while (!doacao_txt.eof())
     {
         int idDoacao;
-        struct tm *dataColeta;
+        struct tm *dataColeta = new struct tm;
         double quantidade;
         int idInstituicao, idProfissional, idDoador;
         bool situacao;
@@ -171,7 +176,7 @@ void Banco::leArquivoDoacao()
         dataColeta->tm_sec = 0;
         doacao_txt >> quantidade >> idInstituicao >> idProfissional >> idDoador >> situacao >> aux;
 
-        Banco::_instance->_doacao.push_back(new Doacao(idDoacao, dataColeta, quantidade, idInstituicao, idProfissional, idDoador, situacao));
+        Banco::_instance->setDoacao((new Doacao(idDoacao, dataColeta, quantidade, idInstituicao, idProfissional, idDoador, situacao)));
     }
 
     doacao_txt.close();
@@ -180,11 +185,12 @@ void Banco::leArquivoDoacao()
 void Banco::leArquivoConsumo()
 {
     std::ifstream consumo_txt("consumo.txt");
-
-    while (!consumo_txt.eof())
+    //std::cout<<consumo_txt.tellg()<<std::endl;
+    if(consumo_txt.tellg() != -1)
+        while (!consumo_txt.eof() )
     {
         int idConsumo, idReceptor, idInstituicao, idDoacao;
-        struct tm *dataConsumo;
+        struct tm *dataConsumo = new struct tm;
 
         int dia, mes, ano;
         std::string aux;
@@ -208,8 +214,9 @@ void Banco::leArquivoConsumo()
 void Banco::leArquivoInstituicao()
 {
     std::ifstream instituicao_txt("instituicao.txt");
-
-    while (!instituicao_txt.eof())
+    
+    if(instituicao_txt.tellg() != -1)
+        while (!instituicao_txt.eof())
     {
         int idInstituicao;
         std::string nome, endereco, cnpj, senha;
@@ -223,7 +230,7 @@ void Banco::leArquivoInstituicao()
         std::getline(instituicao_txt, senha);
         instituicao_txt >> aux;
 
-        Banco::_instance->_instituicao.push_back(new Instituicao(idInstituicao, nome, endereco, cnpj, senha));
+        Banco::_instance->setInstituicao((new Instituicao(idInstituicao, nome, endereco, cnpj, senha)));
     }
 
     instituicao_txt.close();
@@ -420,6 +427,11 @@ void Banco::setProfissional(ProfissionalSaude *profissional)
 void Banco::setConsumo(Consumo *consumo)
 {
     _consumo.push_back(consumo);
+}
+
+void Banco::setDoacao(Doacao *doacao)
+{
+    _doacao.push_back(doacao);
 }
 
 void Banco::setInstituicao(Instituicao *instituicao)
