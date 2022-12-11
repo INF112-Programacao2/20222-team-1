@@ -32,7 +32,7 @@
    <string notr="true">QWidget#centralwidget{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255,118,118,1), stop:1 rgba(255,210,210,1));}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frLogarForm">
+   <widget class="QFrame" name="frAdiconarDoacao">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -52,7 +52,7 @@ border-radius: 50px;
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="txtCadastroInstituicao">
+    <widget class="QLabel" name="txtAdicionarDoacao">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -104,7 +104,7 @@ color: #000000;
      <property name="geometry">
       <rect>
        <x>550</x>
-       <y>300</y>
+       <y>290</y>
        <width>251</width>
        <height>64</height>
       </rect>
@@ -122,39 +122,7 @@ color: #FFFFFF;
       <string>Adicionar</string>
      </property>
     </widget>
-    <widget class="QLabel" name="errorNomeEntidade">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>220</y>
-       <width>331</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:#ff0000</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="errorCnpj">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>340</y>
-       <width>331</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:#ff0000</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="txtEndereco">
+    <widget class="QLabel" name="txtQuantidade">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -175,7 +143,7 @@ color: #000000;
       <string>Quantidade ( ml )</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputSenha">
+    <widget class="QLineEdit" name="inputQuantidade">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -198,7 +166,7 @@ border-radius: 10px;
       <enum>QLineEdit::Password</enum>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputEndereco">
+    <widget class="QLineEdit" name="inputDataColeta">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -215,7 +183,7 @@ border-radius: 10px;
 </string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="comboDoador">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -231,7 +199,7 @@ border-radius: 10px;
       <string notr="true">border: 1px solid black;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_2">
+    <widget class="QLabel" name="txtDataColeta">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -251,7 +219,7 @@ color: #000000;
       <string>Data de Coleta</string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_3">
+    <widget class="QLabel" name="txtDoador">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -350,7 +318,6 @@ color:#ffffff;
   </widget>
  </widget>
  <resources>
-  <include location="../../../resouces.qrc"/>
   <include location="../../../../resouces.qrc"/>
  </resources>
  <connections/>

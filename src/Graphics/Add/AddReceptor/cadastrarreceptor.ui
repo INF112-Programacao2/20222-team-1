@@ -41,7 +41,7 @@
      <height>572</height>
     </size>
    </property>
-   <widget class="QFrame" name="frLogarForm">
+   <widget class="QFrame" name="frCadastroReceptor">
     <property name="geometry">
      <rect>
       <x>61</x>
@@ -110,23 +110,7 @@ color: #FFFFFF;
       <string>Adicionar</string>
      </property>
     </widget>
-    <widget class="QLabel" name="errorCnpj">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>340</y>
-       <width>331</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:#ff0000</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="inputEndereco">
+    <widget class="QLineEdit" name="inputNome">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -143,7 +127,7 @@ border-radius: 10px;
 </string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_2">
+    <widget class="QLabel" name="txtNome">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -163,7 +147,7 @@ color: #000000;
       <string>Nome</string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_4">
+    <widget class="QLabel" name="txtTipoSangue">
      <property name="geometry">
       <rect>
        <x>600</x>
@@ -184,7 +168,7 @@ color: #000000;
       <string>Tipo Sanguínio</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_2">
+    <widget class="QComboBox" name="comboTipoSangue">
      <property name="geometry">
       <rect>
        <x>600</x>
@@ -241,7 +225,7 @@ color: black;</string>
       </property>
      </item>
     </widget>
-    <widget class="QLineEdit" name="inputEndereco_2">
+    <widget class="QLineEdit" name="inputCPF">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -258,7 +242,7 @@ border-radius: 10px;
 </string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_3">
+    <widget class="QLabel" name="txtCPF">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -275,10 +259,10 @@ color: #000000;
 </string>
      </property>
      <property name="text">
-      <string>CPJ</string>
+      <string>CPF</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputEndereco_3">
+    <widget class="QLineEdit" name="inputDataNascimento">
      <property name="geometry">
       <rect>
        <x>460</x>
@@ -295,7 +279,7 @@ border-radius: 10px;
 </string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_5">
+    <widget class="QLabel" name="txtDataNascimento">
      <property name="geometry">
       <rect>
        <x>460</x>

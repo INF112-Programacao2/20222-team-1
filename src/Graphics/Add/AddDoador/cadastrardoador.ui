@@ -20,7 +20,7 @@
    <string notr="true">QWidget#centralwidget{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255,118,118,1), stop:1 rgba(255,210,210,1));}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frLogarForm">
+   <widget class="QFrame" name="frCadastroDoador">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -40,7 +40,7 @@ border-radius: 50px;
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="txtCadastroInstituicao">
+    <widget class="QLabel" name="txtCadastroDoador">
      <property name="geometry">
       <rect>
        <x>300</x>
@@ -89,23 +89,7 @@ color: #FFFFFF;
       <string>Adicionar</string>
      </property>
     </widget>
-    <widget class="QLabel" name="errorCnpj">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>340</y>
-       <width>331</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:#ff0000</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="inputEndereco">
+    <widget class="QLineEdit" name="inputNome">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -122,7 +106,7 @@ border-radius: 10px;
 </string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_2">
+    <widget class="QLabel" name="txtNome">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -142,7 +126,7 @@ color: #000000;
       <string>Nome</string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_4">
+    <widget class="QLabel" name="txtTipoSangue">
      <property name="geometry">
       <rect>
        <x>590</x>
@@ -163,7 +147,7 @@ color: #000000;
       <string>Tipo Sanguínio</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_2">
+    <widget class="QComboBox" name="comboTipoSangue">
      <property name="geometry">
       <rect>
        <x>590</x>
@@ -220,7 +204,7 @@ color: black;</string>
       </property>
      </item>
     </widget>
-    <widget class="QLineEdit" name="inputEndereco_2">
+    <widget class="QLineEdit" name="inputCPF">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -237,7 +221,7 @@ border-radius: 10px;
 </string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_3">
+    <widget class="QLabel" name="txtCPF">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -254,10 +238,10 @@ color: #000000;
 </string>
      </property>
      <property name="text">
-      <string>CPJ</string>
+      <string>CPF</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputEndereco_3">
+    <widget class="QLineEdit" name="inputDataNascimento">
      <property name="geometry">
       <rect>
        <x>440</x>
@@ -274,7 +258,7 @@ border-radius: 10px;
 </string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_5">
+    <widget class="QLabel" name="txtDataNascimento">
      <property name="geometry">
       <rect>
        <x>440</x>
@@ -295,12 +279,12 @@ color: #000000;
       <string>Data de Nascimento</string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_6">
+    <widget class="QLabel" name="txtUltimaDoacao">
      <property name="geometry">
       <rect>
        <x>50</x>
        <y>320</y>
-       <width>321</width>
+       <width>221</width>
        <height>31</height>
       </rect>
      </property>
@@ -315,7 +299,7 @@ color: #000000;
       <string>Data Última Doação</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputEndereco_4">
+    <widget class="QLineEdit" name="inputUltimaDoacao">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -332,7 +316,7 @@ border-radius: 10px;
 </string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputEndereco_5">
+    <widget class="QLineEdit" name="inputPeso">
      <property name="geometry">
       <rect>
        <x>330</x>
@@ -349,7 +333,7 @@ border-radius: 10px;
 </string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputEndereco_6">
+    <widget class="QLineEdit" name="inputAltura">
      <property name="geometry">
       <rect>
        <x>570</x>
@@ -366,7 +350,7 @@ border-radius: 10px;
 </string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_7">
+    <widget class="QLabel" name="txtAltura">
      <property name="geometry">
       <rect>
        <x>570</x>
@@ -386,7 +370,7 @@ color: #000000;
       <string>Altura</string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco_8">
+    <widget class="QLabel" name="txtPeso">
      <property name="geometry">
       <rect>
        <x>330</x>
