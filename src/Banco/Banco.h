@@ -4,7 +4,7 @@
 #include <vector>
 #include "../Pessoa/pessoaIF.h"
 #include "../Receptor/receptor.h"
-#include "../Doador/doador.h"
+#include "../Doador/Doador.h"
 #include "../ProfissionalSaude/profissionalSaude.h"
 #include "../Sangue/sangue.h"
 #include "../Doacao/doacao.h"

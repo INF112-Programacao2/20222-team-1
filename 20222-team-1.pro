@@ -10,14 +10,14 @@ CONFIG += c++11
 
 SOURCES += \
     src/main.cpp \
-    #src/Banco/banco.cpp \
-    #src/Consumo/consumo.cpp \
-    #src/Doacao/doacao.cpp \
-    #src/Doador/Doador.cpp \
-    #src/Instituicao/instituicao.cpp \
-    #src/ProfissionalSaude/profissionalSaude.cpp \
-    #src/Receptor/receptor.cpp \
-    #src/Sangue/sangue.cdpp \
+    src/Banco/banco.cpp \
+    src/Consumo/consumo.cpp \
+    src/Doacao/doacao.cpp \
+    src/Doador/Doador.cpp \
+    src/Instituicao/instituicao.cpp \
+    src/ProfissionalSaude/profissionalSaude.cpp \
+    src/Receptor/receptor.cpp \
+    src/Sangue/sangue.cpp \
     src/Graphics/AlertDialog/alertdialog.cpp \
     src/Graphics/Dashboard/dashboard.cpp \    
     #src/Graphics/Login/login.cpp \
@@ -27,15 +27,15 @@ SOURCES += \
 
 HEADERS += \
     src/main.cpp \
-    #src/Banco/Banco.h \
-    #src/Consumo/consumo.h \
-    #src/Doacao/doacao.h \
-    #src/Doador/Doador.h \
-    #src/Instituicao/instituicao.h \
-    #src/Pessoa/pessoaIF.h \
-    #src/ProfissionalSaude/profissionalSaude.h \
-    #src/Receptor/receptor.h \
-    #src/Sangue/sangue.h \
+    src/Banco/Banco.h \
+    src/Consumo/consumo.h \
+    src/Doacao/doacao.h \
+    src/Doador/Doador.h \
+    src/Instituicao/instituicao.h \
+    src/Pessoa/pessoaIF.h \
+    src/ProfissionalSaude/profissionalSaude.h \
+    src/Receptor/receptor.h \
+    src/Sangue/sangue.h \
     src/Graphics/AlertDialog/alertdialog.h \
     src/Graphics/Dashboard/dashboard.h \
     #src/Graphics/Login/login.h \

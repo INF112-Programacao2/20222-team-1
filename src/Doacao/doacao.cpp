@@ -1,7 +1,7 @@
 #include <ctime>
 #include "../Instituicao/instituicao.h"
 #include "../Pessoa/pessoaIF.h"
-#include "../Doador/doador.h"
+#include "../Doador/Doador.h"
 
 Doacao::Doacao(struct tm dataColeta, struct tm dataValidade, double quantidade)
 {

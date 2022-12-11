@@ -3,7 +3,7 @@
 
 #include <ctime>
 
-#include "../Doador/doador.h"
+#include "../Doador/Doador.h"
 #include "../Doacao/doacao.h"
 #include "../Pessoa/pessoaIF.h"
 #include "../Instituicao/instituicao.h"
