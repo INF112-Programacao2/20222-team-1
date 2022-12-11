@@ -109,6 +109,11 @@ int Doacao::getDoador()
     return _idDoador;
 }
 
+int Doador::get_id()
+{
+    return _id;
+}
+
 Doacao::~Doacao()
 {
 }

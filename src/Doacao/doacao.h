@@ -38,6 +38,7 @@ public:
     int getInstituicao();
     int getProfissional();
     int getDoador();
+    int get_id();
 
     ~Doacao();
 };

@@ -33,7 +33,7 @@ void Consumo::setStatic(int id)
 }
 
 
-int Consumo::getDoacao() const
+int Consumo::get_idDoacao() const
 {
     return this->_idDoacao;
 }
@@ -41,6 +41,21 @@ int Consumo::getDoacao() const
 struct tm *Consumo::getData() const
 {
     return this->_dataConsumo;
+}
+
+int Consumo::get_id()
+{
+    return this->_id;
+}
+
+int Consumo::get_idReceptor()
+{
+    return this->_idReceptor;
+}
+
+int Consumo::get_idInstituicao()
+{
+    return this->_idInstituicao;
 }
 
 Consumo::~Consumo()

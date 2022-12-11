@@ -56,6 +56,11 @@ void  Instituicao::set_endereco(std::string endereco) {
     _endereco = endereco;
 }
 
+int Consumo::get_id()
+{
+    return _id;
+}
+
 void Instituicao::cadastrarProfissional(std::string nome, std::string cpf, struct tm *data, std::string senha, Cargo cargo) {
     binstituicao->cadastrarProfissional(new ProfissionalSaude( nome, cpf, data, senha, cargo, _id));
 }

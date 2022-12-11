@@ -25,6 +25,7 @@ public:
     std::string get_endereco();
     std::string get_cnpj();
     std::string get_senha();
+    int get_id();
 
     void set_nome(std::string nome);
     void set_endereco(std::string endereco);
