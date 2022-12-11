@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     src/Graphics/Add/AddDoacao/adicionardoacao.cpp \
     src/Graphics/Add/AddConsumo/adicionarconsumo.cpp \
+    src/Graphics/Add/AddDoador/cadastrardoador.cpp \
     src/Graphics/Add/AddReceptor/cadastrarreceptor.cpp \
     src/Graphics/ItemView/itemview.cpp \
     src/main.cpp \
@@ -32,6 +33,7 @@ SOURCES += \
 HEADERS += \
     src/Graphics/Add/AddDoacao/adicionardoacao.h \
     src/Graphics/Add/AddConsumo/adicionarconsumo.h \
+    src/Graphics/Add/AddDoador/cadastrardoador.h \
     src/Graphics/Add/AddReceptor/cadastrarreceptor.h \
     src/Graphics/ItemView/itemview.h \
     src/main.cpp \
@@ -54,6 +56,7 @@ HEADERS += \
 FORMS += \
     src/Graphics/Add/AddDoacao/adicionardoacao.ui \
     src/Graphics/Add/AddConsumo/adicionarconsumo.ui \
+    src/Graphics/Add/AddDoador/cadastrardoador.ui \
     src/Graphics/Add/AddReceptor/cadastrarreceptor.ui \
     src/Graphics/AlertDialog/alertdialog.ui \
     src/Graphics/Dashboard/dashboard.ui \
