@@ -21,7 +21,7 @@ private:
 
 public:
     Doacao(struct tm *dataColeta, double quantidade, int idInstituicao, int idProfissional, int idDoador);
-    Doacao(int id, struct tm *dataColeta, double quantidade, int idInstituicao, int idProfissional, int idDoador);
+    Doacao(int id, struct tm *dataColeta, double quantidade, int idInstituicao, int idProfissional, int idDoador, bool situacao);
 
     void setDataColeta(struct tm *dataColeta);
     void setQuantidade(double quantidade);

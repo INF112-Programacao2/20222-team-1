@@ -23,7 +23,7 @@ Doacao::Doacao(struct tm *dataColeta, double quantidade, int idInstituicao, int 
     _dataValidade = localtime(&auxValidade);
 }
 
-Doacao::Doacao(int id, struct tm *dataColeta, double quantidade, int idInstituicao, int idProfissional, int idDoador)
+Doacao::Doacao(int id, struct tm *dataColeta, double quantidade, int idInstituicao, int idProfissional, int idDoador, bool situacao)
 {
     _id = id;
     _idInstituicao = idInstituicao;
@@ -32,7 +32,7 @@ Doacao::Doacao(int id, struct tm *dataColeta, double quantidade, int idInstituic
     _dataColeta = dataColeta;
     _quantidade = quantidade;
     _idInstituicao = idInstituicao;
-    _situacao = true;
+    _situacao = situacao;
 
     time_t auxValidade;
 
