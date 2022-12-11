@@ -2,7 +2,7 @@
 
 Projeto final da disciplina de Programação II (INF112) do semestre letivo 2022/2 da Universidade Federal de Viçosa (UFV) no Curso Bacharelado em Ciência da Computação. 
 
-## Desenvolvimento
+## Desenvolvedores
 
 <table>
   <tr>
@@ -40,10 +40,20 @@ Projeto final da disciplina de Programação II (INF112) do semestre letivo 2022
 
 ## Documentação
 
-- Configuração
-    - [Instalação Dotenv (Variáveis de desenvolvimento local)](/docs/install-dotenv.md)
-    - [Instalação do WxWidgets (Interface gráfica)](/docs/install-wxwidgets.md)
-    - [Instalação do conector MySql (Banco de Dados)](docs/install-mysql.md)
+### Build
 
-- Diagrama de Classe
+Esse projeto está equipado com um Makefile capaz de instalar as dependências necessárias para compilação e execução. Para isso, basta em sistemas operacionais linux:
+
+```bash
+sudo apt install -y make 
+sudo make && make run
+```
+
+### Contribuindo
+
+Esse projeto é baseado em interface gráfica e utiliza QTCreator como engine.
+
+- [Obter licença educacional QTCreator](https://www.qt.io/qt-educational-license#application)
+
+### Diagrama de Classe
  ![Classes](/assets/project/diagrama.png)
