@@ -1,5 +1,6 @@
 #include "Banco.h"
 #include <vector>
+#include <fstream>
 #include "../Pessoa/pessoaIF.h"
 #include "../Receptor/receptor.h"
 #include "../Doador/Doador.h"
@@ -20,61 +21,257 @@ Banco *Banco::getInstance()
 {
     return nullptr;
 }
+void Banco::leArquivoDoador()
+{
+    std::ifstream doador_txt("doador.txt");
 
-Banco::~Banco(){
-    
+    while (!doador_txt.eof())
+    {
+        int idPessoa;
+        std::string nome, cpf;
+        struct tm dataNascimento;
+        double peso, altura;
+        struct tm dataUltimaDoacao;
+        int idSangue;
+
+        int dia, mes, ano;
+        std::string aux;
+
+        doador_txt >> idPessoa;
+        std::getline(doador_txt, nome);
+        doador_txt >> cpf;
+        doador_txt >> dia >> mes >> ano;
+        dataNascimento.tm_mday = dia;
+        dataNascimento.tm_mon = mes;
+        dataNascimento.tm_year = ano;
+        dataNascimento.tm_hour = 0;
+        dataNascimento.tm_min = 0;
+        dataNascimento.tm_sec = 0;
+        doador_txt >> peso >> altura;
+        doador_txt >> dia >> mes >> ano;
+        dataUltimaDoacao.tm_mday = dia;
+        dataUltimaDoacao.tm_mon = mes;
+        dataUltimaDoacao.tm_year = ano;
+        dataUltimaDoacao.tm_hour = 0;
+        dataUltimaDoacao.tm_min = 0;
+        dataUltimaDoacao.tm_sec = 0;
+        doador_txt >> idSangue;
+        doador_txt >> aux;
+
+        /* criar construtor com id Pessoa */
+    }
+
+    doador_txt.close();
+}
+void Banco::leArquivoReceptor()
+{
+    std::ifstream receptor_txt("receptor.txt");
+
+    while (!receptor_txt.eof())
+    {
+        int idPessoa;
+        std::string nome, cpf;
+        struct tm dataNascimento;
+        int idSangue;
+
+        int dia, mes, ano;
+        std::string aux;
+
+        receptor_txt >> idPessoa;
+        std::getline(receptor_txt, nome);
+        receptor_txt >> cpf;
+        receptor_txt >> dia >> mes >> ano;
+        dataNascimento.tm_mday = dia;
+        dataNascimento.tm_mon = mes;
+        dataNascimento.tm_year = ano;
+        dataNascimento.tm_hour = 0;
+        dataNascimento.tm_min = 0;
+        dataNascimento.tm_sec = 0;
+        receptor_txt >> idSangue;
+        receptor_txt >> aux;
+
+        /* criar construtor com id Pessoa */
+    }
+
+    receptor_txt.close();
+}
+void Banco::leArquivoProfissional()
+{
+    std::ifstream profissional_txt("profissional.txt");
+
+    while (!profissional_txt.eof())
+    {
+        int idPessoa;
+        std::string nome, cpf;
+        struct tm dataNascimento;
+        std::string senha;
+        int cargo;
+        int idInstituicao;
+
+        int dia, mes, ano;
+        std::string aux;
+
+        profissional_txt >> idPessoa;
+        std::getline(profissional_txt, nome);
+        profissional_txt >> cpf;
+        profissional_txt >> dia >> mes >> ano;
+        dataNascimento.tm_mday = dia;
+        dataNascimento.tm_mon = mes;
+        dataNascimento.tm_year = ano;
+        dataNascimento.tm_hour = 0;
+        dataNascimento.tm_min = 0;
+        dataNascimento.tm_sec = 0;
+        profissional_txt >> senha >> cargo >> idInstituicao >> aux;
+
+        /* criar construtor com id Pessoa */
+    }
+
+    profissional_txt.close();
+}
+void Banco::leArquivoDoacao()
+{
+    std::ifstream doacao_txt("doacao.txt");
+
+    while (!doacao_txt.eof())
+    {
+        int idDoacao;
+        struct tm dataColeta;
+        double quantidade;
+        int idInstituicao;
+
+        int dia, mes, ano;
+        std::string aux;
+
+        doacao_txt >> idDoacao;
+        doacao_txt >> dia >> mes >> ano;
+        dataColeta.tm_mday = dia;
+        dataColeta.tm_mon = mes;
+        dataColeta.tm_year = ano;
+        dataColeta.tm_hour = 0;
+        dataColeta.tm_min = 0;
+        dataColeta.tm_sec = 0;
+        doacao_txt >> quantidade >> idInstituicao >> aux;
+
+        /* criar construtor com id */
+    }
+
+    doacao_txt.close();
+}
+void Banco::leArquivoConsumo()
+{
+    std::ifstream consumo_txt("consumo.txt");
+
+    while (!consumo_txt.eof())
+    {
+        int idConsumo, idReceptor, idInstituicao, idDoacao;
+        struct tm dataConsumo;
+
+        int dia, mes, ano;
+        std::string aux;
+
+        consumo_txt >> idConsumo >> idReceptor >> idInstituicao >> idDoacao;
+        consumo_txt >> dia >> mes >> ano;
+        dataConsumo.tm_mday = dia;
+        dataConsumo.tm_mon = mes;
+        dataConsumo.tm_year = ano;
+        dataConsumo.tm_hour = 0;
+        dataConsumo.tm_min = 0;
+        dataConsumo.tm_sec = 0;
+        consumo_txt >> aux;
+
+        /* criar construtor com id */
+    }
+
+    consumo_txt.close();
+}
+void Banco::leArquivoInstituicao()
+{
+    std::ifstream instituicao_txt("instituicao.txt");
+
+    while (!instituicao_txt.eof())
+    {
+        int idInstituicao;
+        std::string nome, endereco, cnpj, senha;
+
+        std::string aux;
+
+        std::getline(instituicao_txt, nome);
+        std::getline(instituicao_txt, endereco);
+        instituicao_txt >> cnpj;
+        std::getline(instituicao_txt, senha);
+        instituicao_txt >> aux;
+
+        /* criar construtor com id */
+    }
+
+    instituicao_txt.close();
 }
 
-void Banco::setReceptor(Receptor *receptor){
-
-}
-void Banco::setDoador(Doador *doador){
-
-}
-void Banco::setProfissional(ProfissionalSaude *profissional){
-
-}
-void Banco::setConsumo(Consumo *consumxo){
-
-}
-void Banco::setInstituicao(Instituicao *instituicao){
-
+Banco::~Banco()
+{
 }
 
-Receptor *Banco::getReceptorById(int id){
+void Banco::setReceptor(Receptor *receptor)
+{
+}
+void Banco::setDoador(Doador *doador)
+{
+}
+void Banco::setProfissional(ProfissionalSaude *profissional)
+{
+}
+void Banco::setConsumo(Consumo *consumxo)
+{
+}
+void Banco::setInstituicao(Instituicao *instituicao)
+{
+}
+
+Receptor *Banco::getReceptorById(int id)
+{
     return nullptr;
 }
-Doador *Banco::getDoadorById(int id){
+Doador *Banco::getDoadorById(int id)
+{
     return nullptr;
 }
-ProfissionalSaude *Banco::getProfissionalById(int id){
+ProfissionalSaude *Banco::getProfissionalById(int id)
+{
     return nullptr;
 }
-Consumo *Banco::getConsumoById(int id){
+Consumo *Banco::getConsumoById(int id)
+{
     return nullptr;
 }
-Instituicao *Banco::getInstituicaoById(int id){
-    return nullptr;
-}
-
-ProfissionalSaude *Banco::isProfissional(std::string cpf){
-    return nullptr;
-}
-Doador *Banco::isDoador(std::string cpf){
-    return nullptr;
-}
-Receptor *Banco::isReceptor(std::string cpf){
-    return nullptr;
-}
-Instituicao *Banco::isInstituicao(std::string cnpj){
+Instituicao *Banco::getInstituicaoById(int id)
+{
     return nullptr;
 }
 
-std::vector<Doacao> Banco::getDoacoesCompativeis(int idSangue){
+ProfissionalSaude *Banco::isProfissional(std::string cpf)
+{
+    return nullptr;
+}
+Doador *Banco::isDoador(std::string cpf)
+{
+    return nullptr;
+}
+Receptor *Banco::isReceptor(std::string cpf)
+{
+    return nullptr;
+}
+Instituicao *Banco::isInstituicao(std::string cnpj)
+{
+    return nullptr;
+}
+
+std::vector<Doacao> Banco::getDoacoesCompativeis(int idSangue)
+{
     return {};
 }
 
-bool Banco::isCpf(std::string palavra){
+bool Banco::isCpf(std::string palavra)
+{
     int aux = 10;
     int num;
     int soma = 0;
@@ -121,6 +318,7 @@ bool Banco::isCpf(std::string palavra){
     else
         return true;
 }
-bool Banco::isCnpj(std::string palavra){
+bool Banco::isCnpj(std::string palavra)
+{
     return true;
 }

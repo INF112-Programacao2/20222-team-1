@@ -26,6 +26,13 @@ private:
 public:
     Banco();
     Banco *getInstance();
+    void leArquivoDoador();
+    void leArquivoReceptor();
+    void leArquivoProfissional();
+    void leArquivoSangue();
+    void leArquivoDoacao();
+    void leArquivoConsumo();
+    void leArquivoInstituicao();
     ~Banco();
 
     void setReceptor(Receptor *receptor);
