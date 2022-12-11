@@ -29,9 +29,9 @@ void Banco::leArquivoDoador()
     {
         int idPessoa;
         std::string nome, cpf;
-        struct tm dataNascimento;
+        struct tm *dataNascimento;
         double peso, altura;
-        struct tm dataUltimaDoacao;
+        struct tm *dataUltimaDoacao;
         int idSangue;
 
         int dia, mes, ano;
@@ -41,24 +41,24 @@ void Banco::leArquivoDoador()
         std::getline(doador_txt, nome);
         doador_txt >> cpf;
         doador_txt >> dia >> mes >> ano;
-        dataNascimento.tm_mday = dia;
-        dataNascimento.tm_mon = mes;
-        dataNascimento.tm_year = ano;
-        dataNascimento.tm_hour = 0;
-        dataNascimento.tm_min = 0;
-        dataNascimento.tm_sec = 0;
+        dataNascimento->tm_mday = dia;
+        dataNascimento->tm_mon = mes;
+        dataNascimento->tm_year = ano;
+        dataNascimento->tm_hour = 0;
+        dataNascimento->tm_min = 0;
+        dataNascimento->tm_sec = 0;
         doador_txt >> peso >> altura;
         doador_txt >> dia >> mes >> ano;
-        dataUltimaDoacao.tm_mday = dia;
-        dataUltimaDoacao.tm_mon = mes;
-        dataUltimaDoacao.tm_year = ano;
-        dataUltimaDoacao.tm_hour = 0;
-        dataUltimaDoacao.tm_min = 0;
-        dataUltimaDoacao.tm_sec = 0;
+        dataUltimaDoacao->tm_mday = dia;
+        dataUltimaDoacao->tm_mon = mes - 1;
+        dataUltimaDoacao->tm_year = ano - 1900;
+        dataUltimaDoacao->tm_hour = 0;
+        dataUltimaDoacao->tm_min = 0;
+        dataUltimaDoacao->tm_sec = 0;
         doador_txt >> idSangue;
         doador_txt >> aux;
 
-        /* criar construtor com id Pessoa */
+        _doadores.push_back(new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue));
     }
 
     doador_txt.close();
@@ -71,7 +71,7 @@ void Banco::leArquivoReceptor()
     {
         int idPessoa;
         std::string nome, cpf;
-        struct tm dataNascimento;
+        struct tm *dataNascimento;
         int idSangue;
 
         int dia, mes, ano;
@@ -81,16 +81,15 @@ void Banco::leArquivoReceptor()
         std::getline(receptor_txt, nome);
         receptor_txt >> cpf;
         receptor_txt >> dia >> mes >> ano;
-        dataNascimento.tm_mday = dia;
-        dataNascimento.tm_mon = mes;
-        dataNascimento.tm_year = ano;
-        dataNascimento.tm_hour = 0;
-        dataNascimento.tm_min = 0;
-        dataNascimento.tm_sec = 0;
-        receptor_txt >> idSangue;
-        receptor_txt >> aux;
+        dataNascimento->tm_mday = dia;
+        dataNascimento->tm_mon = mes - 1;
+        dataNascimento->tm_year = ano - 1900;
+        dataNascimento->tm_hour = 0;
+        dataNascimento->tm_min = 0;
+        dataNascimento->tm_sec = 0;
+        receptor_txt >> idSangue >> aux;
 
-        /* criar construtor com id Pessoa */
+        _receptores.push_back(new Receptor(idPessoa, nome, cpf, dataNascimento, idSangue));
     }
 
     receptor_txt.close();
@@ -103,7 +102,7 @@ void Banco::leArquivoProfissional()
     {
         int idPessoa;
         std::string nome, cpf;
-        struct tm dataNascimento;
+        struct tm *dataNascimento;
         std::string senha;
         int cargo;
         int idInstituicao;
@@ -115,15 +114,15 @@ void Banco::leArquivoProfissional()
         std::getline(profissional_txt, nome);
         profissional_txt >> cpf;
         profissional_txt >> dia >> mes >> ano;
-        dataNascimento.tm_mday = dia;
-        dataNascimento.tm_mon = mes;
-        dataNascimento.tm_year = ano;
-        dataNascimento.tm_hour = 0;
-        dataNascimento.tm_min = 0;
-        dataNascimento.tm_sec = 0;
+        dataNascimento->tm_mday = dia;
+        dataNascimento->tm_mon = mes - 1;
+        dataNascimento->tm_year = ano - 1900;
+        dataNascimento->tm_hour = 0;
+        dataNascimento->tm_min = 0;
+        dataNascimento->tm_sec = 0;
         profissional_txt >> senha >> cargo >> idInstituicao >> aux;
 
-        /* criar construtor com id Pessoa */
+        _profissionais.push_back(new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, cargo, idInstituicao));
     }
 
     profissional_txt.close();
@@ -135,24 +134,24 @@ void Banco::leArquivoDoacao()
     while (!doacao_txt.eof())
     {
         int idDoacao;
-        struct tm dataColeta;
+        struct tm *dataColeta;
         double quantidade;
-        int idInstituicao;
+        int idInstituicao, idProfissional, idDoador;
 
         int dia, mes, ano;
         std::string aux;
 
         doacao_txt >> idDoacao;
         doacao_txt >> dia >> mes >> ano;
-        dataColeta.tm_mday = dia;
-        dataColeta.tm_mon = mes;
-        dataColeta.tm_year = ano;
-        dataColeta.tm_hour = 0;
-        dataColeta.tm_min = 0;
-        dataColeta.tm_sec = 0;
-        doacao_txt >> quantidade >> idInstituicao >> aux;
+        dataColeta->tm_mday = dia;
+        dataColeta->tm_mon = mes - 1;
+        dataColeta->tm_year = ano - 1900;
+        dataColeta->tm_hour = 0;
+        dataColeta->tm_min = 0;
+        dataColeta->tm_sec = 0;
+        doacao_txt >> quantidade >> idInstituicao >> idProfissional >> idDoador >> aux;
 
-        /* criar construtor com id */
+        _doacao.push_back(new Doacao(idDoacao, dataColeta, quantidade, idInstituicao, idProfissional, idDoador));
     }
 
     doacao_txt.close();
@@ -164,22 +163,22 @@ void Banco::leArquivoConsumo()
     while (!consumo_txt.eof())
     {
         int idConsumo, idReceptor, idInstituicao, idDoacao;
-        struct tm dataConsumo;
+        struct tm *dataConsumo;
 
         int dia, mes, ano;
         std::string aux;
 
         consumo_txt >> idConsumo >> idReceptor >> idInstituicao >> idDoacao;
         consumo_txt >> dia >> mes >> ano;
-        dataConsumo.tm_mday = dia;
-        dataConsumo.tm_mon = mes;
-        dataConsumo.tm_year = ano;
-        dataConsumo.tm_hour = 0;
-        dataConsumo.tm_min = 0;
-        dataConsumo.tm_sec = 0;
+        dataConsumo->tm_mday = dia;
+        dataConsumo->tm_mon = mes - 1;
+        dataConsumo->tm_year = ano - 1900;
+        dataConsumo->tm_hour = 0;
+        dataConsumo->tm_min = 0;
+        dataConsumo->tm_sec = 0;
         consumo_txt >> aux;
 
-        /* criar construtor com id */
+        _consumo.push_back(new Consumo(idConsumo, idReceptor, idInstituicao, idDoacao, dataConsumo));
     }
 
     consumo_txt.close();
@@ -195,13 +194,14 @@ void Banco::leArquivoInstituicao()
 
         std::string aux;
 
+        instituicao_txt >> idInstituicao;
         std::getline(instituicao_txt, nome);
         std::getline(instituicao_txt, endereco);
         instituicao_txt >> cnpj;
         std::getline(instituicao_txt, senha);
         instituicao_txt >> aux;
 
-        /* criar construtor com id */
+        _instituicao.push_back(new Instituicao(idInstituicao, nome, endereco, cnpj, senha));
     }
 
     instituicao_txt.close();
