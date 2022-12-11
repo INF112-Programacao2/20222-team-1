@@ -58,18 +58,32 @@ Login::~Login()
 
 void Login::on_buttonInstituicaoLogin_clicked()
 {
+    try{
+        std::string login = ui->inputDocumento->text().toStdString();
+        if(isCnpj(login)){
+            Instituicao* user = i.isInstituicao(login);
+            if(user != nullptr){
+                if(user->get_senha() == ui->inputSenha->text().toStdString())
+                    std::cout<<"bonaceta natasha";
+                else
+                    throw std::out_of_range("Verifique sua senha");
+            }else
+                throw std::exception("Não existe nenhuma conta com essas credenciais.");
+        }
+
+    }catch(std::invalid_argument &e){
+        QMessageBox::information(this, "Atencao!", e.what());
+    }catch(std::out_of_range &e){
+        QMessageBox::information(this, "Atencao!", e.what());
+    }catch(std::exception &e){
+        QMessageBox::information(this, "Atencao!", e.what());
+    }
     ui->frSelectTypeUser->setVisible(false);
     ui->frLogarForm->setVisible(true);
 }
 
 void Login::on_buttonProfissionalSaudeLogin_clicked()
-{
-    ui->frSelectTypeUser->setVisible(false);
-    ui->frLogarForm->setVisible(true);
-}
-
-void Login::on_buttonLogin_clicked()
-{
+{ 
     try{
         std::string login = ui->inputDocumento->text().toStdString();
         if(isCpf(login)){
@@ -84,16 +98,42 @@ void Login::on_buttonLogin_clicked()
         }
 
     }catch(std::invalid_argument &e){
-        QMessageBox::information(this, "Atencao", e.what());
+        QMessageBox::information(this, "Atencao!", e.what());
     }catch(std::out_of_range &e){
-        QMessageBox::information(this, "Atencao", e.what());
+        QMessageBox::information(this, "Atencao!", e.what());
     }catch(std::exception &e){
-        QMessageBox::information(this, "Atencao", e.what());
+        QMessageBox::information(this, "Atencao!", e.what());
     }
+    ui->frSelectTypeUser->setVisible(false);
+    ui->frLogarForm->setVisible(true);
+}
+
+void Login::on_buttonLogin_clicked()
+{
+   
 }
 
 void Login::on_buttonRegistrarInstituicao_clicked()
-{
+{ 
+    try{
+        std::string login = ui->inputDocumento->text().toStdString();
+        if(isCnpj(login)){
+            ProfissionalSaude* user = i.isProfissional(login);
+            if(user != nullptr){
+                if(user->get_senha() == ui->inputSenha->text().toStdString())
+                    std::cout<<"bonaceta natasha";
+                else
+                    throw std::out_of_range("Verifique sua senha");
+            }else
+                throw std::exception("Não existe nenhuma conta com essas credenciais.");
+        }
 
+    }catch(std::invalid_argument &e){
+        QMessageBox::information(this, "Atencao!", e.what());
+    }catch(std::out_of_range &e){
+        QMessageBox::information(this, "Atencao!", e.what());
+    }catch(std::exception &e){
+        QMessageBox::information(this, "Atencao!", e.what());
+    }
 }
 

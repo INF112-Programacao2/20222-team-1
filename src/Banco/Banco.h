@@ -43,6 +43,7 @@ public:
     ProfissionalSaude* isProfissional(std::string cpf);
     Doador* isDoador(std::string cpf);
     Receptor* isReceptor(std::string cpf);
+    Instituicao* isInstituicao(std::string cnpj);
 
     std::vector<Doacao> getDoacoesCompativeis(int idSangue);
 };
