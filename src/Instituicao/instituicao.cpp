@@ -4,6 +4,9 @@
 
 #include "instituicao.h"
 #include "../ProfissionalSaude/profissionalSaude.h"
+#include "../Banco/Banco.h"
+
+Banco* i = new Banco(); 
 
 int Instituicao::_numInstituicao = 0;
 
@@ -53,6 +56,6 @@ void  Instituicao::set_endereco(std::string endereco) {
     _endereco = endereco;
 }
 
-void Instituicao::cadastrarProfissional(std::string nome, std::string cpf, struct tm data, std::string login, std::string senha, std::string cargo) {
-ProfissionalSaude( nome, cpf, data, senha, cargo, _id);
+void Instituicao::cadastrarProfissional(std::string nome, std::string cpf, struct tm *data, std::string senha, std::string cargo) {
+    i->cadastrarProfissional(new ProfissionalSaude( nome, cpf, data, senha, cargo, _id));
 }

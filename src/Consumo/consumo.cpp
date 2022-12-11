@@ -2,7 +2,7 @@
 
 int Consumo::_numConsumo = 0;
 
-Consumo::Consumo(int idReceptor, int idInstituicao, int idDoacao, struct tm dataConsumo)
+Consumo::Consumo(int idReceptor, int idInstituicao, int idDoacao, struct tm *dataConsumo)
 {
     _id = _numConsumo;
     _numConsumo++;
@@ -12,7 +12,7 @@ Consumo::Consumo(int idReceptor, int idInstituicao, int idDoacao, struct tm data
     _dataConsumo = dataConsumo;
 }
 
-Consumo::Consumo(int id, int idReceptor, int idInstituicao, int idDoacao, struct tm dataConsumo)
+Consumo::Consumo(int id, int idReceptor, int idInstituicao, int idDoacao, struct tm *dataConsumo)
 {
     _id = id;
     _numConsumo++;
@@ -22,7 +22,7 @@ Consumo::Consumo(int id, int idReceptor, int idInstituicao, int idDoacao, struct
     _dataConsumo = dataConsumo;
 }
 
-void Consumo::setData(struct tm data)
+void Consumo::setData(struct tm *data)
 {
     this->_dataConsumo = data;
 }
@@ -38,7 +38,7 @@ int Consumo::getDoacao() const
     return this->_idDoacao;
 }
 
-struct tm Consumo::getData() const
+struct tm *Consumo::getData() const
 {
     return this->_dataConsumo;
 }

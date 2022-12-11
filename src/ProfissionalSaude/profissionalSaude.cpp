@@ -5,7 +5,7 @@
 
 int ProfissionalSaude::_numProfissional = 0;
 
-ProfissionalSaude::ProfissionalSaude(std::string nome, std::string cpf, struct tm dataNascimento, std::string senha, std::string cargo, int idInstituicao)
+ProfissionalSaude::ProfissionalSaude(std::string nome, std::string cpf, struct tm* dataNascimento, std::string senha, std::string cargo, int idInstituicao)
 {
     _id = _numProfissional;
     _numProfissional ++;
@@ -17,7 +17,7 @@ ProfissionalSaude::ProfissionalSaude(std::string nome, std::string cpf, struct t
     _idInstituicao = idInstituicao;
 }
 
-ProfissionalSaude::ProfissionalSaude(int id, std::string nome, std::string cpf, struct tm dataNascimento, std::string senha, std::string cargo, int idInstituicao)
+ProfissionalSaude::ProfissionalSaude(int id, std::string nome, std::string cpf, struct tm* dataNascimento, std::string senha, std::string cargo, int idInstituicao)
 {
     _id = id;
     _nome = nome;
@@ -40,7 +40,7 @@ std::string ProfissionalSaude::get_cpf()
 {
     return _cpf;
 }
-struct tm ProfissionalSaude::get_dataNascimento()
+struct tm *ProfissionalSaude::get_dataNascimento()
 {
     return _dataNascimento;
 }

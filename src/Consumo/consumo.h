@@ -16,16 +16,16 @@ private:
     int _idReceptor;
     int _idInstituicao;
     int _idDoacao;
-    struct tm _dataConsumo;
+    struct tm *_dataConsumo;
 
 public:
-    Consumo(int idReceptor, int idInstituicao, int idDoacao, struct tm dataConsumo);
-    Consumo(int id, int idReceptor, int idInstituicao, int idDoacao, struct tm dataConsumo);
+    Consumo(int idReceptor, int idInstituicao, int idDoacao, struct tm *dataConsumo);
+    Consumo(int id, int idReceptor, int idInstituicao, int idDoacao, struct tm *dataConsumo);
     ~Consumo();
-    void setData(struct tm data);
+    void setData(struct tm *data);
     void setStatic(int n);
     int getDoacao() const;
-    struct tm getData() const;
+    struct tm *getData() const;
 };
 
 #endif

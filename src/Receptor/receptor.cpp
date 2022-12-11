@@ -5,7 +5,7 @@
 
 int Receptor::_numReceptor = 0;
 
-Receptor::Receptor(std::string nome, std::string cpf, struct tm dataNascimento, int idSangue)
+Receptor::Receptor(std::string nome, std::string cpf, struct tm *dataNascimento, int idSangue)
 {
     _id = _numReceptor;
     _numReceptor++;
@@ -15,7 +15,7 @@ Receptor::Receptor(std::string nome, std::string cpf, struct tm dataNascimento, 
     _idSangue = idSangue;
 }
 
-Receptor::Receptor(int id, std::string nome, std::string cpf, struct tm dataNascimento, int idSangue)
+Receptor::Receptor(int id, std::string nome, std::string cpf, struct tm *dataNascimento, int idSangue)
 {
     _id = id;
     _nome = nome;
@@ -38,7 +38,7 @@ std::string Receptor::get_cpf()
     return _cpf;
 }
 
-struct tm Receptor::get_dataNascimento()
+struct tm *Receptor::get_dataNascimento()
 {
     return _dataNascimento;
 }

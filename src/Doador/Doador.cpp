@@ -5,7 +5,7 @@
 
 int Doador::_numDoador = 0;
 
-Doador::Doador(std::string nome, std::string cpf, struct tm dataNascimento, double peso, double altura, struct tm dataUltimaDoacao, int idSangue)
+Doador::Doador(std::string nome, std::string cpf, struct tm *dataNascimento, double peso, double altura, struct tm *dataUltimaDoacao, int idSangue)
 {
     _id = _numDoador;
     _numDoador ++;
@@ -18,7 +18,7 @@ Doador::Doador(std::string nome, std::string cpf, struct tm dataNascimento, doub
     _idSangue = idSangue;
 }
 
-Doador::Doador(int id,std::string nome, std::string cpf, struct tm dataNascimento, double peso, double altura, struct tm dataUltimaDoacao, int idSangue)
+Doador::Doador(int id,std::string nome, std::string cpf, struct tm *dataNascimento, double peso, double altura, struct tm *dataUltimaDoacao, int idSangue)
 {
     _id = id;
     _nome = nome;
@@ -40,7 +40,7 @@ std::string Doador::get_cpf()
     return _cpf;
 }
 
-struct tm Doador::get_dataNascimento()
+struct tm *Doador::get_dataNascimento()
 {
     return _dataNascimento;
 }
@@ -89,11 +89,11 @@ void Doador::set_sangue(int id)
     _idSangue = id;
 }
 
-void Doador::set_data(struct tm dataUltimaDoacao)
+void Doador::set_data(struct tm *dataUltimaDoacao)
 {
     _dataUltimaDoacao = dataUltimaDoacao;
 }
-struct tm Doador::get_dataUltimaDoacao()
+struct tm *Doador::get_dataUltimaDoacao()
 {
     return _dataUltimaDoacao;
 }

@@ -13,12 +13,12 @@ private:
     int _idInstituicao;
 
 public:
-    ProfissionalSaude(std::string nome, std::string cpf, struct tm dataNascimento, std::string senha, std::string cargo, int idInstituicao);
-    ProfissionalSaude(int id,std::string nome, std::string cpf, struct tm dataNascimento, std::string senha, std::string cargo, int idInstituicao);
+    ProfissionalSaude(std::string nome, std::string cpf, struct tm *dataNascimento, std::string senha, std::string cargo, int idInstituicao);
+    ProfissionalSaude(int id,std::string nome, std::string cpf, struct tm *dataNascimento, std::string senha, std::string cargo, int idInstituicao);
 
     int get_id();
     std::string get_cpf();
-    struct tm get_dataNascimento();
+    struct tm *get_dataNascimento();
     //std::string get_login();
     std::string get_senha();
     std::string get_nome();
