@@ -199,7 +199,7 @@ void Banco::leArquivoConsumo()
         dataConsumo->tm_sec = 0;
         consumo_txt >> aux;
 
-        Banco::_instance->_consumo.push_back(new Consumo(idConsumo, idReceptor, idInstituicao, idDoacao, dataConsumo));
+        Banco::_instance->setConsumo((new Consumo(idConsumo, idReceptor, idInstituicao, idDoacao, dataConsumo)));
     }
 
     consumo_txt.close();
@@ -404,27 +404,37 @@ Banco::~Banco()
 
 void Banco::setReceptor(Receptor *receptor)
 {
+    _receptores.push_back(receptor);
 }
 
 void Banco::setDoador(Doador *doador)
 {
+    _doadores.push_back(doador);
 }
 
 void Banco::setProfissional(ProfissionalSaude *profissional)
 {
+    _profissionais.push_back(profissional);
 }
 
-void Banco::setConsumo(Consumo *consumxo)
+void Banco::setConsumo(Consumo *consumo)
 {
+    _consumo.push_back(consumo);
 }
 
 void Banco::setInstituicao(Instituicao *instituicao)
 {
+    _instituicao.push_back(instituicao);
 }
 
 Receptor *Banco::getReceptorById(int id)
 {
-    return nullptr;
+   for (int i = 0; i < _receptores.size(); i++)
+   {
+        if(_receptores[i]->get_id() == id)
+            return _receptores[i];
+   }
+   return nullptr;
 }
 
 Doador *Banco::getDoadorById(int id)
