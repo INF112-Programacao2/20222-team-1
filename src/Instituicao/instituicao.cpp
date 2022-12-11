@@ -49,6 +49,11 @@ std::string Instituicao::get_endereco()
     return _endereco;
 }
 
+std::string Instituicao::get_cnpj()
+{
+    return _cnpj;
+}
+
 void Instituicao::set_nome(std::string nome)
 {
     _nome = nome;
