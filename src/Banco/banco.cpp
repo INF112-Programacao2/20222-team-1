@@ -21,6 +21,7 @@ Banco *Banco::getInstance()
 {
     return nullptr;
 }
+
 void Banco::leArquivoDoador()
 {
     std::ifstream doador_txt("doador.txt");
@@ -63,6 +64,7 @@ void Banco::leArquivoDoador()
 
     doador_txt.close();
 }
+
 void Banco::leArquivoReceptor()
 {
     std::ifstream receptor_txt("receptor.txt");
@@ -94,6 +96,7 @@ void Banco::leArquivoReceptor()
 
     receptor_txt.close();
 }
+
 void Banco::leArquivoProfissional()
 {
     std::ifstream profissional_txt("profissional.txt");
@@ -130,6 +133,7 @@ void Banco::leArquivoProfissional()
 
     profissional_txt.close();
 }
+
 void Banco::leArquivoDoacao()
 {
     std::ifstream doacao_txt("doacao.txt");
@@ -159,6 +163,7 @@ void Banco::leArquivoDoacao()
 
     doacao_txt.close();
 }
+
 void Banco::leArquivoConsumo()
 {
     std::ifstream consumo_txt("consumo.txt");
@@ -186,6 +191,7 @@ void Banco::leArquivoConsumo()
 
     consumo_txt.close();
 }
+
 void Banco::leArquivoInstituicao()
 {
     std::ifstream instituicao_txt("instituicao.txt");
@@ -217,15 +223,19 @@ Banco::~Banco()
 void Banco::setReceptor(Receptor *receptor)
 {
 }
+
 void Banco::setDoador(Doador *doador)
 {
 }
+
 void Banco::setProfissional(ProfissionalSaude *profissional)
 {
 }
+
 void Banco::setConsumo(Consumo *consumxo)
 {
 }
+
 void Banco::setInstituicao(Instituicao *instituicao)
 {
 }
@@ -234,18 +244,22 @@ Receptor *Banco::getReceptorById(int id)
 {
     return nullptr;
 }
+
 Doador *Banco::getDoadorById(int id)
 {
     return nullptr;
 }
+
 ProfissionalSaude *Banco::getProfissionalById(int id)
 {
     return nullptr;
 }
+
 Consumo *Banco::getConsumoById(int id)
 {
     return nullptr;
 }
+
 Instituicao *Banco::getInstituicaoById(int id)
 {
     return nullptr;
@@ -255,14 +269,17 @@ ProfissionalSaude *Banco::isProfissional(std::string cpf)
 {
     return nullptr;
 }
+
 Doador *Banco::isDoador(std::string cpf)
 {
     return nullptr;
 }
+
 Receptor *Banco::isReceptor(std::string cpf)
 {
     return nullptr;
 }
+
 Instituicao *Banco::isInstituicao(std::string cnpj)
 {
     return nullptr;
@@ -321,7 +338,12 @@ bool Banco::isCpf(std::string palavra)
     else
         return true;
 }
+
 bool Banco::isCnpj(std::string palavra)
 {
     return true;
+}
+
+void Banco::cadastrarProfissional(ProfissionalSaude* profissional){
+    _profissionais.push_back(profissional);
 }

@@ -32,7 +32,7 @@ public:
     void set_static(int id);
     
     
-    void cadastrarProfissional(std::string nome, std::string numIdentidade, struct tm *data, std::string senha, std::string cargo);
+    void cadastrarProfissional(std::string nome, std::string numIdentidade, struct tm *data, std::string senha, Cargo cargo);
 };
 
 #endif

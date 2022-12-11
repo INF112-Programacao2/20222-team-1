@@ -53,6 +53,9 @@ public:
     Instituicao *isInstituicao(std::string cnpj);
 
     std::vector<Doacao> getDoacoesCompativeis(int idSangue);
+
+    void cadastrarProfissional(ProfissionalSaude* profissional);
+
     bool isCpf(std::string palavra);
     bool isCnpj(std::string palavra);
 };

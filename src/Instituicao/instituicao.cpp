@@ -56,6 +56,6 @@ void  Instituicao::set_endereco(std::string endereco) {
     _endereco = endereco;
 }
 
-void Instituicao::cadastrarProfissional(std::string nome, std::string cpf, struct tm *data, std::string senha, std::string cargo) {
+void Instituicao::cadastrarProfissional(std::string nome, std::string cpf, struct tm *data, std::string senha, Cargo cargo) {
     i->cadastrarProfissional(new ProfissionalSaude( nome, cpf, data, senha, cargo, _id));
 }
