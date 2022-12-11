@@ -12,8 +12,10 @@ bool isWord(std::string palavra){
 }
 
 bool isCpf(std::string palavra){
-    if(palavra.size()==14){
-        for(int i=0; i< palavra.size(); i++){     
+    if(palavra.size()==11){
+        int soma1 = 0;
+        int soma2 = 0;
+        for(int i=0, int j = 10, int y= 11; i< palavra.size(), j>0, y>0; i++, j--, y--){     
             if(palavra[i]!='.' && (i==3 || i==7))
                 throw std::invalid_argument("/!\\Formato invalido de CPF. Verifique os '.'. "); 
             else if(palavra[i]!='-' && i== 11 )
@@ -23,10 +25,20 @@ bool isCpf(std::string palavra){
                 throw std::invalid_argument("/!\\O CPF e composto apenas de numeros. Nao possui letras. "); 
 
             } 
+            soma1 += std::stoi(palavra[i])*j;
+            soma2 += std::stoi(palavra[i])*y;
         }
+        if((soma1%11 <2) && (soma2%11 < 2)){
+            if(palavra[10] !=0 && palavra[11] !=0)
+                throw std::out_of_range("CPF invalido. ")
+        }else if!(palavra[10] == 11-soma1%11 && palavra[11] == 11-soma2%11){
+            if(palavra[10] >1 && palavra[11]>1)
+            throw std::out_of_range("CPF invalido. ")
+        }
+
     }
     else
-        throw std::out_of_range("/!\\O CPF deve possui 14 caracteres( verifique a pontuação). "); 
+        throw std::out_of_range("/!\\O CPF deve possui 11 caracteres. "); 
     return 0;   
 }
 
