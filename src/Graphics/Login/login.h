@@ -5,8 +5,10 @@
 #include <exception>
 #include <iostream>
 #include <QMessageBox>
+#include <QIcon>
 #include "../Dashboard/dashboard.h"
 #include "../AlertDialog/alertdialog.h"
+#include "../Register/registerinstituicao.h"
 #include "../../Banco/Banco.h"
 
 namespace Ui {
@@ -34,6 +36,7 @@ private slots:
 private:
     Ui::Login *ui;
     bool isInstituicao;
+    bool isSelect;
 };
 
 #endif // LOGIN_H

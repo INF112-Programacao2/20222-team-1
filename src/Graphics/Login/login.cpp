@@ -1,7 +1,7 @@
 #include "login.h"
 #include "ui_login.h"
 
-Banco i;
+Banco i(0);
 
 Login::Login(QWidget *parent) :
     QMainWindow(parent),
@@ -12,6 +12,7 @@ Login::Login(QWidget *parent) :
     ui->frLogarForm->setVisible(false);
 
     this->isInstituicao = false;
+    this->isSelect = true;
 }
 
 Login::~Login()
@@ -22,13 +23,26 @@ Login::~Login()
 void Login::on_buttonInstituicaoLogin_clicked()
 {
     this->isInstituicao = true;
+    this->isSelect = false;
+
+    QIcon icon;
+    icon.addFile("://assets/icons/return.png");
+
+    ui->buttonRegistrarInstituicao->setIcon(icon);
     ui->frSelectTypeUser->setVisible(false);
     ui->frLogarForm->setVisible(true);
+
 }
 
 void Login::on_buttonProfissionalSaudeLogin_clicked()
 {
     this->isInstituicao = false;
+    this->isSelect = false;
+
+    QIcon icon;
+    icon.addFile("://assets/icons/return.png");
+
+    ui->buttonRegistrarInstituicao->setIcon(icon);
     ui->frSelectTypeUser->setVisible(false);
     ui->frLogarForm->setVisible(true);
 }
@@ -93,10 +107,35 @@ void Login::on_buttonLogin_clicked()
     }
 
     delete dialog;
+
+    Dashboard *dashboard = new Dashboard;
+    dashboard->show();
+
+    this->hide();
 }
 
 void Login::on_buttonRegistrarInstituicao_clicked()
 { 
+    if(!this->isSelect){
+        this->isInstituicao = false;
+        this->isSelect = true;
+
+        QIcon icon;
+        icon.addFile("://assets/icons/home.png");
+
+        ui->buttonRegistrarInstituicao->setIcon(icon);
+        ui->frSelectTypeUser->setVisible(true);
+        ui->frLogarForm->setVisible(false);
+
+        return;
+    }
+
+    RegisterInstituicao *resInstituicao = new RegisterInstituicao;
+    resInstituicao->show();
+
+    this->hide();
+    QApplication::processEvents();
+    this->show();
 
 }
 
