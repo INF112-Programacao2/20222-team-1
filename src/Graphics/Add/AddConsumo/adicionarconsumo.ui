@@ -52,8 +52,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background: #FFFFFF;
-border-radius: 50px;
-</string>
+border-radius: 50px;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -92,7 +91,7 @@ color: #000000;
      <property name="geometry">
       <rect>
        <x>330</x>
-       <y>360</y>
+       <y>380</y>
        <width>251</width>
        <height>64</height>
       </rect>
@@ -110,37 +109,21 @@ color: #FFFFFF;
       <string>Adicionar</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputDataConsumo">
-     <property name="geometry">
-      <rect>
-       <x>540</x>
-       <y>260</y>
-       <width>261</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-background: #FFFFFF;
-border: 0.5px solid #000000;
-border-radius: 10px;
-</string>
-     </property>
-    </widget>
     <widget class="QComboBox" name="comboReceptor">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>140</y>
+       <y>130</y>
        <width>741</width>
-       <height>51</height>
+       <height>61</height>
       </rect>
      </property>
      <property name="statusTip">
       <string/>
      </property>
      <property name="styleSheet">
-      <string notr="true">border: 1px solid black;</string>
+      <string notr="true">border: 1px solid black;
+border-radius: 10px;</string>
      </property>
     </widget>
     <widget class="QLabel" name="txtDataConsumo">
@@ -211,14 +194,33 @@ color: #000000;
        <x>60</x>
        <y>270</y>
        <width>361</width>
-       <height>51</height>
+       <height>61</height>
       </rect>
      </property>
      <property name="statusTip">
       <string/>
      </property>
      <property name="styleSheet">
-      <string notr="true">border: 1px solid black;</string>
+      <string notr="true">border: 1px solid black;
+border-radius: 10px;</string>
+     </property>
+    </widget>
+    <widget class="QDateEdit" name="dateConsumo">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>270</y>
+       <width>261</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid black;
+color: black;
+font-size: 22px;
+padding-left: 10px;
+border-radius:10px;
+</string>
      </property>
     </widget>
    </widget>
