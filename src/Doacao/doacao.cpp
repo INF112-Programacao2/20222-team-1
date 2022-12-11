@@ -3,45 +3,78 @@
 #include "../Pessoa/pessoaIF.h"
 #include "../Doador/Doador.h"
 
-Doacao::Doacao(struct tm dataColeta, struct tm dataValidade, double quantidade)
+int Doacao::_numDoacao = 0;
+
+Doacao::Doacao(struct tm dataColeta, struct tm dataValidade, double quantidade, int idInstituicao, int idProfissional, int idDoador)
 {
+    _id = _numDoacao;
+    _numDoacao++;
+    _idInstituicao = idInstituicao;
+    _idProfissional = idProfissional;
+    _idDoador = idDoador;
     _dataColeta = dataColeta;
-    _dataValidade = dataValidade;
     _quantidade = quantidade;
+    _idInstituicao = idInstituicao;
     _situacao = true;
 }
 void Doacao::setDataColeta(struct tm dataColeta)
 {
     _dataColeta = dataColeta;
 }
-void Doacao::setValidade(struct tm dataValidade)
-{
-    _dataValidade = dataValidade;
-}
 void Doacao::setQuantidade(double quantidade)
 {
     _quantidade = quantidade;
 }
+
 void Doacao::setSituacao(bool situacao)
 {
     _situacao = situacao;
 }
+
+void Doacao::setInstituicao(int idInstituicao){
+    _idInstituicao = idInstituicao;
+}
+
+void Doacao::setProfissional(int idProfissional){
+    _idProfissional = idProfissional;
+}
+
+void Doacao::setDoador(int idDoador){
+    _idDoador = idDoador;
+}
+
 struct tm Doacao::getDataColeta()
 {
     return _dataColeta;
 }
+
 struct tm Doacao::getDataValidade()
 {
     return _dataValidade;
 }
+
 double Doacao::getQuantidade()
 {
     return _quantidade;
 }
+
 bool Doacao::getSituacao()
 {
     return _situacao;
 }
+
+int Doacao::getInstituicao(){
+    return _idInstituicao;
+}
+
+int Doacao::getProfissional(){
+    return _idProfissional;
+}
+
+int Doacao::getDoador(){
+    return _idDoador;
+}
+
 Doacao::~Doacao()
 {
 }

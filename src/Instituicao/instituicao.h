@@ -30,7 +30,7 @@ public:
     void set_senha(std::string senha);
     
     
-    void cadastrarProfissional(std::string nome, std::string numIdentidade, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo);
+    void cadastrarProfissional(std::string nome, std::string numIdentidade, struct tm data, std::string login, std::string senha, std::string cargo);
 };
 
 #endif

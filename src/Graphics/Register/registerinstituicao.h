@@ -2,6 +2,9 @@
 #define REGISTERINSTITUICAO_H
 
 #include <QMainWindow>
+#include <QMessageBox>
+#include "../../Instituicao/instituicao.h"
+#include "../../Banco/Banco.h"
 
 namespace Ui {
 class RegisterInstituicao;

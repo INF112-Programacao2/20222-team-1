@@ -21,7 +21,6 @@ public:
     ~Login();
 
 private slots:
-    void on_homeButton_clicked();
 
     void on_buttonInstituicaoLogin_clicked();
 
@@ -33,6 +32,7 @@ private slots:
 
 private:
     Ui::Login *ui;
+    bool isInstituicao;
 };
 
 #endif // LOGIN_H

@@ -15,6 +15,15 @@ public:
     explicit Dashboard(QWidget *parent = nullptr);
     ~Dashboard();
 
+private slots:
+    void on_buttonAdicionarConsumo_clicked();
+
+    void on_buttonAdicionarDoacao_clicked();
+
+    void on_buttonConsultarBanco_clicked();
+
+    void on_buttonEditarPerfil_clicked();
+
 private:
     Ui::Dashboard *ui;
 };

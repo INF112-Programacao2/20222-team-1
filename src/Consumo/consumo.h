@@ -13,23 +13,17 @@ class Consumo
 private:
     static int _numConsumo;
     int _id;
-    int _idDoador;
+    int _idReceptor;
+    int _idInstituicao;
     int _idDoacao;
-    tm _dataConsumo;
-    std::string _local;
+    struct tm _dataConsumo;
 
 public:
-    Consumo();
+    Consumo(int idReceptor, int idInstituicao, int idDoacao, struct tm dataConsumo);
     ~Consumo();
-    Consumo getConsumoById(int n) const;
-    void setDoador(int n);
-    void setDoacao(int n);
-    void setData(tm data);
-    void setLocal(std::string local);
-    int getDoador() const;
+    void setData(struct tm data);
     int getDoacao() const;
-    tm getData() const;
-    std::string getLocal();
+    struct tm getData() const;
 };
 
 #endif

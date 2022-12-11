@@ -3,17 +3,11 @@
 #include "profissionalSaude.h"
 #include "../Pessoa/pessoaIF.h"
 
-ProfissionalSaude::ProfissionalSaude(std::string nome, std::string cpf, int dia, int mes, int ano, std::string senha, std::string cargo, int idInstituicao)
+ProfissionalSaude::ProfissionalSaude(std::string nome, std::string cpf, struct tm dataNascimento, std::string senha, std::string cargo, int idInstituicao)
 {
     _nome = nome;
     _cpf = cpf;
-    _dataNascimento.tm_mday = dia;
-    _dataNascimento.tm_mon = mes - 1;
-    _dataNascimento.tm_year = ano - 1900;
-    _dataNascimento.tm_hour = 0;
-    _dataNascimento.tm_min = 0;
-    _dataNascimento.tm_sec = 0;
-    //_login = login;
+    _dataNascimento = dataNascimento;
     _senha = senha;
     _cargo = cargo;
     _idInstituicao = idInstituicao;
@@ -55,11 +49,6 @@ void ProfissionalSaude::set_nome(std::string nome)
 {
     _nome = nome;
 }
-/*
-void ProfissionalSaude::set_login(std::string login)
-{
-    _login = login;
-}*/
 void ProfissionalSaude::set_senha(std::string senha)
 {
     _senha = senha;

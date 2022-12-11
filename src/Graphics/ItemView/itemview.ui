@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ItemView</class>
+ <widget class="QWidget" name="ItemView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>80</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>80</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>700</width>
+    <height>80</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="verticalWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>631</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QWidget" name="horizontalWidget" native="true">
+      <property name="styleSheet">
+       <string notr="true">QWidget#horizontalWidget::hover{
+	background-color: #FFD2D2;
+} </string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="txtId">
+         <property name="minimumSize">
+          <size>
+           <width>41</width>
+           <height>31</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>41</width>
+           <height>311</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size:18px</string>
+         </property>
+         <property name="text">
+          <string>01</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="txtNome">
+         <property name="minimumSize">
+          <size>
+           <width>320</width>
+           <height>31</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>320</width>
+           <height>31</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size: 18px;</string>
+         </property>
+         <property name="text">
+          <string>Luiz Felipe Vicente da Costa</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>AB+</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonVisualizar">
+         <property name="minimumSize">
+          <size>
+           <width>121</width>
+           <height>41</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>121</width>
+           <height>41</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+
+background: #E13833;
+border-radius: 10px;
+color:#ffffff;
+}
+QPushButton:hover{
+background: #992C29;
+border-radius: 10px;
+color:#ffffff;
+}
+
+</string>
+         </property>
+         <property name="text">
+          <string>Visualizar</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../resouces.qrc">
+           <normaloff>:/assets/icons/ver.png</normaloff>:/assets/icons/ver.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="linhaDivisora">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../../resouces.qrc"/>
+ </resources>
+ <connections/>
+</ui>

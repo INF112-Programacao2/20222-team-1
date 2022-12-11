@@ -9,6 +9,8 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/Graphics/Add/adicionardoacao.cpp \
+    src/Graphics/ItemView/itemview.cpp \
     src/main.cpp \
     src/Banco/banco.cpp \
     src/Consumo/consumo.cpp \
@@ -20,12 +22,14 @@ SOURCES += \
     src/Sangue/sangue.cpp \
     src/Graphics/AlertDialog/alertdialog.cpp \
     src/Graphics/Dashboard/dashboard.cpp \    
-    #src/Graphics/Login/login.cpp \
+    src/Graphics/Login/login.cpp \
     src/Graphics/Register/registerinstituicao.cpp \
     src/Graphics/Register/registerprofissionalsaude.cpp \
     src/Graphics/Splash/splash.cpp
 
 HEADERS += \
+    src/Graphics/Add/adicionardoacao.h \
+    src/Graphics/ItemView/itemview.h \
     src/main.cpp \
     src/Banco/Banco.h \
     src/Consumo/consumo.h \
@@ -38,15 +42,17 @@ HEADERS += \
     src/Sangue/sangue.h \
     src/Graphics/AlertDialog/alertdialog.h \
     src/Graphics/Dashboard/dashboard.h \
-    #src/Graphics/Login/login.h \
+    src/Graphics/Login/login.h \
     src/Graphics/Register/registerinstituicao.h \
     src/Graphics/Register/registerprofissionalsaude.h \
     src/Graphics/Splash/splash.h
 
 FORMS += \
+    src/Graphics/Add/adicionardoacao.ui \
     src/Graphics/AlertDialog/alertdialog.ui \
     src/Graphics/Dashboard/dashboard.ui \
-    #src/Graphics/Login/login.ui \
+    src/Graphics/ItemView/itemview.ui \
+    src/Graphics/Login/login.ui \
     src/Graphics/Register/registerinstituicao.ui \
     src/Graphics/Register/registerprofissionalsaude.ui \
     src/Graphics/Splash/splash.ui

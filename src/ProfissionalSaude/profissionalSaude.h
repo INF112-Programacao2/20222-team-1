@@ -13,7 +13,7 @@ private:
     int _idInstituicao;
 
 public:
-    ProfissionalSaude(std::string nome, std::string cpf, int dia, int mes, int ano, std::string senha, std::string cargo, int idInstituicao);
+    ProfissionalSaude(std::string nome, std::string cpf, struct tm dataNascimento, std::string senha, std::string cargo, int idInstituicao);
 
     int getPessoaById(int id) const;
     int get_id();

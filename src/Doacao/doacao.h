@@ -9,25 +9,32 @@
 class Doacao
 {
 private:
+    static int _numDoacao;
     int _id;
     int _idInstituicao;
-
+    int _idProfissional;
+    int _idDoador;
     struct tm _dataColeta;
     struct tm _dataValidade;
     double _quantidade;
     bool _situacao;
 
 public:
-    Doacao(struct tm dataColeta, struct tm dataValidade, double quantidade);
+    Doacao(struct tm dataColeta, struct tm dataValidade, double quantidade, int idInstituicao, int idProfissional, int idDoador);
     void setDataColeta(struct tm dataColeta);
-    void setValidade(struct tm dataValidade);
     void setQuantidade(double quantidade);
     void setSituacao(bool situacao);
-
+    void setInstituicao(int idInstituicao);
+    void setProfissional(int idProfissional);
+    void setDoador(int idDoador);
     struct tm getDataColeta();
     struct tm getDataValidade();
     double getQuantidade();
     bool getSituacao();
+    int getInstituicao();
+    int getProfissional();
+    int getDoador();
+
 
     ~Doacao();
 };

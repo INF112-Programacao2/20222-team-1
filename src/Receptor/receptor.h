@@ -11,7 +11,7 @@ private:
     int _idSangue;
 
 public:
-    Receptor(std::string nome, std::string numIdentidade, struct tm dataNascimento, int idSangue);
+    Receptor(std::string nome, std::string cpf, struct tm dataNascimento, int idSangue);
     ~Receptor();
 
     int getPessoaById(int id) const;
