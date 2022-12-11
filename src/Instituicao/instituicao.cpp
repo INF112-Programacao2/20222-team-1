@@ -33,6 +33,6 @@ void  Instituicao::set_endereco(std::string endereco) {
     _endereco = endereco;
 }
 
-void Instituicao::cadastrarProfissional(std::string nome, std::string numIdentidade, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo) {
-    ProfissionalSaude::ProfissionalSaude( nome, numIdentidade, dia, mes, ano, login, senha, cargo, _id);
+void Instituicao::cadastrarProfissional(std::string nome, std::string cpf, int dia, int mes, int ano, std::string login, std::string senha, std::string cargo) {
+ProfissionalSaude( nome, cpf, dia, mes, ano, senha, cargo, _id);
 }

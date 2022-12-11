@@ -1,12 +1,12 @@
-#include "Graphics/Splash/splash.h"
-#include "Graphics/Login/login.h"
+//#include "Graphics/Splash/splash.h"
+//#include "Graphics/Login/login.h"
 //#include "Graphics/Dashboard/dashboard.h"
-#include <QApplication>
-#include <QSplashScreen>
-#include <QTimer>
+//#include <QApplication>
+//#include <QSplashScreen>
+//#include <QTimer>
 
 int main(int argc, char *argv[])
-{
+{/*
     QApplication app(argc, argv);
 
     Splash *splashScreen = new Splash;
@@ -20,5 +20,5 @@ int main(int argc, char *argv[])
     app.exec();
 
     delete splashScreen;
-    delete login;
+    delete login;*/
 }

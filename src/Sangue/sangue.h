@@ -25,8 +25,9 @@ private:
     Sangue(std::string nome, Rh Rh_do_sangue);
 
 public:
+    Sangue();
     ~Sangue();
-    std::vector<Sangue> getInstance();
+    //std::vector<Sangue> getInstance();
 
     std::string get_nome();
     Rh get_rh_sangue();

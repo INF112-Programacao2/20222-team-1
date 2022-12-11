@@ -3,10 +3,10 @@
 
 #include <ctime>
 
-#include "../Doador/doador.h";
-#include "../Doacao/doacao.h";
-#include "../Pessoa/pessoaIF.h";
-#include "../Instituicao/instituicao.h";
+#include "../Doador/doador.h"
+#include "../Doacao/doacao.h"
+#include "../Pessoa/pessoaIF.h"
+#include "../Instituicao/instituicao.h"
 
 class Consumo
 {

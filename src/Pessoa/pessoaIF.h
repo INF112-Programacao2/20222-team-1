@@ -14,7 +14,7 @@ protected:
     struct tm _dataNascimento;
 
 public:
-    ~PessoaIF(){};
+   // ~PessoaIF(){};
 
     virtual int get_id() = 0;
     virtual std::string get_nome() = 0;

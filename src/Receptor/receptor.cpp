@@ -1,7 +1,7 @@
 #include <iostream>
 #include "receptor.h"
 #include <ctime>
-#include "./Pessoa/pessoaIF.h";
+#include "../Pessoa/pessoaIF.h"
 
 Receptor::Receptor(std::string nome, std::string cpf, struct tm dataNascimento, int idSangue)
 {
@@ -39,10 +39,6 @@ void Receptor::set_nome(std::string nome)
 int Receptor::get_id()
 {
     return _id;
-}
-
-int Receptor::getPessoaById(int id) const
-{
 }
 
 Receptor::~Receptor()

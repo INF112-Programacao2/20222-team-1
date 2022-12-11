@@ -1,7 +1,7 @@
 #ifndef PROFISSIOANLSAUDE_H
 #define PROFISSIOANLSAUDE_H
 
-#include "./Pessoa/pessoaIF.h"
+#include "../Pessoa/pessoaIF.h"
 
 class ProfissionalSaude : public PessoaIF
 {
@@ -15,10 +15,10 @@ private:
 public:
     ProfissionalSaude(std::string nome, std::string cpf, int dia, int mes, int ano, std::string senha, std::string cargo, int idInstituicao);
 
-    virtual int getPessoaById(int id) const;
-    virtual int get_id();
-    virtual std::string get_cpf();
-    virtual struct tm get_dataNascimento();
+    int getPessoaById(int id) const;
+    int get_id();
+    std::string get_cpf();
+    struct tm get_dataNascimento();
     //std::string get_login();
     std::string get_senha();
     std::string get_nome();
@@ -26,7 +26,7 @@ public:
     int get_idProfissional();
     int get_idInstituicao();
 
-    virtual void set_nome(std::string nome);
+    void set_nome(std::string nome);
     //void set_login(std::string login);
     void set_senha(std::string senha);
     void set_cargo(std::string cargo);

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <ctime>
-#include "./Pessoa/pessoaIF.h"
+#include "../Pessoa/pessoaIF.h"
 #include "Doador.h"
 
 Doador::Doador(std::string nome, std::string cpf, struct tm dataNascimento, double peso, double altura, struct tm dataUltimaDoacao, int idSangue)
@@ -23,7 +23,6 @@ std::string Doador::get_cpf()
 {
     return _cpf;
 }
-
 struct tm Doador::get_dataNascimento()
 {
     return _dataNascimento;
@@ -73,7 +72,6 @@ void Doador::setData(struct tm dataUltimaDoacao)
 {
     _dataUltimaDoacao = dataUltimaDoacao;
 }
-
 struct tm Doador::get_dataUltimaDoacao()
 {
     return _dataUltimaDoacao;
@@ -81,6 +79,7 @@ struct tm Doador::get_dataUltimaDoacao()
 
 bool Doador::isApto()
 {
+    return true;
 }
 
 Doador::~Doador()

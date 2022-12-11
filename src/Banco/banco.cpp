@@ -9,18 +9,19 @@
 #include "../Consumo/consumo.h"
 #include "../Instituicao/instituicao.h"
 
-Banco Banco::*_instance = nullptr;
+Banco* Banco::_instance = nullptr;
 
 Banco::Banco(){
-    //abrir os arquivos e repassar para os vetores
-    //caso de sangue e especial
+    //inutil agora mas seria o povoamento do banco
+    if( Banco::_instance == nullptr)
+        new Banco();
 }
 
 //verificar se ja existe 
 Banco* Banco::getInstance(){
     if( Banco::_instance != nullptr){
-        return Banco::_instance;
-    }else{
-        Banco();
+        return _instance;
     }
+    
+    return new Banco();
 }

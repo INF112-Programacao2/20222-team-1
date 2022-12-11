@@ -1,7 +1,7 @@
 #include <ctime>
 
 #include "profissionalSaude.h"
-#include "./Pessoa/pessoaIF.h"
+#include "../Pessoa/pessoaIF.h"
 
 ProfissionalSaude::ProfissionalSaude(std::string nome, std::string cpf, int dia, int mes, int ano, std::string senha, std::string cargo, int idInstituicao)
 {

@@ -2,9 +2,9 @@
 #define DOACAO_H
 
 #include <ctime>
-#include "./Instituicao/instituicao.h"
-#include "./Pessoa/pessoaIF.h"
-#include "./Doador/Doador.h"
+#include "../Instituicao/instituicao.h"
+#include "../Pessoa/pessoaIF.h"
+#include "../Doador/Doador.h"
 
 class Doacao
 {

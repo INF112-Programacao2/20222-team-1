@@ -1,9 +1,9 @@
 #ifndef DOADOR_H
 #define DOADOR_H
 
-#include "./Pessoa/pessoaIF.h";
-#include "./Doacao/doacao.h";
-#include "./Sangue/sangue.h";
+#include "../Pessoa/pessoaIF.h"
+#include "../Doacao/doacao.h"
+#include "../Sangue/sangue.h"
 #include <ctime>
 
 class Doador : public PessoaIF
@@ -19,13 +19,13 @@ public:
     Doador(std::string nome, std::string cpf, struct tm dataNascimento, double peso, double altura, struct tm dataUltimaDoacao, int idSangue);
     ~Doador();
 
-    virtual int getPessoaById(int id) const;
-    virtual int get_id();
-    virtual std::string get_nome();
-    virtual std::string get_cpf();
-    virtual struct tm get_dataNascimento();
+    int getPessoaById(int id) const;
+    int get_id();
+    std::string get_nome();
+    std::string get_cpf();
+    struct tm get_dataNascimento();
 
-    virtual void set_nome(std::string nome);
+    void set_nome(std::string nome);
     void setPeso(double peso);
     void setAltura(double altura);
     void setData(struct tm dataUltimaDoacao);

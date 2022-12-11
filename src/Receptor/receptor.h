@@ -1,7 +1,7 @@
 #ifndef RECEPTOR_H
 #define RECEPTOR_H
 
-#include "./Pessoa/pessoaIF.h";
+#include "../Pessoa/pessoaIF.h"
 #include <ctime>
 
 class Receptor : public PessoaIF
@@ -14,11 +14,11 @@ public:
     Receptor(std::string nome, std::string numIdentidade, struct tm dataNascimento, int idSangue);
     ~Receptor();
 
-    virtual int getPessoaById(int id) const;
-    virtual int get_id();
-    virtual std::string get_nome();
-    virtual std::string get_cpf();
-    virtual struct tm get_dataNascimento();
+    int getPessoaById(int id) const;
+    int get_id();
+    std::string get_nome();
+    std::string get_cpf();
+    struct tm get_dataNascimento();
     int get_idSangue() const;
 
     virtual void set_nome(std::string nome);
