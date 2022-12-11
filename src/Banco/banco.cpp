@@ -122,7 +122,10 @@ void Banco::leArquivoProfissional()
         dataNascimento->tm_sec = 0;
         profissional_txt >> senha >> cargo >> idInstituicao >> aux;
 
-        _profissionais.push_back(new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, cargo, idInstituicao));
+        if (cargo == 0)
+            _profissionais.push_back(new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::MEDICX, idInstituicao));
+        else if (cargo == 1)
+            _profissionais.push_back(new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::ENFERMEIRX, idInstituicao));
     }
 
     profissional_txt.close();
