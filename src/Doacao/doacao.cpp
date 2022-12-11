@@ -109,7 +109,7 @@ int Doacao::getDoador()
     return _idDoador;
 }
 
-int Doador::get_id()
+int Doacao::get_id()
 {
     return _id;
 }
