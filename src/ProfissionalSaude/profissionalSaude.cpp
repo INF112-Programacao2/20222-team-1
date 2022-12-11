@@ -5,7 +5,7 @@
 
 int ProfissionalSaude::_numProfissional = 0;
 
-ProfissionalSaude::ProfissionalSaude(std::string nome, std::string cpf, struct tm* dataNascimento, std::string senha, std::string cargo, int idInstituicao)
+ProfissionalSaude::ProfissionalSaude(std::string nome, std::string cpf, struct tm* dataNascimento, std::string senha, Cargo cargo, int idInstituicao)
 {
     _id = _numProfissional;
     _numProfissional ++;
@@ -17,7 +17,7 @@ ProfissionalSaude::ProfissionalSaude(std::string nome, std::string cpf, struct t
     _idInstituicao = idInstituicao;
 }
 
-ProfissionalSaude::ProfissionalSaude(int id, std::string nome, std::string cpf, struct tm* dataNascimento, std::string senha, std::string cargo, int idInstituicao)
+ProfissionalSaude::ProfissionalSaude(int id, std::string nome, std::string cpf, struct tm* dataNascimento, std::string senha, Cargo cargo, int idInstituicao)
 {
     _id = id;
     _nome = nome;
@@ -52,7 +52,7 @@ std::string ProfissionalSaude::get_senha()
 {
     return _senha;
 }
-std::string ProfissionalSaude::get_cargo()
+Cargo ProfissionalSaude::get_cargo()
 {
     return _cargo;
 }
@@ -72,7 +72,7 @@ void ProfissionalSaude::set_senha(std::string senha)
 {
     _senha = senha;
 }
-void ProfissionalSaude::set_cargo(std::string cargo)
+void ProfissionalSaude::set_cargo(Cargo cargo)
 {
     _cargo = cargo;
 }
