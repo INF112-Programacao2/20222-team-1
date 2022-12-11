@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#centralwidget{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255,118,118,1), stop:1 rgba(255,210,210,1));}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
     <size>
@@ -63,7 +66,7 @@ border-radius: 50px;
       <rect>
        <x>310</x>
        <y>30</y>
-       <width>251</width>
+       <width>281</width>
        <height>41</height>
       </rect>
      </property>
@@ -82,35 +85,14 @@ color: #000000;
 </string>
      </property>
      <property name="text">
-      <string>Adicionar Doação</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="txtNomeEntidade">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>130</y>
-       <width>321</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font-weight: 700;
-font-size: 16px;
-line-height: 19px;
-color: #000000;
-
-</string>
-     </property>
-     <property name="text">
-      <string/>
+      <string>Adicionar Consumo</string>
      </property>
     </widget>
     <widget class="QPushButton" name="buttonRegister">
      <property name="geometry">
       <rect>
-       <x>550</x>
-       <y>300</y>
+       <x>320</x>
+       <y>370</y>
        <width>251</width>
        <height>64</height>
       </rect>
@@ -126,22 +108,6 @@ color: #FFFFFF;
      </property>
      <property name="text">
       <string>Adicionar</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="errorNomeEntidade">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>220</y>
-       <width>331</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:#ff0000</string>
-     </property>
-     <property name="text">
-      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="errorCnpj">
@@ -160,56 +126,12 @@ color: #FFFFFF;
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="txtEndereco">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>260</y>
-       <width>191</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font-weight: 700;
-font-size: 22px;
-line-height: 19px;
-color: #000000;
-
-</string>
-     </property>
-     <property name="text">
-      <string>Quantidade ( ml )</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="inputSenha">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>300</y>
-       <width>211</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-background: #FFFFFF;
-border: 0.5px solid #000000;
-border-radius: 10px;
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="echoMode">
-      <enum>QLineEdit::Password</enum>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="inputEndereco">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>300</y>
-       <width>211</width>
+       <x>540</x>
+       <y>260</y>
+       <width>261</width>
        <height>61</height>
       </rect>
      </property>
@@ -234,14 +156,14 @@ border-radius: 10px;
       <string/>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #F06969;</string>
+      <string notr="true">border: 1px solid black;</string>
      </property>
     </widget>
     <widget class="QLabel" name="txtEndereco_2">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>260</y>
+       <x>540</x>
+       <y>220</y>
        <width>191</width>
        <height>31</height>
       </rect>
@@ -254,14 +176,14 @@ color: #000000;
 </string>
      </property>
      <property name="text">
-      <string>Data de Coleta</string>
+      <string>Data Consumo</string>
      </property>
     </widget>
     <widget class="QLabel" name="txtEndereco_3">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>100</y>
+       <y>90</y>
        <width>191</width>
        <height>31</height>
       </rect>
@@ -275,7 +197,44 @@ color: #000000;
 </string>
      </property>
      <property name="text">
-      <string>Doador: </string>
+      <string>Receptor: </string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="txtEndereco_4">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>220</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-weight: 700;
+font-size: 22px;
+line-height: 19px;
+color: #000000;
+
+</string>
+     </property>
+     <property name="text">
+      <string>Doação: </string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>270</y>
+       <width>361</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid black;</string>
      </property>
     </widget>
    </widget>
