@@ -29,10 +29,15 @@ public:
     void leArquivoDoador();
     void leArquivoReceptor();
     void leArquivoProfissional();
-    void leArquivoSangue();
     void leArquivoDoacao();
     void leArquivoConsumo();
     void leArquivoInstituicao();
+    void fechaArquivoDoador();
+    void fechaArquivoReceptor();
+    void fechaArquivoProfissional();
+    void fechaArquivoDoacao();
+    void fechaArquivoConsumo();
+    void fechaArquivoInstituicao();
     ~Banco();
 
     void setReceptor(Receptor *receptor);
@@ -54,7 +59,7 @@ public:
 
     std::vector<Doacao> getDoacoesCompativeis(int idSangue);
 
-    void cadastrarProfissional(ProfissionalSaude* profissional);
+    void cadastrarProfissional(ProfissionalSaude *profissional);
 
     bool isCpf(std::string palavra);
     bool isCnpj(std::string palavra);
