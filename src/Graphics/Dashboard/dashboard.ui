@@ -25,18 +25,420 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-10</y>
+      <width>1000</width>
+      <height>572</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1000</width>
+      <height>572</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1000</width>
+      <height>572</height>
+     </size>
+    </property>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>1000</width>
+       <height>572</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>1000</width>
+       <height>572</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>1000</width>
+       <height>572</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="currentIndex">
+      <number>4</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <property name="minimumSize">
+       <size>
+        <width>1000</width>
+        <height>572</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>1000</width>
+        <height>572</height>
+       </size>
+      </property>
+      <attribute name="title">
+       <string>Home</string>
+      </attribute>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>591</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:30px;
+</string>
+       </property>
+       <property name="text">
+        <string>Nome Profissional</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>60</y>
+         <width>591</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:18px</string>
+       </property>
+       <property name="text">
+        <string>Nome da Instituição</string>
+       </property>
+      </widget>
+      <widget class="QGraphicsView" name="graphicsView">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>120</y>
+         <width>551</width>
+         <height>391</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>50</y>
+         <width>324</width>
+         <height>64</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+
+background: #E13833;
+border-radius: 10px;
+color:#ffffff;
+}
+QPushButton:hover{
+background: #992C29;
+border-radius: 10px;
+color:#ffffff;
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>160</y>
+         <width>324</width>
+         <height>64</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+
+background: #E13833;
+border-radius: 10px;
+color:#ffffff;
+}
+QPushButton:hover{
+background: #992C29;
+border-radius: 10px;
+color:#ffffff;
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>280</y>
+         <width>324</width>
+         <height>64</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+
+background: #E13833;
+border-radius: 10px;
+color:#ffffff;
+}
+QPushButton:hover{
+background: #992C29;
+border-radius: 10px;
+color:#ffffff;
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>400</y>
+         <width>324</width>
+         <height>64</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+
+background: #E13833;
+border-radius: 10px;
+color:#ffffff;
+}
+QPushButton:hover{
+background: #992C29;
+border-radius: 10px;
+color:#ffffff;
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="title">
+       <string>Doadores</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>951</width>
+         <height>501</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>Receptores</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>951</width>
+         <height>501</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="title">
+       <string>Doações</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableWidget_3">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>951</width>
+         <height>501</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Consumo</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableWidget_4">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>1000</width>
+         <height>500</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOn</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="dragDropMode">
+        <enum>QAbstractItemView::DropOnly</enum>
+       </property>
+       <property name="gridStyle">
+        <enum>Qt::SolidLine</enum>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>250</number>
+       </attribute>
+       <attribute name="horizontalHeaderHighlightSections">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderHighlightSections">
+        <bool>true</bool>
+       </attribute>
+       <row>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>Nome Receptor</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Nome Doador</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Data e Hora</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Ações</string>
+        </property>
+       </column>
+       <item row="0" column="0">
+        <property name="text">
+         <string>Lucas Andrade</string>
+        </property>
+       </item>
+       <item row="0" column="1">
+        <property name="text">
+         <string>Lucas Ferreira</string>
+        </property>
+       </item>
+       <item row="0" column="2">
+        <property name="text">
+         <string>11/12/2022</string>
+        </property>
+       </item>
+       <item row="0" column="3">
+        <property name="text">
+         <string/>
+        </property>
+       </item>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>22</height>
+     <height>0</height>
     </rect>
    </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>0</height>
+    </size>
+   </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>0</height>
+    </size>
+   </property>
+  </widget>
+  <action name="actionhg">
+   <property name="text">
+    <string>hg</string>
+   </property>
+  </action>
+  <action name="actionj">
+   <property name="text">
+    <string>j]</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

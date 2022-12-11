@@ -2,7 +2,7 @@
 #define DASHBOARD_H
 
 #include <QMainWindow>
-
+#include <QPushButton>
 namespace Ui {
 class Dashboard;
 }
