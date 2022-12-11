@@ -16,10 +16,22 @@ Banco::Banco()
 {
 }
 
+Banco::Banco(int n){
+    getInstance();
+}
+
 // verificar se ja existe
 Banco *Banco::getInstance()
 {
-    return nullptr;
+     if(_instance ==  nullptr){
+        Banco::_instance = new Banco();
+        leArquivoConsumo();
+        leArquivoDoacao();
+        leArquivoDoador();
+        leArquivoInstituicao();
+        leArquivoProfissional();
+        leArquivoReceptor();
+    }
 }
 
 void Banco::leArquivoDoador()
@@ -59,7 +71,7 @@ void Banco::leArquivoDoador()
         doador_txt >> idSangue;
         doador_txt >> aux;
 
-        _doadores.push_back(new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue));
+        Banco::_instance->_doadores.push_back(new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue));
     }
 
     doador_txt.close();
@@ -91,7 +103,7 @@ void Banco::leArquivoReceptor()
         dataNascimento->tm_sec = 0;
         receptor_txt >> idSangue >> aux;
 
-        _receptores.push_back(new Receptor(idPessoa, nome, cpf, dataNascimento, idSangue));
+        Banco::_instance->_receptores.push_back(new Receptor(idPessoa, nome, cpf, dataNascimento, idSangue));
     }
 
     receptor_txt.close();
@@ -126,9 +138,9 @@ void Banco::leArquivoProfissional()
         profissional_txt >> senha >> cargo >> idInstituicao >> aux;
 
         if (cargo == 0)
-            _profissionais.push_back(new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::MEDICX, idInstituicao));
+            Banco::_instance->_profissionais.push_back(new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::MEDICX, idInstituicao));
         else if (cargo == 1)
-            _profissionais.push_back(new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::ENFERMEIRX, idInstituicao));
+            Banco::_instance->_profissionais.push_back(new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::ENFERMEIRX, idInstituicao));
     }
 
     profissional_txt.close();
@@ -159,7 +171,7 @@ void Banco::leArquivoDoacao()
         dataColeta->tm_sec = 0;
         doacao_txt >> quantidade >> idInstituicao >> idProfissional >> idDoador >> situacao >> aux;
 
-        _doacao.push_back(new Doacao(idDoacao, dataColeta, quantidade, idInstituicao, idProfissional, idDoador, situacao));
+        Banco::_instance->_doacao.push_back(new Doacao(idDoacao, dataColeta, quantidade, idInstituicao, idProfissional, idDoador, situacao));
     }
 
     doacao_txt.close();
@@ -187,7 +199,7 @@ void Banco::leArquivoConsumo()
         dataConsumo->tm_sec = 0;
         consumo_txt >> aux;
 
-        _consumo.push_back(new Consumo(idConsumo, idReceptor, idInstituicao, idDoacao, dataConsumo));
+        Banco::_instance->_consumo.push_back(new Consumo(idConsumo, idReceptor, idInstituicao, idDoacao, dataConsumo));
     }
 
     consumo_txt.close();
@@ -211,11 +223,12 @@ void Banco::leArquivoInstituicao()
         std::getline(instituicao_txt, senha);
         instituicao_txt >> aux;
 
-        _instituicao.push_back(new Instituicao(idInstituicao, nome, endereco, cnpj, senha));
+        Banco::_instance->_instituicao.push_back(new Instituicao(idInstituicao, nome, endereco, cnpj, senha));
     }
 
     instituicao_txt.close();
 }
+
 void Banco::fechaArquivoDoador()
 {
     std::vector<std::string> resposta;
@@ -247,6 +260,7 @@ void Banco::fechaArquivoDoador()
 
     doador_txt.close();
 }
+
 void Banco::fechaArquivoReceptor()
 {
     std::vector<std::string> resposta;
@@ -273,6 +287,7 @@ void Banco::fechaArquivoReceptor()
 
     receptor_txt.close();
 }
+
 void Banco::fechaArquivoProfissional()
 {
     std::vector<std::string> resposta;
@@ -301,6 +316,7 @@ void Banco::fechaArquivoProfissional()
 
     profissional_txt.close();
 }
+
 void Banco::fechaArquivoDoacao()
 {
     std::vector<std::string> resposta;
@@ -329,6 +345,7 @@ void Banco::fechaArquivoDoacao()
 
     doacao_txt.close();
 }
+
 void Banco::fechaArquivoConsumo()
 {
     std::vector<std::string> resposta;
@@ -355,6 +372,7 @@ void Banco::fechaArquivoConsumo()
 
     consumo_txt.close();
 }
+
 void Banco::fechaArquivoInstituicao()
 {
     std::vector<std::string> resposta;

@@ -6,7 +6,7 @@
 #include "../ProfissionalSaude/profissionalSaude.h"
 #include "../Banco/Banco.h"
 
-Banco *binstituicao = new Banco();
+Banco *binstituicao = new Banco(0);
 
 int Instituicao::_numInstituicao = 0;
 

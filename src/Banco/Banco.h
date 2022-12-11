@@ -22,9 +22,10 @@ private:
     std::vector<Doacao *> _doacao;
     std::vector<Consumo *> _consumo;
     std::vector<Instituicao *> _instituicao;
+    Banco();
 
 public:
-    Banco();
+    Banco(int n);
     Banco *getInstance();
     void leArquivoDoador();
     void leArquivoReceptor();
