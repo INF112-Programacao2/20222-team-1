@@ -14,7 +14,7 @@ AdicionarDoacao::AdicionarDoacao(QWidget *parent) :
     std::vector<Doador*> doadores = iDoacao->getDoadoresDisponiveis();
     for (int i = 0; i < doadores.size(); i++)
     {
-        ui->comboDoador->setItemText(doadores[i]->get_id(), QString::fromStdString(doadores[i]->get_nome()));
+        ui->comboDoador->insertItem(doadores[i]->get_id(), QString::fromStdString(doadores[i]->get_nome()));
     }
 
 }
