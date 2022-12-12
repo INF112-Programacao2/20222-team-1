@@ -18,6 +18,8 @@ public:
 private slots:
     void on_buttonAdd_clicked();
 
+    void on_buttonReturn_clicked();
+
 private:
     Ui::AdicionarConsumo *ui;
 };

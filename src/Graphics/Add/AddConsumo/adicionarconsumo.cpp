@@ -19,6 +19,13 @@ AdicionarConsumo::~AdicionarConsumo()
 
 void AdicionarConsumo::on_buttonAdd_clicked()
 {
+    // validar cadastro aqui
+    this->close();
+}
 
+
+void AdicionarConsumo::on_buttonReturn_clicked()
+{
+    this->close();
 }
 
