@@ -21,7 +21,9 @@ AdicionarDoacao::AdicionarDoacao(QWidget *parent) :
     {
         ui->comboDoador->insertItem(doadores[i]->get_id(), QString::fromStdString(doadores[i]->get_nome()));
     }
-    throw std::out_of_range("Nao ha doadores aptos a usar. ");
+    else{
+        throw std::out_of_range("Nao ha doadores aptos a usar. ");
+    }
 }
 
 AdicionarDoacao::~AdicionarDoacao()
@@ -31,6 +33,8 @@ AdicionarDoacao::~AdicionarDoacao()
 
 void AdicionarDoacao::on_buttonReturn_2_clicked()
 {
+    Dashboard *dashboard = new Dashboard;
+    dashboard->show();
     this->close();
 }
 
@@ -41,12 +45,12 @@ void AdicionarDoacao::on_buttonRegister_clicked()
     AlertDialog *dialog = new AlertDialog(this);
     try{
         int id  = ui->comboDoador->currentIndex();
-        if( id=! -1){
+        if( id != -1){
             time_t dataDoacao, now;
             time(&now);
             dataDoacao = mktime(iDoacao->criaStructTm(ui->dateColeta->date().day(), ui->dateColeta->date().month(), ui->dateColeta->date().year()));
             if(now >= dataDoacao)
-                if(ui->inputQuantidade->text().toStdString() > "0" && ui->inputQuantidade->text().toStdString()< "1000")
+                if(ui->inputQuantidade->text().toDouble() > 0 && ui->inputQuantidade->text().toDouble() < 100000)
                     iDoacao->setDoacao(new Doacao(iDoacao->criaStructTm(ui->dateColeta->date().day(), ui->dateColeta->date().month(), ui->dateColeta->date().year()),ui->inputQuantidade->text().toDouble(), Banco::_puser->get_idInstituicao(), Banco::_puser->get_id(), id));
                 else
                     throw std::invalid_argument("A quantidade precisa se maior que o e menor que 1. ");

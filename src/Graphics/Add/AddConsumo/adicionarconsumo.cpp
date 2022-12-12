@@ -7,6 +7,7 @@
 #include "../../../Banco/Banco.h"
 #include "../../../Doador/Doador.h"
 #include "../../../Sangue/sangue.h"
+#include "../../Dashboard/dashboard.h"
 
 Banco* iAux;
 
@@ -70,12 +71,16 @@ void AdicionarConsumo::on_buttonAdd_clicked()
 
     iAux->setConsumo(new Consumo(receptor, Banco::_puser->get_idInstituicao(), doacao, iAux->criaStructTm(dia, mes, ano)));
 
+    Dashboard *dashboard = new Dashboard;
+    dashboard->show();
     this->close();
 }
 
 
 void AdicionarConsumo::on_buttonReturn_clicked()
 {
+    Dashboard *dashboard = new Dashboard;
+    dashboard->show();
     this->close();
 }
 

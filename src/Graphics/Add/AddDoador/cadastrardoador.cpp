@@ -87,6 +87,8 @@ void CadastrarDoador::on_buttonAdd_clicked()
 
 void CadastrarDoador::on_buttonReturn_clicked()
 {
+    Dashboard *dashboard = new Dashboard;
+    dashboard->show();
     this->close();
 }
 

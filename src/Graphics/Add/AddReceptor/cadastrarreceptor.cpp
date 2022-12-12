@@ -31,6 +31,8 @@ CadastrarReceptor::~CadastrarReceptor()
 
 void CadastrarReceptor::on_buttonReturn_clicked()
 {
+    Dashboard *dashboard = new Dashboard;
+    dashboard->show();
     this->close();
 }
 
