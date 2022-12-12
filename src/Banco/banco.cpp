@@ -548,8 +548,15 @@ std::vector<Doacao *> Banco::getDoacoesCompativeis(int idSangue)
     return compativeis;
 }
 
-std::vector<Doador*> Banco::getDoadoresDisponiveis(){
-    return {};
+std::vector<Doador*> Banco::getDoadoresDisponiveis()
+{
+    std::vector<Doador *> disponiveis;
+    for (int i = 0; i < Banco::_doadores.size(); i++)
+    {
+        if (Banco::_doadores[i]->is_apto())
+            disponiveis.push_back(_doadores[i]);
+    }
+    return disponiveis;
 }
 
 bool Banco::isCpf(std::string palavra)
