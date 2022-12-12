@@ -249,14 +249,15 @@ void Banco::fechaArquivoDoador()
         resposta.push_back(_doadores[i]->get_nome());
         resposta.push_back(_doadores[i]->get_cpf());
         resposta.push_back(std::to_string(_doadores[i]->get_dataNascimento()->tm_mday));
-        resposta.push_back(std::to_string(_doadores[i]->get_dataNascimento()->tm_mon));
-        resposta.push_back(std::to_string(_doadores[i]->get_dataNascimento()->tm_year));
+        resposta.push_back(std::to_string(_doadores[i]->get_dataNascimento()->tm_mon+1));
+        resposta.push_back(std::to_string(_doadores[i]->get_dataNascimento()->tm_year+1900));
         resposta.push_back(std::to_string(_doadores[i]->get_peso()));
         resposta.push_back(std::to_string(_doadores[i]->get_altura()));
         resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_mday));
-        resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_mon));
-        resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_year));
+        resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_mon+1));
+        resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_year+1900));
         resposta.push_back(std::to_string(_doadores[i]->get_sangue()));
+        resposta.push_back(std::to_string(_doadores[i]->get_sexo()));
         resposta.push_back("------------------------------");
     }
 
@@ -281,8 +282,8 @@ void Banco::fechaArquivoReceptor()
         resposta.push_back(_receptores[i]->get_nome());
         resposta.push_back(_receptores[i]->get_cpf());
         resposta.push_back(std::to_string(_receptores[i]->get_dataNascimento()->tm_mday));
-        resposta.push_back(std::to_string(_receptores[i]->get_dataNascimento()->tm_mon));
-        resposta.push_back(std::to_string(_receptores[i]->get_dataNascimento()->tm_year));
+        resposta.push_back(std::to_string(_receptores[i]->get_dataNascimento()->tm_mon+1));
+        resposta.push_back(std::to_string(_receptores[i]->get_dataNascimento()->tm_year+1900));
         resposta.push_back(std::to_string(_receptores[i]->get_sangue()));
         resposta.push_back("------------------------------");
     }
@@ -308,8 +309,8 @@ void Banco::fechaArquivoProfissional()
         resposta.push_back(_profissionais[i]->get_nome());
         resposta.push_back(_profissionais[i]->get_cpf());
         resposta.push_back(std::to_string(_profissionais[i]->get_dataNascimento()->tm_mday));
-        resposta.push_back(std::to_string(_profissionais[i]->get_dataNascimento()->tm_mon));
-        resposta.push_back(std::to_string(_profissionais[i]->get_dataNascimento()->tm_year));
+        resposta.push_back(std::to_string(_profissionais[i]->get_dataNascimento()->tm_mon+1));
+        resposta.push_back(std::to_string(_profissionais[i]->get_dataNascimento()->tm_year+1900));
         resposta.push_back(_profissionais[i]->get_senha());
         resposta.push_back(std::to_string(_profissionais[i]->get_cargo()));
         resposta.push_back(std::to_string(_profissionais[i]->get_idInstituicao()));
@@ -335,8 +336,8 @@ void Banco::fechaArquivoDoacao()
     {
         resposta.push_back(std::to_string(_doacao[i]->get_id()));
         resposta.push_back(std::to_string(_doacao[i]->getDataColeta()->tm_mday));
-        resposta.push_back(std::to_string(_doacao[i]->getDataColeta()->tm_mon));
-        resposta.push_back(std::to_string(_doacao[i]->getDataColeta()->tm_year));
+        resposta.push_back(std::to_string(_doacao[i]->getDataColeta()->tm_mon+1));
+        resposta.push_back(std::to_string(_doacao[i]->getDataColeta()->tm_year+1900));
         resposta.push_back(std::to_string(_doacao[i]->getQuantidade()));
         resposta.push_back(std::to_string(_doacao[i]->getInstituicao()));
         resposta.push_back(std::to_string(_doacao[i]->getProfissional()));
@@ -367,8 +368,8 @@ void Banco::fechaArquivoConsumo()
         resposta.push_back(std::to_string(_consumo[i]->get_idInstituicao()));
         resposta.push_back(std::to_string(_consumo[i]->get_idDoacao()));
         resposta.push_back(std::to_string(_consumo[i]->getData()->tm_mday));
-        resposta.push_back(std::to_string(_consumo[i]->getData()->tm_mon));
-        resposta.push_back(std::to_string(_consumo[i]->getData()->tm_year));
+        resposta.push_back(std::to_string(_consumo[i]->getData()->tm_mon+1));
+        resposta.push_back(std::to_string(_consumo[i]->getData()->tm_year+1900));
         resposta.push_back("------------------------------");
     }
 
