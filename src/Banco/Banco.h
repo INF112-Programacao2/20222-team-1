@@ -22,10 +22,11 @@ private:
     static std::vector<Doacao *> _doacao;
     static std::vector<Consumo *> _consumo;
     static std::vector<Instituicao *> _instituicao;
+
+public:
     static ProfissionalSaude* _puser;
     static Instituicao* _iuser;
 
-public:
     Banco();
     void leArquivoDoador();
     void leArquivoReceptor();
