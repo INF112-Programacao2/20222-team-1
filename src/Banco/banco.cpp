@@ -79,9 +79,9 @@ void Banco::leArquivoDoador()
                 setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::MASCULINO)));
             else if (sexo == 1)
                 setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::FEMININO)));
-
-            _doadores[0]->set_static(idPessoa++);
         }
+
+     _doadores[0]->set_static(_doadores[_doadores.size()-1]->get_id()+1);
 
     doador_txt.close();
 }
