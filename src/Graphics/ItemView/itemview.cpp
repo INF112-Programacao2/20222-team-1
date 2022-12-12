@@ -8,6 +8,18 @@ ItemView::ItemView(QWidget *parent) :
     ui->setupUi(this);
 }
 
+void ItemView::set_id(int id)
+{
+}
+
+void ItemView::set_nome(std::string nome)
+{
+}
+
+void ItemView::set_Rh(Rh rh)
+{
+}
+
 ItemView::~ItemView()
 {
     delete ui;
