@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CadastrarReceptor</class>
- <widget class="QMainWindow" name="CadastrarReceptor">
+ <class>EditProfissional</class>
+ <widget class="QMainWindow" name="EditProfissional">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -25,9 +25,6 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">QWidget#centralwidget{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255,118,118,1), stop:1 rgba(255,210,210,1));}</string>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
     <size>
@@ -41,19 +38,18 @@
      <height>572</height>
     </size>
    </property>
-   <widget class="QFrame" name="frCadastroReceptor">
+   <widget class="QFrame" name="frAdicionarConsumo">
     <property name="geometry">
      <rect>
-      <x>61</x>
-      <y>60</y>
+      <x>50</x>
+      <y>70</y>
       <width>871</width>
       <height>481</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background: #FFFFFF;
-border-radius: 50px;
-</string>
+border-radius: 50px;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -61,12 +57,12 @@ border-radius: 50px;
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="txtCadastroInstituicao">
+    <widget class="QLabel" name="txtAdicionarConsumo">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>40</y>
-       <width>271</width>
+       <x>310</x>
+       <y>30</y>
+       <width>281</width>
        <height>41</height>
       </rect>
      </property>
@@ -85,13 +81,13 @@ color: #000000;
 </string>
      </property>
      <property name="text">
-      <string>Cadastrar Receptor</string>
+      <string>Adicionar Consumo</string>
      </property>
     </widget>
     <widget class="QPushButton" name="buttonAdd">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>330</x>
        <y>380</y>
        <width>251</width>
        <height>64</height>
@@ -110,70 +106,12 @@ color: #FFFFFF;
       <string>Adicionar</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputNome">
+    <widget class="QComboBox" name="comboReceptor">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>150</y>
-       <width>521</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-background: #FFFFFF;
-border: 0.5px solid #000000;
-border-radius: 10px;
-</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="txtNome">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>110</y>
-       <width>191</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font-weight: 700;
-font-size: 22px;
-line-height: 19px;
-color: #000000;
-</string>
-     </property>
-     <property name="text">
-      <string>Nome</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="txtTipoSangue">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>110</y>
-       <width>191</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font-weight: 700;
-font-size: 22px;
-line-height: 19px;
-color: #000000;
-
-</string>
-     </property>
-     <property name="text">
-      <string>Tipo Sanguínio</string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="comboTipoSangue">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>150</y>
-       <width>181</width>
+       <x>60</x>
+       <y>130</y>
+       <width>741</width>
        <height>61</height>
       </rect>
      </property>
@@ -182,73 +120,14 @@ color: #000000;
      </property>
      <property name="styleSheet">
       <string notr="true">border: 1px solid black;
-color: black;
-Border-radius: 10px;
-</string>
-     </property>
-     <item>
-      <property name="text">
-       <string>A + </string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>A -</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>B +</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>B -</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>AB +</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>AB -</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>O +</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>O -</string>
-      </property>
-     </item>
-    </widget>
-    <widget class="QLineEdit" name="inputCPF">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>290</y>
-       <width>321</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-background: #FFFFFF;
-border: 0.5px solid #000000;
-border-radius: 10px;
-</string>
+border-radius: 10px;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtCPF">
+    <widget class="QLabel" name="txtDataConsumo">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>250</y>
+       <x>540</x>
+       <y>220</y>
        <width>191</width>
        <height>31</height>
       </rect>
@@ -261,15 +140,15 @@ color: #000000;
 </string>
      </property>
      <property name="text">
-      <string>CPF</string>
+      <string>Data Consumo</string>
      </property>
     </widget>
-    <widget class="QLabel" name="txtDataNascimento">
+    <widget class="QLabel" name="txtReceptor">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>250</y>
-       <width>221</width>
+       <x>60</x>
+       <y>90</y>
+       <width>191</width>
        <height>31</height>
       </rect>
      </property>
@@ -282,15 +161,53 @@ color: #000000;
 </string>
      </property>
      <property name="text">
-      <string>Data de Nascimento</string>
+      <string>Receptor: </string>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateNascimento">
+    <widget class="QLabel" name="txtDoacao">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>290</y>
-       <width>321</width>
+       <x>60</x>
+       <y>220</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-weight: 700;
+font-size: 22px;
+line-height: 19px;
+color: #000000;
+
+</string>
+     </property>
+     <property name="text">
+      <string>Doação: </string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboDoacao">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>270</y>
+       <width>361</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid black;
+border-radius: 10px;</string>
+     </property>
+    </widget>
+    <widget class="QDateEdit" name="dateConsumo">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>270</y>
+       <width>261</width>
        <height>61</height>
       </rect>
      </property>
@@ -299,7 +216,8 @@ color: #000000;
 color: black;
 font-size: 22px;
 padding-left: 10px;
-border-radius: 10px;</string>
+border-radius:10px;
+</string>
      </property>
     </widget>
    </widget>

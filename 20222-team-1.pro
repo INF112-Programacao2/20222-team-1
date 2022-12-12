@@ -13,6 +13,7 @@ SOURCES += \
     src/Graphics/Add/AddConsumo/adicionarconsumo.cpp \
     src/Graphics/Add/AddDoador/cadastrardoador.cpp \
     src/Graphics/Add/AddReceptor/cadastrarreceptor.cpp \
+    src/Graphics/Edit/EditProfissional/editprofissional.cpp \
     src/Graphics/ItemView/itemview.cpp \
     src/main.cpp \
     src/Banco/banco.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     src/Graphics/Add/AddConsumo/adicionarconsumo.h \
     src/Graphics/Add/AddDoador/cadastrardoador.h \
     src/Graphics/Add/AddReceptor/cadastrarreceptor.h \
+    src/Graphics/Edit/EditProfissional/editprofissional.h \
     src/Graphics/ItemView/itemview.h \
     src/main.cpp \
     src/Banco/Banco.h \
@@ -60,6 +62,7 @@ FORMS += \
     src/Graphics/Add/AddReceptor/cadastrarreceptor.ui \
     src/Graphics/AlertDialog/alertdialog.ui \
     src/Graphics/Dashboard/dashboard.ui \
+    src/Graphics/Edit/EditProfissional/editprofissional.ui \
     src/Graphics/ItemView/itemview.ui \
     src/Graphics/Login/login.ui \
     src/Graphics/Register/registerinstituicao.ui \
