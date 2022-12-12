@@ -2,6 +2,7 @@
 #include "Banco.h"
 #include <vector>
 #include <fstream>
+#include <filesystem>
 #include "../Pessoa/pessoaIF.h"
 #include "../Receptor/receptor.h"
 #include "../Doador/Doador.h"
@@ -41,7 +42,7 @@ void Banco::leArquivoDoador()
 {
     std::ifstream doador_txt("doador.txt");
 
-    if (doador_txt.tellg() != -1)
+    if(std::filesystem::file_size(doador_txt)>0)
         while (!doador_txt.eof())
         {
             int idPessoa;
@@ -79,9 +80,9 @@ void Banco::leArquivoDoador()
                 setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::MASCULINO)));
             else if (sexo == 1)
                 setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::FEMININO)));
+            
+            _doadores[0]->set_static(idPessoa++);
         }
-
-     _doadores[0]->set_static(_doadores[_doadores.size()-1]->get_id()+1);
 
     doador_txt.close();
 }
@@ -90,7 +91,7 @@ void Banco::leArquivoReceptor()
 {
     std::ifstream receptor_txt("receptor.txt");
 
-    if (receptor_txt.tellg() != -1)
+    if (std::filesystem::file_size(receptor_txt)>0)
         while (!receptor_txt.eof())
         {
             int idPessoa;
@@ -125,7 +126,7 @@ void Banco::leArquivoProfissional()
 {
     std::ifstream profissional_txt("profissional.txt");
 
-    if (profissional_txt.tellg() != -1)
+    if (std::filesystem::file_size(profissional_txt)>0)
         while (!profissional_txt.eof())
         {
             int idPessoa;
@@ -165,7 +166,7 @@ void Banco::leArquivoDoacao()
 {
     std::ifstream doacao_txt("doacao.txt");
     // std::cout<<doacao_txt.tellg()<<std::endl;
-    if (doacao_txt.tellg() != -1)
+    if (std::filesystem::file_size(doacao_txt)>0)
         while (!doacao_txt.eof())
         {
             int idDoacao;
@@ -199,7 +200,7 @@ void Banco::leArquivoConsumo()
 {
     std::ifstream consumo_txt("consumo.txt");
     // std::cout<<consumo_txt.tellg()<<std::endl;
-    if (consumo_txt.tellg() != -1)
+    if (std::filesystem::file_size(consumo_txt)>0)
         while (!consumo_txt.eof())
         {
             int idConsumo, idReceptor, idInstituicao, idDoacao;
@@ -230,7 +231,7 @@ void Banco::leArquivoInstituicao()
 {
     std::ifstream instituicao_txt("instituicao.txt");
 
-    if (instituicao_txt.tellg() != -1)
+    if (std::filesystem::file_size(instituicao_txt)>0)
         while (!instituicao_txt.eof())
         {
             int idInstituicao;
