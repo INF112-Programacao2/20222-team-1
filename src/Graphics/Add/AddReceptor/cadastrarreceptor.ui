@@ -186,46 +186,6 @@ color: black;
 Border-radius: 10px;
 </string>
      </property>
-     <item>
-      <property name="text">
-       <string>A + </string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>A -</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>B +</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>B -</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>AB +</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>AB -</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>O +</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>O -</string>
-      </property>
-     </item>
     </widget>
     <widget class="QLineEdit" name="inputCPF">
      <property name="geometry">

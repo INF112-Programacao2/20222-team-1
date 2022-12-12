@@ -15,6 +15,11 @@ public:
     explicit EditProfissional(QWidget *parent = nullptr);
     ~EditProfissional();
 
+private slots:
+    void on_buttonReturn_clicked();
+
+    void on_buttonAdd_clicked();
+
 private:
     Ui::EditProfissional *ui;
 };
