@@ -49,6 +49,7 @@ void CadastrarReceptor::on_buttonAdd_clicked()
 
     Banco* i;
     try {
+        if(ui->comboTipoSangue->currentIndex() == -1) throw std::invalid_argument("Selecione um tipo sanguínio!");
         if(i->isCpf(cpf)) throw std::invalid_argument("CPF inválido!");
         if(nome.size() < 2) throw std::invalid_argument("O nome deve ter pelo menos 2 caracteres.");
     } catch(std::invalid_argument &e){
@@ -57,7 +58,8 @@ void CadastrarReceptor::on_buttonAdd_clicked()
         return;
     }
 
-    //i->setReceptor();
+    ;
+    i->setReceptor(new Receptor(nome, cpf, i->criaStructTm(dia, mes, ano), tipo));
 
     this->close();
 }
