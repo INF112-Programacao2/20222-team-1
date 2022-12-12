@@ -373,7 +373,7 @@ color:#ffffff;
         <string>Nome Completo</string>
        </property>
       </widget>
-      <widget class="QListWidget" name="listWidget">
+      <widget class="QListWidget" name="doadoresList">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -596,7 +596,7 @@ color:#ffffff;
         <string>Nome Completo</string>
        </property>
       </widget>
-      <widget class="QListWidget" name="listWidget_2">
+      <widget class="QListWidget" name="receptoresList">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -703,7 +703,7 @@ color:#ffffff;
       <attribute name="title">
        <string>Doações</string>
       </attribute>
-      <widget class="QListWidget" name="listWidget_3">
+      <widget class="QListWidget" name="doacoesList">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -835,7 +835,7 @@ color:#ffffff;
       <attribute name="title">
        <string>Consumo</string>
       </attribute>
-      <widget class="QListWidget" name="listWidget_4">
+      <widget class="QListWidget" name="consumoList">
        <property name="geometry">
         <rect>
          <x>10</x>

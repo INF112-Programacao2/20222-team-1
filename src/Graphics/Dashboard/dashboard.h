@@ -13,6 +13,7 @@
 #include <QChartView>
 #include <QVBoxLayout>
 #include <QColor>
+#include <QString>
 
 #include "../ItemView/itemview.h"
 #include "../Add/AddConsumo/adicionarconsumo.h"
@@ -22,6 +23,8 @@
 #include "../Edit/EditProfissional/editprofissional.h"
 #include "../Add/AddReceptor/cadastrarreceptor.h"
 #include "../Add/AddDoador/cadastrardoador.h"
+#include "../../Banco/Banco.h"
+#include "../Register/registerprofissionalsaude.h"
 
 namespace Ui {
 class Dashboard;
@@ -54,6 +57,10 @@ private slots:
 
     private:
     Ui::Dashboard *ui;
+    bool isInstituicao;
+
+    void generateGrafico();
+    void populateListDoadores();
 };
 
 #endif // DASHBOARD_H
