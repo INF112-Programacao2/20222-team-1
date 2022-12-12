@@ -562,24 +562,63 @@ std::vector<Doador *> Banco::getDoadoresDisponiveis()
     return disponiveis;
 }
 
-std::vector<Doador*> Banco::getDoadores(){
+std::vector<Doador*> Banco::getDoadoresByUser(){
     return _doadores;
 }
 
-std::vector<Receptor*> Banco::getReceptores(){
+std::vector<Receptor*> Banco::getReceptoresByUser(){
     return _receptores;
 }
 
-std::vector<ProfissionalSaude*> Banco::getProfissionais(){
-    return _profissionais;
+std::vector<ProfissionalSaude*> Banco::getProfissionaisByUser(){
+    std::vector<ProfissionalSaude *> profissionais;
+    int idInstituicao = 0;
+
+    if(_puser != nullptr)
+        idInstituicao = _puser->get_idInstituicao();
+    else
+        idInstituicao =_iuser->get_id();
+    
+    for (int i = 0; i < _profissionais.size(); i++)
+    {
+        if(_profissionais[i]->get_idInstituicao() == idInstituicao)
+            profissionais.push_back(_profissionais[i]);
+    }
+    return profissionais;
 }
 
-std::vector<Doacao*> Banco::getDoacoes(){
-    return _doacao;
+std::vector<Doacao*> Banco::getDoacoesByUser(){
+    std::vector<Doacao *> doacoes;
+    int idInstituicao = 0;
+
+    if(_puser != nullptr)
+        idInstituicao = _puser->get_idInstituicao();
+    else
+        idInstituicao =_iuser->get_id();
+    
+    for (int i = 0; i < _doacao.size(); i++)
+    {
+        if(_doacao[i]->getInstituicao() == idInstituicao)
+            doacoes.push_back(_doacao[i]);
+    }
+    return doacoes;
 }
 
-std::vector<Consumo*> Banco::getConsumos(){
-    return _consumo;
+std::vector<Consumo*> Banco::getConsumosByUser(){
+    std::vector<Consumo *> consumos;
+    int idInstituicao = 0;
+
+    if(_puser != nullptr)
+        idInstituicao = _puser->get_idInstituicao();
+    else
+        idInstituicao =_iuser->get_id();
+    
+    for (int i = 0; i < _consumo.size(); i++)
+    {
+        if(_consumo[i]->get_idInstituicao() == idInstituicao)
+            consumos.push_back(_consumo[i]);
+    }
+    return consumos;
 }
 
 
