@@ -73,6 +73,17 @@ void Banco::leArquivoDoador()
         std::getline(doador_txt, dia);
         std::getline(doador_txt, mes);
         std::getline(doador_txt, ano);
+        if(dia != "NULL"){
+            dataUltimaDoacao->tm_mday = stoi(dia);
+            dataUltimaDoacao->tm_mon = stoi(mes) - 1;
+            dataUltimaDoacao->tm_year = stoi(ano) - 1900;
+            dataUltimaDoacao->tm_hour = 0;
+            dataUltimaDoacao->tm_min = 0;
+            dataUltimaDoacao->tm_sec = 0;
+        }
+        else{
+            dataUltimaDoacao = nullptr;
+        }
         dataUltimaDoacao->tm_mday = stoi(dia);
         dataUltimaDoacao->tm_mon = stoi(mes) - 1;
         dataUltimaDoacao->tm_year = stoi(ano) - 1900;
@@ -301,9 +312,16 @@ void Banco::fechaArquivoDoador()
         resposta.push_back(std::to_string(_doadores[i]->get_dataNascimento()->tm_year+1900));
         resposta.push_back(std::to_string(_doadores[i]->get_peso()));
         resposta.push_back(std::to_string(_doadores[i]->get_altura()));
-        resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_mday));
-        resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_mon+1));
-        resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_year+1900));
+        if(_doadores[i]->get_dataUltimaDoacao() != nullptr){
+            resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_mday));
+            resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_mon+1));
+            resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_year+1900));
+        }
+        else{
+            resposta.push_back("NULL");
+            resposta.push_back("NULL");
+            resposta.push_back("NULL");
+        }
         resposta.push_back(std::to_string(_doadores[i]->get_sangue()));
         resposta.push_back(std::to_string(_doadores[i]->get_sexo()));
         resposta.push_back("------------------------------");
