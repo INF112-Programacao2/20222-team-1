@@ -28,6 +28,12 @@ void Login::on_buttonInstituicaoLogin_clicked()
     QIcon icon;
     icon.addFile("://assets/icons/return.png");
 
+    ui->txtCpf->setText("CNPJ");
+    ui->inputDocumento->setInputMask("0.000.000/0000-00");
+
+    ui->inputDocumento->setText("");
+    ui->inputSenha->setText("");
+
     ui->buttonRegistrarInstituicao->setIcon(icon);
     ui->frSelectTypeUser->setVisible(false);
     ui->frLogarForm->setVisible(true);
@@ -41,6 +47,12 @@ void Login::on_buttonProfissionalSaudeLogin_clicked()
 
     QIcon icon;
     icon.addFile("://assets/icons/return.png");
+
+    ui->txtCpf->setText("CPF");
+    ui->inputDocumento->setInputMask("000.000.000-00");
+
+    ui->inputDocumento->setText("");
+    ui->inputSenha->setText("");
 
     ui->buttonRegistrarInstituicao->setIcon(icon);
     ui->frSelectTypeUser->setVisible(false);
@@ -111,7 +123,7 @@ void Login::on_buttonLogin_clicked()
     Dashboard *dashboard = new Dashboard;
     dashboard->show();
 
-    this->hide();
+    this->close();
 }
 
 void Login::on_buttonRegistrarInstituicao_clicked()
@@ -132,7 +144,6 @@ void Login::on_buttonRegistrarInstituicao_clicked()
 
     RegisterInstituicao *resInstituicao = new RegisterInstituicao;
     resInstituicao->show();
-
-    this->hide();
+    this->close();
 }
 

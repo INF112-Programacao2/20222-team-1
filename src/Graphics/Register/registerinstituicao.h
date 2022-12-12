@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include "../Login/login.h"
 #include "../../Instituicao/instituicao.h"
 #include "../../Banco/Banco.h"
 

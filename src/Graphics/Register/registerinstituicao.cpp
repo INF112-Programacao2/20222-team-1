@@ -17,7 +17,9 @@ RegisterInstituicao::~RegisterInstituicao()
 
 void RegisterInstituicao::on_buttonReturn_clicked()
 {
-
+    Login *login = new Login;
+    login->show();
+    this->close();
 }
 
 
