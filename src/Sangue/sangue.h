@@ -15,7 +15,6 @@ class Sangue
 private:
     static std::vector<Sangue> _instance;
     static int _numSangue;
-    
     int _id;
     std::string _nome;
     Rh _rhTipo;
@@ -25,6 +24,7 @@ private:
     Sangue(std::string nome, Rh Rh_do_sangue);
 
 public:
+
     Sangue();
     ~Sangue();
     //std::vector<Sangue> getInstance();

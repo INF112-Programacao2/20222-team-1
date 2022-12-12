@@ -229,43 +229,6 @@ color: #000000;
       <string>Data de Nascimento</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputPeso">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>230</y>
-       <width>191</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-background: #FFFFFF;
-border: 0.5px solid #000000;
-border-radius: 10px;
-</string>
-     </property>
-     <property name="inputMask">
-      <string>0</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="inputAltura">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>230</y>
-       <width>201</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-background: #FFFFFF;
-border: 0.5px solid #000000;
-border-radius: 10px;
-</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="txtAltura">
      <property name="geometry">
       <rect>
@@ -359,6 +322,52 @@ color: #000000;
       <string notr="true">border: 1px solid black;
 color: black;
 border-radius: 10px;</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="inputAltura">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>230</y>
+       <width>211</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+background: #FFFFFF;
+border: 0.5px solid #000000;
+border-radius: 10px;
+</string>
+     </property>
+     <property name="inputMask">
+      <string>000.000.000-00</string>
+     </property>
+     <property name="placeholderText">
+      <string>000.000.000-00</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="inputPeso">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>230</y>
+       <width>211</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+background: #FFFFFF;
+border: 0.5px solid #000000;
+border-radius: 10px;
+</string>
+     </property>
+     <property name="inputMask">
+      <string>000.000.000-00</string>
+     </property>
+     <property name="placeholderText">
+      <string>000.000.000-00</string>
      </property>
     </widget>
    </widget>

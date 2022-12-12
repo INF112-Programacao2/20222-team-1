@@ -6,6 +6,7 @@
 #include "../../../Receptor/receptor.h"
 #include "../../../Banco/Banco.h"
 #include "../../../Doador/Doador.h"
+#include "../../../Sangue/sangue.h"
 
 Banco* iAux;
 
@@ -15,12 +16,16 @@ AdicionarConsumo::AdicionarConsumo(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    Sangue* sangue = nullptr;
+    Sangue sangueAux;
     Doador* aux;
+
     std::vector<Doacao*> doacoes = iAux->getDoacoesByUser();
     if(doacoes.size()>0){
-        for (int i = 0; i < doacoes.size(); i++){
+        for (int i = 0; i < (int) doacoes.size(); i++){
             aux = iAux->getDoadorById(doacoes[i]->getDoador());
-            /*ui->comboDoacao->insertItem(doacoes[i]->get_id(),  A Consertar: QString::fromStdString(iAux->get aux->get_sangue()));*/
+            sangueAux = sangue->get_sangue_by_id(aux->get_sangue());
+            ui->comboDoacao->addItem(QString::fromStdString(sangueAux.get_nome()));
         }
     } else {
         throw std::out_of_range("Nao ha doacoes disponiveis. ");
@@ -28,8 +33,8 @@ AdicionarConsumo::AdicionarConsumo(QWidget *parent) :
 
     std::vector<Receptor*> receptores = iAux->getReceptoresByUser();
     if(receptores.size()>0){
-        for (int i = 0; i < receptores.size(); i++){
-            /*ui->comboReceptor->insertItem(receptores[i]->get_nome(), " ", A Consertar: QString::fromStdString(receptores[i]->get_sangue()));*/
+        for (int i = 0; i < (int) receptores.size(); i++){
+            ui->comboReceptor->addItem(QString::fromStdString(sangue->get_sangue_by_id(receptores[i]->get_sangue()).get_nome()));
         }
     } else {
         throw std::out_of_range("Nao ha ninguem precisando de uma doacao. ");
