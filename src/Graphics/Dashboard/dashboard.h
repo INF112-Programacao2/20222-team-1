@@ -3,6 +3,16 @@
 
 #include <QMainWindow>
 #include <QPushButton>
+#include <QListWidgetItem>
+
+
+#include "../ItemView/itemview.h"
+#include "../Add/AddConsumo/adicionarconsumo.h"
+#include "../Add/AddReceptor/cadastrarreceptor.h"
+#include "../Add/AddDoacao/adicionardoacao.h"
+#include "../Add/AddDoador/cadastrardoador.h"
+#include "../Edit/EditProfissional/editprofissional.h"
+
 namespace Ui {
 class Dashboard;
 }
