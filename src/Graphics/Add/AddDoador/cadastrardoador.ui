@@ -245,7 +245,7 @@ color: #000000;
     <widget class="QLabel" name="txtDataNascimento">
      <property name="geometry">
       <rect>
-       <x>430</x>
+       <x>310</x>
        <y>290</y>
        <width>221</width>
        <height>31</height>
@@ -298,6 +298,9 @@ background: #FFFFFF;
 border: 0.5px solid #000000;
 border-radius: 10px;
 </string>
+     </property>
+     <property name="inputMask">
+      <string/>
      </property>
     </widget>
     <widget class="QLineEdit" name="inputAltura">
@@ -362,7 +365,7 @@ color: #000000;
       <rect>
        <x>50</x>
        <y>330</y>
-       <width>271</width>
+       <width>221</width>
        <height>61</height>
       </rect>
      </property>
@@ -377,9 +380,9 @@ border-radius: 10px;</string>
     <widget class="QDateEdit" name="dateNascimento">
      <property name="geometry">
       <rect>
-       <x>430</x>
+       <x>310</x>
        <y>330</y>
-       <width>271</width>
+       <width>221</width>
        <height>61</height>
       </rect>
      </property>
@@ -390,6 +393,54 @@ font-size: 22px;
 padding-left: 10px;
 border-radius: 10px;</string>
      </property>
+    </widget>
+    <widget class="QLabel" name="txtSexo">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>300</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-weight: 700;
+font-size: 22px;
+line-height: 19px;
+color: #000000;
+</string>
+     </property>
+     <property name="text">
+      <string>Sexo</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboSexo">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>330</y>
+       <width>201</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid black;
+color: black;
+border-radius: 10px;</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Masculino</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Feminino</string>
+      </property>
+     </item>
     </widget>
    </widget>
    <widget class="QPushButton" name="buttonReturn">

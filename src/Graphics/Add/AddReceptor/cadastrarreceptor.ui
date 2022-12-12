@@ -203,6 +203,9 @@ border: 0.5px solid #000000;
 border-radius: 10px;
 </string>
      </property>
+     <property name="inputMask">
+      <string>000.000.000-00</string>
+     </property>
     </widget>
     <widget class="QLabel" name="txtCPF">
      <property name="geometry">

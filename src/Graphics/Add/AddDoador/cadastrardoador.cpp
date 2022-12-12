@@ -4,6 +4,10 @@
 #include "../../AlertDialog/alertdialog.h"
 #include "../../../Banco/Banco.h"
 
+#import <ctime>
+#include <string>
+#include <QDoubleValidator>
+
 CadastrarDoador::CadastrarDoador(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::CadastrarDoador)
@@ -15,7 +19,13 @@ CadastrarDoador::CadastrarDoador(QWidget *parent) :
         ui->comboTipoSangue->addItem(tipos[i]);
     }
 
+    QString sexo[2] = {"Masculino", "Feminino"};
+    ui->comboSexo->addItem(sexo[0]);
+    ui->comboSexo->addItem(sexo[1]);
+
     ui->dateNascimento->setMaximumDate(QDate::currentDate());
+    ui->inputAltura->setValidator(new QDoubleValidator(50, 300, 2, this));
+    ui->inputPeso->setValidator(new QDoubleValidator(50, 1000, 2, this));
 }
 
 CadastrarDoador::~CadastrarDoador()
@@ -31,23 +41,32 @@ void CadastrarDoador::on_buttonAdd_clicked()
     std::string nome = ui->inputNome->text().toStdString();
     std::string cpf = ui->inputCPF->text().toStdString();
     int tipo = ui->comboTipoSangue->currentIndex();
+    int sexo = ui->comboSexo->currentIndex();
+    double altura = ui->txtAltura->text().toDouble();
+    double peso;
 
-    int dia = ui->dateNascimento->date().day();
-    int mes = ui->dateNascimento->date().day();
-    int ano = ui->dateNascimento->date().year();
+    int diaNascimento = ui->dateNascimento->date().day();
+    int mesNascimento = ui->dateNascimento->date().day();
+    int anoNascimento = ui->dateNascimento->date().year();
+
+    int diaUltimo = ui->dataUltimaDoacao->date().day();
+    int mesUltimo = ui->dataUltimaDoacao->date().month();
+    int anoUltimo = ui->dataUltimaDoacao->date().dayOfYear();
 
     Banco* i;
     try {
         if(ui->comboTipoSangue->currentIndex() == -1) throw std::invalid_argument("Selecione um tipo sanguínio!");
         if(i->isCpf(cpf)) throw std::invalid_argument("CPF inválido!");
         if(nome.size() < 2) throw std::invalid_argument("O nome deve ter pelo menos 2 caracteres.");
+
+
     } catch(std::invalid_argument &e){
         dialog->SetMessage(e.what());
         dialog->exec();
         return;
     }
 
-    //i->setReceptor();
+    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), tipo, sexo));
 
     this->close();
 }
