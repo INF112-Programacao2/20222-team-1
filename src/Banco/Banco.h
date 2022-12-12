@@ -65,6 +65,7 @@ public:
 
     bool isCpf(std::string palavra);
     bool isCnpj(std::string palavra);
+    struct tm *criaStructTm(int dia, int mes, int ano);
 };
 
 #endif

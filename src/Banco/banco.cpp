@@ -73,9 +73,9 @@ void Banco::leArquivoDoador()
             doador_txt >> idSangue >> sexo;
             doador_txt >> aux;
 
-            if(sexo == 0)
+            if (sexo == 0)
                 setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::MASCULINO)));
-            else if(sexo == 1)
+            else if (sexo == 1)
                 setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::FEMININO)));
         }
 
@@ -548,7 +548,7 @@ std::vector<Doacao *> Banco::getDoacoesCompativeis(int idSangue)
     return compativeis;
 }
 
-std::vector<Doador*> Banco::getDoadoresDisponiveis()
+std::vector<Doador *> Banco::getDoadoresDisponiveis()
 {
     std::vector<Doador *> disponiveis;
     for (int i = 0; i < Banco::_doadores.size(); i++)
@@ -566,7 +566,7 @@ bool Banco::isCpf(std::string palavra)
     int soma = 0;
     bool resp = false;
 
-    if(palavra.size() != 14)
+    if (palavra.size() != 14)
         return false;
 
     std::string substring = palavra.substr(0, 3) + palavra.substr(4, 3) + palavra.substr(8, 3) + palavra.substr(12, 2);
@@ -637,7 +637,7 @@ bool Banco::isCnpj(std::string palavra)
     int soma = 0;
     bool resp = false;
 
-    if(palavra.size() != 18)
+    if (palavra.size() != 18)
         return false;
 
     std::string substring = palavra.substr(0, 2) + palavra.substr(3, 3) + palavra.substr(7, 3) + palavra.substr(11, 4) + palavra.substr(16, 2);
@@ -703,4 +703,18 @@ bool Banco::isCnpj(std::string palavra)
     }
     else
         return false;
+}
+
+struct tm *Banco::criaStructTm(int dia, int mes, int ano)
+{
+    struct tm *tempoAux = new struct tm;
+
+    tempoAux->tm_hour = 0;
+    tempoAux->tm_min = 0;
+    tempoAux->tm_sec = 0;
+    tempoAux->tm_mday = dia;
+    tempoAux->tm_mon = mes - 1;
+    tempoAux->tm_year = ano - 1900;
+
+    return tempoAux;
 }
