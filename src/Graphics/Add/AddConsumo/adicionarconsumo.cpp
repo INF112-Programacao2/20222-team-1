@@ -25,7 +25,15 @@ AdicionarConsumo::AdicionarConsumo(QWidget *parent) :
         for (int i = 0; i < (int) doacoes.size(); i++){
             aux = iAux->getDoadorById(doacoes[i]->getDoador());
             sangueAux = sangue->get_sangue_by_id(aux->get_sangue());
-            ui->comboDoacao->insertItem(sangueAux.get_id(), QString::fromStdString(sangueAux.get_nome()));
+            QString s;
+            s.push_back(QString::fromStdString(aux->get_nome()));
+            s.push_back(' ');
+            s.push_back('-');
+            s.push_back(' ');
+            s.push_back(QString::fromStdString(sangueAux.get_nome()));
+            s.push_back(' ');
+            s.push_back((sangueAux.get_rh_sangue() == Rh::POSITIVO) ? '+' : '-');
+            ui->comboDoacao->insertItem(sangueAux.get_id(), s);
         }
     } else {
         throw std::out_of_range("Nao ha doacoes disponiveis. ");
