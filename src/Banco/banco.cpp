@@ -552,6 +552,9 @@ bool Banco::isCpf(std::string palavra)
     int soma = 0;
     bool resp = false;
 
+    std::string substring = palavra.substr(0, 3) + palavra.substr(4, 3) + palavra.substr(8, 3) + palavra.substr(12, 2);
+    palavra = substring;
+
     for (int i = 0; i < 10; i++)
         if (palavra[i] != palavra[i + 1])
         {
@@ -617,12 +620,20 @@ bool Banco::isCnpj(std::string palavra)
     int soma = 0;
     bool resp = false;
 
+    std::string substring = palavra.substr(0, 2) + palavra.substr(3, 3) + palavra.substr(7, 3) + palavra.substr(11, 4) + palavra.substr(16, 2);
+    palavra = substring;
+
     for (int i = 0; i < 13; i++)
         if (palavra[i] != palavra[i + 1])
         {
             resp = true;
             break;
         }
+
+    if (palavra[8] == '0' && palavra[9] == '0' && palavra[10] == '0' && (palavra[11] == '1' || palavra[11] == '2'))
+        ;
+    else
+        resp = false;
 
     if (resp)
     {
