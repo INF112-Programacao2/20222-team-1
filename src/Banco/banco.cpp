@@ -18,6 +18,8 @@ std::vector<Sangue *> Banco::_sangue = std::vector<Sangue *>();
 std::vector<Doacao *> Banco::_doacao = std::vector<Doacao *>();
 std::vector<Consumo *> Banco::_consumo = std::vector<Consumo *>();
 std::vector<Instituicao *> Banco::_instituicao = std::vector<Instituicao *>();
+ProfissionalSaude*Banco:: _puser = nullptr;
+Instituicao* Banco::_iuser = nullptr;
 
 Banco::Banco()
 {

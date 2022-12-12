@@ -22,6 +22,8 @@ private:
     static std::vector<Doacao *> _doacao;
     static std::vector<Consumo *> _consumo;
     static std::vector<Instituicao *> _instituicao;
+    static ProfissionalSaude* _puser;
+    static Instituicao* _iuser;
 
 public:
     Banco();
