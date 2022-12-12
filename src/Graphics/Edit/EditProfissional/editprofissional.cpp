@@ -1,6 +1,7 @@
 #include "editprofissional.h"
 #include "ui_editprofissional.h"
 #include <QString>
+#include "../../AlertDialog/alertdialog.h"
 #include "../../../ProfissionalSaude/profissionalSaude.h"
 #include "../../../Banco/Banco.h"
 
@@ -22,7 +23,34 @@ EditProfissional::~EditProfissional()
 }
 
 void EditProfissional::on_buttonReturn_clicked()
-{
+{   
+    try{
+        std::string nome = ui->inputNome->text().toStdString();
+        if( nome.size() >1){
+        std::string senha = ui->inputSenha->text().toStdString();
+            if(senha<5)
+                throw std::invalid_argument("A senha precisa ter no minimo 2 caracteres. ");
+            Banco::_puser->set_nome(nome);
+            Banco::_puser->set_senha(senha);
+        }
+        else{
+            throw std::invalid_argument("O nome precisa ter no minimo 2 caracteres. ");
+        }
+
+    }catch(std::invalid_argument &e){
+        dialog->SetMessage(e.what());
+        dialog->exec();
+        return;
+    }catch(std::out_of_range &e){
+        dialog->SetMessage(e.what());
+        dialog->exec();
+        return;
+    }catch(std::exception &e){
+        dialog->SetMessage(e.what());
+        dialog->exec();
+        return;
+    }
+    
     this->close();
 }
 
