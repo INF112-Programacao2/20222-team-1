@@ -425,6 +425,12 @@ void Banco::fechaArquivoInstituicao()
 
 Banco::~Banco()
 {
+    fechaArquivoConsumo();
+    fechaArquivoDoacao();
+    fechaArquivoDoador();
+    fechaArquivoInstituicao();
+    fechaArquivoProfissional();
+    fechaArquivoReceptor();
 }
 
 void Banco::setReceptor(Receptor *receptor)
