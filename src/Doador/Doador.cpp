@@ -109,6 +109,37 @@ struct tm *Doador::get_dataUltimaDoacao()
 
 bool Doador::is_apto()
 {
+    if (_peso < 50)
+        return false;
+    if ((_peso / (_altura * _altura)) < 18.5 || (_peso / (_altura * _altura)) > 25)
+        return false;
+    
+    time_t idade18, idade60, idadeatual;
+    idade18 = 567648000;
+    idade60 = 1892160000;
+    time(&idadeatual);
+    idadeatual = difftime(idadeatual, mktime(_dataNascimento));
+
+    if (idadeatual < idade18 || idadeatual > idade60)
+        return false;
+
+    if(_sexo == MASCULINO){
+        time_t ultimadoacaoaux, now;
+        ultimadoacaoaux = 7776000;
+        now = difftime(time(&now), mktime(_dataUltimaDoacao));
+    
+        if(now < ultimadoacaoaux)
+            return false;
+    }
+    if(_sexo == FEMININO){
+        time_t ultimadoacaoaux, now;
+        ultimadoacaoaux = 10368000;
+        now = difftime(time(&now), mktime(_dataUltimaDoacao));
+    
+        if(now < ultimadoacaoaux)
+            return false;
+    }
+
     return true;
 }
 
