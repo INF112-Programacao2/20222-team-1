@@ -49,10 +49,6 @@ void CadastrarDoador::on_buttonAdd_clicked()
     int mesNascimento = ui->dateNascimento->date().day();
     int anoNascimento = ui->dateNascimento->date().year();
 
-    int diaUltimo = ui->dataUltimaDoacao->date().day();
-    int mesUltimo = ui->dataUltimaDoacao->date().month();
-    int anoUltimo = ui->dataUltimaDoacao->date().dayOfYear();
-
     Banco* i;
     try {
         if(ui->comboTipoSangue->currentIndex() == -1) throw std::invalid_argument("Selecione um tipo sanguínio!");
@@ -66,7 +62,7 @@ void CadastrarDoador::on_buttonAdd_clicked()
         return;
     }
 
-    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), peso, altura, i->criaStructTm(diaUltimo, mesUltimo, anoUltimo), tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
+    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), peso, altura, nullptr, tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
 
     this->close();
 }

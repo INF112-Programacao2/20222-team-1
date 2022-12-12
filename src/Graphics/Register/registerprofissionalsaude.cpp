@@ -15,12 +15,13 @@ RegisterProfissionalSaude::~RegisterProfissionalSaude()
 
 void RegisterProfissionalSaude::on_buttonReturn_clicked()
 {
-
+    this->close();
 }
 
 
 void RegisterProfissionalSaude::on_buttonRegistrar_clicked()
-{
+{   // validacao
+    this.close();
 
 }
 
