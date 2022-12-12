@@ -164,11 +164,17 @@ color: #000000;
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background: #E13833;
+      <string notr="true">QPushButton{
+
+background: #E13833;
 border-radius: 10px;
-font-weight: 700;
-font-size: 18px;
-color: #FFFFFF;
+color:#ffffff;
+}
+QPushButton:hover{
+background: #992C29;
+border-radius: 10px;
+color:#ffffff;
+}
 
 </string>
      </property>

@@ -25,6 +25,7 @@ void RegisterInstituicao::on_buttonReturn_clicked()
 
 void RegisterInstituicao::on_buttonRegister_clicked()
 {
+    AlertDialog *dialog = new AlertDialog(this);
     try{
         std::string login = ui->inputCnpj->text().toStdString();
         if(j.isCnpj(login)){
@@ -32,13 +33,27 @@ void RegisterInstituicao::on_buttonRegister_clicked()
             if(user != nullptr)
                 throw std::invalid_argument("Ja existe conta com essas credenciais.");
         }
+        else{
+            throw std::invalid_argument("Insira um CNPJ válido!");
+        }
 
     }catch(std::invalid_argument &e){
-        QMessageBox::information(this, "Atencao!", e.what());
+        dialog->SetMessage(e.what());
+        dialog->exec();
+        return;
     }catch(std::out_of_range &e){
-        QMessageBox::information(this, "Atencao!", e.what());
+        dialog->SetMessage(e.what());
+        dialog->exec();
+        return;
     }catch(std::exception &e){
-        QMessageBox::information(this, "Atencao!", e.what());
+        dialog->SetMessage(e.what());
+        dialog->exec();
+        return;
     }
+
+    delete dialog;
+    Login *login = new Login;
+    login->show();
+    this->close();
 }
 

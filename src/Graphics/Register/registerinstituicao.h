@@ -6,6 +6,7 @@
 #include "../Login/login.h"
 #include "../../Instituicao/instituicao.h"
 #include "../../Banco/Banco.h"
+#include "../Login/login.h"
 
 namespace Ui {
 class RegisterInstituicao;

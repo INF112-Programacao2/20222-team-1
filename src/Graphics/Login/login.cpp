@@ -29,7 +29,7 @@ void Login::on_buttonInstituicaoLogin_clicked()
     icon.addFile("://assets/icons/return.png");
 
     ui->txtCpf->setText("CNPJ");
-    ui->inputDocumento->setInputMask("0.000.000/0000-00");
+    ui->inputDocumento->setInputMask("00.000.000/0000-00");
 
     ui->inputDocumento->setText("");
     ui->inputSenha->setText("");
@@ -67,13 +67,15 @@ void Login::on_buttonLogin_clicked()
     if(this->isInstituicao){
         try{
              std::string login = ui->inputDocumento->text().toStdString();
-             if(!i.isCnpj(login)){
+             if(i.isCnpj(login)){
                  Instituicao* user = i.isInstituicao(login);
                  if(user != nullptr){
                      if(user->get_senha() != ui->inputSenha->text().toStdString())
                         throw std::out_of_range("Senha incorreta.");
                  }else
                      throw std::invalid_argument("Nao existe nenhuma conta com essas credenciais.");
+             }else{
+                 throw std::invalid_argument("Insira um CNPJ válido.");
              }
 
          }catch(std::invalid_argument &e){
@@ -94,13 +96,16 @@ void Login::on_buttonLogin_clicked()
     else{
         try{
             std::string login = ui->inputDocumento->text().toStdString();
-            if(!i.isCpf(login)){
+            if(i.isCpf(login)){
                 ProfissionalSaude* user = i.isProfissional(login);
                 if(user != nullptr){
                     if(user->get_senha() != ui->inputSenha->text().toStdString())
                         throw std::out_of_range("Verifique sua senha");
                 }else
                     throw std::invalid_argument("Não existe nenhuma conta com essas credenciais.");
+            }
+            else{
+                throw std::invalid_argument("Insira um CPF válido.");
             }
 
         }catch(std::invalid_argument &e){

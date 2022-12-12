@@ -20,5 +20,4 @@ int main(int argc, char *argv[])
 
     delete splashScreen;
     delete login;
-    delete dashboard;
 }
