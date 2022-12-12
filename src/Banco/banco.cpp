@@ -84,12 +84,6 @@ void Banco::leArquivoDoador()
         else{
             dataUltimaDoacao = nullptr;
         }
-        dataUltimaDoacao->tm_mday = stoi(dia);
-        dataUltimaDoacao->tm_mon = stoi(mes) - 1;
-        dataUltimaDoacao->tm_year = stoi(ano) - 1900;
-        dataUltimaDoacao->tm_hour = 0;
-        dataUltimaDoacao->tm_min = 0;
-        dataUltimaDoacao->tm_sec = 0;
         std::getline(doador_txt, idSangue);
         std::getline(doador_txt, sexo);
         std::getline(doador_txt, aux);
