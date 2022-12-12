@@ -25,6 +25,8 @@
 #include "../Add/AddDoador/cadastrardoador.h"
 #include "../../Banco/Banco.h"
 #include "../Register/registerprofissionalsaude.h"
+#include "../Login/login.h"
+#include "../AlertDialog/alertdialog.h"
 
 namespace Ui {
 class Dashboard;
@@ -55,7 +57,9 @@ private slots:
 
     void on_buttonAdicionarReceptor_clicked();
 
-    private:
+    void on_pushButton_clicked();
+
+private:
     Ui::Dashboard *ui;
     bool isInstituicao;
 

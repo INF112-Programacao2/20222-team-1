@@ -27,10 +27,14 @@ Dashboard::Dashboard(QWidget *parent) :
 
         ui->buttonEditarPerfil->setIcon(icon);
         ui->buttonEditarPerfil->setText("Profissional Saúde");
-
+        ui->txtNomeInstituicao->setText(QString::fromStdString(Banco::_iuser->get_nome()));
     }
     else{
         this->isInstituicao = false;
+          Banco *i;
+
+        ui->txtNomeInstituicao->setText(QString::fromStdString(i->getInstituicaoById(Banco::_puser->get_idInstituicao())->get_nome()));
+        ui->txtNomeProfissional->setText(QString::fromStdString(Banco::_puser->get_nome()));
     }
 }
 
@@ -45,16 +49,15 @@ void Dashboard::populateListDoadores(){
     QListWidgetItem *item;
     ItemView *view;
 
+    std::vector<Doador*> doa = i->getDoadoresByUser();
     ui->doacoesList->setUniformItemSizes(true);
-    for (int var = 0; var < 10; ++var) {
+    for (int var = 0; var < doa.size(); ++var) {
         item = new QListWidgetItem();
         view = new ItemView;
         ui->doadoresList->addItem(item);
         item->setSizeHint(view->sizeHint());
         ui->doadoresList->setItemWidget(item, view);
     }
-
-    ui->txtNomeInstituicao->setText(QString::fromStdString(Banco::_iuser->get_nome()));
 }
 
 void Dashboard::generateGrafico(){
@@ -104,7 +107,16 @@ void Dashboard::on_buttonAdicionarConsumo_clicked()
 
 void Dashboard::on_buttonAdicionarDoacao_clicked()
 {
-    AdicionarDoacao *doacao = new AdicionarDoacao(this);
+    AlertDialog *dialog  = new AlertDialog(this);
+    AdicionarDoacao *doacao;
+    try {
+        doacao = new AdicionarDoacao(this);
+    } catch (const std::out_of_range &e) {
+        dialog->SetMessage(e.what());
+        dialog->exec();
+        return;
+    }
+
     doacao->show();
 }
 
@@ -151,3 +163,13 @@ void Dashboard::on_buttonAdicionarReceptor_clicked()
     CadastrarReceptor *receptor = new CadastrarReceptor(this);
     receptor->show();
 }
+
+void Dashboard::on_pushButton_clicked()
+{
+    Login *login = new Login;
+    Banco::_iuser = nullptr;
+    Banco::_puser = nullptr;
+    login->show();
+    this->close();
+}
+

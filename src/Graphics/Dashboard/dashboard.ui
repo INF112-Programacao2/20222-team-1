@@ -307,6 +307,34 @@ color:#ffffff;
         <enum>QFrame::Raised</enum>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>910</x>
+         <y>10</y>
+         <width>71</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+
+background: #E13833;
+border-radius: 10px;
+color:#ffffff;
+}
+QPushButton:hover{
+background: #992C29;
+border-radius: 10px;
+color:#ffffff;
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>SAIR</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tabDoador">
       <property name="styleSheet">
