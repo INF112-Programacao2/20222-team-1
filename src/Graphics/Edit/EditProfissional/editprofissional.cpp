@@ -4,6 +4,7 @@
 #include "../../AlertDialog/alertdialog.h"
 #include "../../../ProfissionalSaude/profissionalSaude.h"
 #include "../../../Banco/Banco.h"
+#include "../../Dashboard/dashboard.h"
 
 Banco* iProfissional;
 
@@ -51,6 +52,8 @@ void EditProfissional::on_buttonReturn_clicked()
         return;
     }
     
+    Dashboard *dashboard = new Dashboard;
+    dashboard->show();
     this->close();
 }
 

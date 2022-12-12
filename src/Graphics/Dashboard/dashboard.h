@@ -66,6 +66,9 @@ private:
 
     void generateGrafico();
     void populateListDoadores();
+    void populateListConsumo();
+    void populateListReceptor();
+    void populateListDoacao();
 };
 
 #endif // DASHBOARD_H

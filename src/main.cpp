@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[])
 {
-    Banco* main;
+    Banco* main = new Banco();
     QApplication app(argc, argv);
 
     Splash *splashScreen = new Splash;

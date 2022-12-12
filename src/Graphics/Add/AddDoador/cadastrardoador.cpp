@@ -3,6 +3,7 @@
 
 #include "../../AlertDialog/alertdialog.h"
 #include "../../../Banco/Banco.h"
+#include "../../Dashboard/dashboard.h"
 
 #import <ctime>
 #include <string>
@@ -63,6 +64,9 @@ void CadastrarDoador::on_buttonAdd_clicked()
     }
 
     i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), peso, altura, nullptr, tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
+
+    Dashboard *dashboard = new Dashboard;
+    dashboard->show();
 
     this->close();
 }
