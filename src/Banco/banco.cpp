@@ -562,6 +562,27 @@ std::vector<Doador *> Banco::getDoadoresDisponiveis()
     return disponiveis;
 }
 
+std::vector<Doador*> Banco::getDoadores(){
+    return _doadores;
+}
+
+std::vector<Receptor*> Banco::getReceptores(){
+    return _receptores;
+}
+
+std::vector<ProfissionalSaude*> Banco::getProfissionais(){
+    return _profissionais;
+}
+
+std::vector<Doacao*> Banco::getDoacoes(){
+    return _doacao;
+}
+
+std::vector<Consumo*> Banco::getConsumos(){
+    return _consumo;
+}
+
+
 bool Banco::isCpf(std::string palavra)
 {
     int aux = 10;
@@ -707,7 +728,6 @@ bool Banco::isCnpj(std::string palavra)
     else
         return false;
 }
-
 struct tm *Banco::criaStructTm(int dia, int mes, int ano)
 {
     struct tm *tempoAux = new struct tm;

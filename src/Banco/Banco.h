@@ -62,6 +62,12 @@ public:
     std::vector<Doacao*> getDoacoesCompativeis(int idSangue);
     //filtrar disponiveis depois
     std::vector<Doador*> getDoadoresDisponiveis();
+    
+    std::vector<Doador*> getDoadores();
+    std::vector<Receptor*> getReceptores();
+    std::vector<ProfissionalSaude*> getProfissionais();
+    std::vector<Doacao*> getDoacoes();
+    std::vector<Consumo*> getConsumos();
 
     void cadastrarProfissional(ProfissionalSaude *profissional);
 

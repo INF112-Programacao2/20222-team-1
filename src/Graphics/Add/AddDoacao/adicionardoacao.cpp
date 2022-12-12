@@ -42,10 +42,10 @@ void AdicionarDoacao::on_buttonRegister_clicked()
         if( id=! -1){
             time_t dataDoacao, now;
             time(&now);
-            dataDoacao = mktime(iDoacao->criaStructTm(ui->dateColeta->date()->day(), ui->dateColeta->date()->month(), ui->dateColeta->date()->year()));
+            dataDoacao = mktime(iDoacao->criaStructTm(ui->dateColeta->date()->.day(), ui->dateColeta->date()->.month(), ui->dateColeta->date()->.year()));
             if(now >= dataDoacao)
                 if(ui->inputQuantidade->text().toStdString() > "0" && ui->inputQuantidade->text().toStdString()< "1000")
-                    i->setDoacao(new Doacao(iDoacao->criaStructTm(ui->dateColeta->date()->day(), ui->dateColeta->date()->month(), ui->dateColeta->date()->year()),ui->inputQuantidade->text().toStdString(), idDoacao::_puser->get_idInstituicao(), idDoacao::_puser->get_id(), id));
+                    i->setDoacao(new Doacao(iDoacao->criaStructTm(ui->dateColeta->date()->.day(), ui->dateColeta->date()->.month(), ui->dateColeta->date()->.year()),ui->inputQuantidade->text().toStdString(), idDoacao::_puser->get_idInstituicao(), idDoacao::_puser->get_id(), id));
                 else
                     throw std::invalid_argument("A quantidade precisa se maior que o e menor que 1. ");
             else 
