@@ -77,6 +77,9 @@ public:
     bool isNumber(std::string palavra);
     struct tm *criaStructTm(int dia, int mes, int ano);
 
+    std::vector<int> getEstoque(int idInstituicao);
+    std::vector<int> getEstoque();
+
 };
 
 #endif

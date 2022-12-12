@@ -662,7 +662,7 @@ std::vector<Doacao*> Banco::getDoacoesByUser(){
     
     for (int i = 0; i < _doacao.size(); i++)
     {
-        if(_doacao[i]->getInstituicao() == idInstituicao)
+        if(_doacao[i]->getInstituicao() == idInstituicao && _doacao[i]->getSituacao())
             doacoes.push_back(_doacao[i]);
     }
     return doacoes;
@@ -684,7 +684,6 @@ std::vector<Consumo*> Banco::getConsumosByUser(){
     }
     return consumos;
 }
-
 
 bool Banco::isCpf(std::string palavra)
 {
@@ -851,4 +850,24 @@ bool Banco::isNumber(std::string palavra){
                throw std::invalid_argument("/!\\O valor digitado nao e um numero. ");
     }
     return true;
+}
+
+std::vector<int> Banco::getEstoque(int idInstituicao){
+    std::vector<int> estoque(8);
+    for (int i = 0; i < _doacao.size(); i++)
+    {
+        if(_doacao[i]->getInstituicao() == idInstituicao && _doacao[i]->getSituacao())
+                estoque[getDoadorById(_doacao[i]->getDoador())->get_sangue()] =+1;
+    }
+    return estoque;
+}
+
+std::vector<int> Banco::getEstoque(){
+    std::vector<int> estoque(8);
+    for (int i = 0; i < _doacao.size(); i++)
+    {
+        if(_doacao[i]->getSituacao())
+                estoque[getDoadorById(_doacao[i]->getDoador())->get_sangue()] =+1;
+    }
+    return estoque;
 }
