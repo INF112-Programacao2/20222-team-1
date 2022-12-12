@@ -18,7 +18,41 @@ Dashboard::Dashboard(QWidget *parent) :
         ui->listWidget->setItemWidget(item, view);
     }
 
+    //Construir gráfico
+    QBarSet *bar1 = new QBarSet("Sangue");
 
+
+    *bar1 << 5 << 0<< 8 << 25<< 5 << 0<< 8 << 25;
+    bar1->setColor(QColor("#ff0000"));
+    QBarSeries *series = new QBarSeries;
+    series->append(bar1);
+
+    QChart *chart = new QChart;
+    chart->addSeries(series);
+    chart->setTitle("Estoque de Sangue");
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+
+    QStringList categories;
+    categories << "A+" << "B+" << "AB+" << "O+" << "A-" << "B-" << "AB-" << "O-";
+    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    axisX->append(categories);
+    chart->addAxis(axisX, Qt::AlignBottom);
+    series->attachAxis(axisX);
+
+    QValueAxis *axisY = new QValueAxis();
+    axisY->setRange(0,30);
+    chart->addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisY);
+
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    auto layout = new QVBoxLayout();
+    layout->addWidget(chartView);
+    this->ui->graphicsFrame->setLayout(layout);
 }
 
 Dashboard::~Dashboard()

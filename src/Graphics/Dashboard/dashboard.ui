@@ -139,16 +139,6 @@ background-color: #FFD2D2;
         <string>Nome da Instituição</string>
        </property>
       </widget>
-      <widget class="QGraphicsView" name="graficoEstoqueSangue">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>110</y>
-         <width>551</width>
-         <height>391</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QPushButton" name="buttonAdicionarDoacao">
        <property name="geometry">
         <rect>
@@ -299,6 +289,22 @@ color:#ffffff;
          <width>20</width>
          <height>20</height>
         </size>
+       </property>
+      </widget>
+      <widget class="QFrame" name="graphicsFrame">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>110</y>
+         <width>551</width>
+         <height>391</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
       </widget>
      </widget>

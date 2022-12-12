@@ -4,7 +4,15 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QListWidgetItem>
-
+#include <QBarSet>
+#include <QBarSeries>
+#include <QChart>
+#include <QStringList>
+#include <QBarCategoryAxis>
+#include <QValueAxis>
+#include <QChartView>
+#include <QVBoxLayout>
+#include <QColor>
 
 #include "../ItemView/itemview.h"
 #include "../Add/AddConsumo/adicionarconsumo.h"
