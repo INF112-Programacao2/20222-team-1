@@ -42,7 +42,7 @@ void Banco::leArquivoDoador()
 {
     std::ifstream doador_txt("doador.txt");
 
-    if(std::filesystem::file_size(doador_txt)>0)
+    if(std::filesystem::file_size("doador.txt")>0)
         while (!doador_txt.eof())
         {
             int idPessoa;
@@ -91,7 +91,7 @@ void Banco::leArquivoReceptor()
 {
     std::ifstream receptor_txt("receptor.txt");
 
-    if (std::filesystem::file_size(receptor_txt)>0)
+    if (std::filesystem::file_size("receptor.txt")>0)
         while (!receptor_txt.eof())
         {
             int idPessoa;
@@ -126,7 +126,7 @@ void Banco::leArquivoProfissional()
 {
     std::ifstream profissional_txt("profissional.txt");
 
-    if (std::filesystem::file_size(profissional_txt)>0)
+    if (std::filesystem::file_size("profissional.txt")>0)
         while (!profissional_txt.eof())
         {
             int idPessoa;
@@ -166,7 +166,7 @@ void Banco::leArquivoDoacao()
 {
     std::ifstream doacao_txt("doacao.txt");
     // std::cout<<doacao_txt.tellg()<<std::endl;
-    if (std::filesystem::file_size(doacao_txt)>0)
+    if (std::filesystem::file_size("doacao.txt")>0)
         while (!doacao_txt.eof())
         {
             int idDoacao;
@@ -200,7 +200,7 @@ void Banco::leArquivoConsumo()
 {
     std::ifstream consumo_txt("consumo.txt");
     // std::cout<<consumo_txt.tellg()<<std::endl;
-    if (std::filesystem::file_size(consumo_txt)>0)
+    if (std::filesystem::file_size("consumo.txt")>0)
         while (!consumo_txt.eof())
         {
             int idConsumo, idReceptor, idInstituicao, idDoacao;
@@ -231,7 +231,7 @@ void Banco::leArquivoInstituicao()
 {
     std::ifstream instituicao_txt("instituicao.txt");
 
-    if (std::filesystem::file_size(instituicao_txt)>0)
+    if (std::filesystem::file_size("instituicao.txt")>0)
         while (!instituicao_txt.eof())
         {
             int idInstituicao;
