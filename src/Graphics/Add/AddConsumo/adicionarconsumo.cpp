@@ -25,7 +25,7 @@ AdicionarConsumo::AdicionarConsumo(QWidget *parent) :
         for (int i = 0; i < (int) doacoes.size(); i++){
             aux = iAux->getDoadorById(doacoes[i]->getDoador());
             sangueAux = sangue->get_sangue_by_id(aux->get_sangue());
-            ui->comboDoacao->addItem(QString::fromStdString(sangueAux.get_nome()));
+            ui->comboDoacao->insertItem(sangueAux.get_id(), QString::fromStdString(sangueAux.get_nome()));
         }
     } else {
         throw std::out_of_range("Nao ha doacoes disponiveis. ");
@@ -34,11 +34,14 @@ AdicionarConsumo::AdicionarConsumo(QWidget *parent) :
     std::vector<Receptor*> receptores = iAux->getReceptoresByUser();
     if(receptores.size()>0){
         for (int i = 0; i < (int) receptores.size(); i++){
-            ui->comboReceptor->addItem(QString::fromStdString(sangue->get_sangue_by_id(receptores[i]->get_sangue()).get_nome()));
+            sangueAux = sangue->get_sangue_by_id(receptores[i]->get_sangue());
+            ui->comboReceptor->insertItem(sangueAux.get_id(), QString::fromStdString(sangueAux.get_nome()));
         }
     } else {
         throw std::out_of_range("Nao ha ninguem precisando de uma doacao. ");
     }
+
+    ui->dateConsumo->setMaximumDate(QDate::currentDate());
 
 }
 
@@ -50,6 +53,15 @@ AdicionarConsumo::~AdicionarConsumo()
 void AdicionarConsumo::on_buttonAdd_clicked()
 {
     // validar cadastro aqui
+    int receptor = ui->comboReceptor->currentIndex();
+    int doacao = ui->comboDoacao->currentIndex();
+
+    int dia = ui->dateConsumo->date().day();
+    int mes = ui->dateConsumo->date().day();
+    int ano = ui->dateConsumo->date().year();
+
+    iAux->setConsumo(new Consumo(receptor, Banco::_puser->get_idInstituicao(), doacao, iAux->criaStructTm(dia, mes, ano)));
+
     this->close();
 }
 
