@@ -3,6 +3,7 @@
 #include "../../../Banco/Banco.h"
 #include "../../AlertDialog/alertdialog.h"
 #include "../../../Doacao/doacao.h"
+#include "../../Dashboard/dashboard.h"
 #include <iostream>
 #include <QString>
 #include <vector>
@@ -69,6 +70,10 @@ void AdicionarDoacao::on_buttonRegister_clicked()
         dialog->exec();
         return;
     }
+
+    Dashboard *dashboard = new Dashboard;
+    dashboard->show();
+
     this->close();
 }
 

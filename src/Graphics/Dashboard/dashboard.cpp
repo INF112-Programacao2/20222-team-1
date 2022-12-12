@@ -9,6 +9,8 @@ Dashboard::Dashboard(QWidget *parent) :
     ui->setupUi(this);
     this->generateGrafico();
     this->populateListDoadores();
+    this->populateListConsumo();
+    this->populateListReceptor();
 
     if(Banco::_iuser != nullptr){
         this->isInstituicao = true;
@@ -63,12 +65,73 @@ void Dashboard::populateListDoadores(){
     }
 }
 
+void Dashboard::populateListConsumo(){
+    Banco *i;
+
+    QListWidgetItem *item;
+    ItemView *view;
+
+    std::vector<Consumo*> doa = i->getConsumosByUser();
+    ui->consumoList->setUniformItemSizes(true);
+    for (int var = 0; var < doa.size(); ++var) {
+        item = new QListWidgetItem();
+        view = new ItemView;
+        view->set_id(doa[var]->get_id());
+        view->set_nome(i->getReceptorById(doa[var]->get_idReceptor())->get_nome());
+        view->set_Rh("");
+        ui->consumoList->addItem(item);
+        item->setSizeHint(view->sizeHint());
+        ui->consumoList->setItemWidget(item, view);
+    }
+}
+
+void Dashboard::populateListDoacao(){
+    Banco *i;
+
+    QListWidgetItem *item;
+    ItemView *view;
+
+    std::vector<Doacao*> doa = i->getDoacoesByUser();
+    ui->doacoesList->setUniformItemSizes(true);
+    for (int var = 0; var < doa.size(); ++var) {
+        item = new QListWidgetItem();
+        view = new ItemView;
+        view->set_id(doa[var]->get_id());
+        view->set_nome(i->getInstituicaoById(doa[var]->getInstituicao())->get_nome());
+        view->set_Rh(std::to_string(doa[var]->getQuantidade()));
+        ui->doacoesList->addItem(item);
+        item->setSizeHint(view->sizeHint());
+        ui->doacoesList->setItemWidget(item, view);
+    }
+}
+
+void Dashboard::populateListReceptor(){
+    Banco *i;
+
+    QListWidgetItem *item;
+    ItemView *view;
+
+    std::vector<Receptor*> doa = i->getReceptoresByUser();
+    ui->receptoresList->setUniformItemSizes(true);
+    for (int var = 0; var < doa.size(); ++var) {
+        item = new QListWidgetItem();
+        view = new ItemView;
+        view->set_id(doa[var]->get_id());
+        view->set_nome(doa[var]->get_nome());
+        view->set_Rh("");
+        ui->receptoresList->addItem(item);
+        item->setSizeHint(view->sizeHint());
+        ui->receptoresList->setItemWidget(item, view);
+    }
+}
+
 void Dashboard::generateGrafico(){
+    Banco *i;
     //Construir gráfico
     QBarSet *bar1 = new QBarSet("Sangue");
 
-
-    *bar1 << 5 << 0<< 8 << 25<< 5 << 0<< 8 << 25;
+    std::vector<int> aaa =  i->getEstoque(Banco::_puser->get_idInstituicao());
+    *bar1 << aaa[0] << aaa[1] << aaa[2] << aaa[3] << aaa[4] << aaa[5]<< aaa[6] << aaa[7];
     bar1->setColor(QColor("#ff0000"));
     QBarSeries *series = new QBarSeries;
     series->append(bar1);
@@ -79,7 +142,7 @@ void Dashboard::generateGrafico(){
     chart->setAnimationOptions(QChart::SeriesAnimations);
 
     QStringList categories;
-    categories << "A+" << "B+" << "AB+" << "O+" << "A-" << "B-" << "AB-" << "O-";
+    categories << "A+" << "A-" << "B+" << "B-" << "O+" << "0-" << "AB+" << "AB-";
     QBarCategoryAxis *axisX = new QBarCategoryAxis();
     axisX->append(categories);
     chart->addAxis(axisX, Qt::AlignBottom);
@@ -106,7 +169,7 @@ void Dashboard::on_buttonAdicionarConsumo_clicked()
     AlertDialog *dialog  = new AlertDialog(this);
     AdicionarConsumo *consumo;
     try {
-        consumo = new AdicionarConsumo(this);
+        consumo = new AdicionarConsumo;
     } catch (const std::out_of_range &e) {
         dialog->SetMessage(e.what());
         dialog->exec();
@@ -114,6 +177,7 @@ void Dashboard::on_buttonAdicionarConsumo_clicked()
     }
 
     consumo->show();
+    this->close();
 }
 
 
@@ -122,7 +186,7 @@ void Dashboard::on_buttonAdicionarDoacao_clicked()
     AlertDialog *dialog  = new AlertDialog(this);
     AdicionarDoacao *doacao;
     try {
-        doacao = new AdicionarDoacao(this);
+        doacao = new AdicionarDoacao;
     } catch (const std::out_of_range &e) {
         dialog->SetMessage(e.what());
         dialog->exec();
@@ -130,6 +194,7 @@ void Dashboard::on_buttonAdicionarDoacao_clicked()
     }
 
     doacao->show();
+    this->close();
 }
 
 
@@ -145,7 +210,7 @@ void Dashboard::on_buttonEditarPerfil_clicked()
         profissional->show();
     }
     else{
-        EditProfissional *profissional = new EditProfissional(this);
+        EditProfissional *profissional = new EditProfissional;
         profissional->show();
     }
 }
@@ -155,7 +220,7 @@ void Dashboard::on_buttonAdicionarConsumo_2_clicked()
     AlertDialog *dialog  = new AlertDialog(this);
     AdicionarConsumo *consumo;
     try {
-        consumo = new AdicionarConsumo(this);
+        consumo = new AdicionarConsumo;
     } catch (const std::out_of_range &e) {
         dialog->SetMessage(e.what());
         dialog->exec();
@@ -163,6 +228,7 @@ void Dashboard::on_buttonAdicionarConsumo_2_clicked()
     }
 
     consumo->show();
+    this->close();
 }
 
 
@@ -171,26 +237,29 @@ void Dashboard::on_buttonAdicionarDoacao_2_clicked()
     AlertDialog *dialog  = new AlertDialog(this);
     AdicionarDoacao *doacao;
     try {
-        doacao = new AdicionarDoacao(this);
+        doacao = new AdicionarDoacao;
     } catch (const std::out_of_range &e) {
         dialog->SetMessage(e.what());
         dialog->exec();
         return;
     }
     doacao->show();
+    this->close();
 }
 
 void Dashboard::on_buttonAdicionarDoador_clicked()
 {
-    CadastrarDoador *doador = new CadastrarDoador(this);
+    CadastrarDoador *doador = new CadastrarDoador;
     doador->show();
+    this->close();
 }
 
 
 void Dashboard::on_buttonAdicionarReceptor_clicked()
 {
-    CadastrarReceptor *receptor = new CadastrarReceptor(this);
+    CadastrarReceptor *receptor = new CadastrarReceptor;
     receptor->show();
+    this->close();
 }
 
 void Dashboard::on_pushButton_clicked()

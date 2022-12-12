@@ -6,6 +6,7 @@
 
 #include <QString>
 #include "../../AlertDialog/alertdialog.h"
+#include "../../Dashboard/dashboard.h"
 #include <string>
 #include <exception>
 
@@ -51,6 +52,7 @@ void CadastrarReceptor::on_buttonAdd_clicked()
     try {
         if(ui->comboTipoSangue->currentIndex() == -1) throw std::invalid_argument("Selecione um tipo sanguínio!");
         if(!i->isCpf(cpf)) throw std::invalid_argument("CPF inválido!");
+        if(i->isReceptor((cpf))!= nullptr) throw std::invalid_argument("Credenciais ja cadastradas!");
         if(nome.size() < 2) throw std::invalid_argument("O nome deve ter pelo menos 2 caracteres.");
     } catch(std::invalid_argument &e){
         dialog->SetMessage(e.what());
@@ -60,5 +62,7 @@ void CadastrarReceptor::on_buttonAdd_clicked()
 
     i->setReceptor(new Receptor(nome, cpf, i->criaStructTm(dia, mes, ano), tipo));
 
+    Dashboard *dashboard = new Dashboard;
+    dashboard->show();
     this->close();
 }
