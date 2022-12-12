@@ -79,6 +79,8 @@ void Banco::leArquivoDoador()
                 setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::MASCULINO)));
             else if (sexo == 1)
                 setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::FEMININO)));
+
+            _doadores[0]->set_static(idPessoa++);
         }
 
     doador_txt.close();
@@ -112,6 +114,8 @@ void Banco::leArquivoReceptor()
             receptor_txt >> idSangue >> aux;
 
             setReceptor((new Receptor(idPessoa, nome, cpf, dataNascimento, idSangue)));
+
+            _receptores[0]->set_static(idPessoa++);
         }
 
     receptor_txt.close();
@@ -150,6 +154,8 @@ void Banco::leArquivoProfissional()
                 setProfissional((new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::MEDICX, idInstituicao)));
             else if (cargo == 1)
                 setProfissional((new ProfissionalSaude(idPessoa, nome, cpf, dataNascimento, senha, Cargo::ENFERMEIRX, idInstituicao)));
+
+            _profissionais[0]->set_static(idPessoa++);
         }
 
     profissional_txt.close();
@@ -182,6 +188,8 @@ void Banco::leArquivoDoacao()
             doacao_txt >> quantidade >> idInstituicao >> idProfissional >> idDoador >> situacao >> aux;
 
             setDoacao((new Doacao(idDoacao, dataColeta, quantidade, idInstituicao, idProfissional, idDoador, situacao)));
+
+            _doacao[0]->setStatic(idDoacao++);
         }
 
     doacao_txt.close();
@@ -211,6 +219,8 @@ void Banco::leArquivoConsumo()
             consumo_txt >> aux;
 
             setConsumo((new Consumo(idConsumo, idReceptor, idInstituicao, idDoacao, dataConsumo)));
+
+            _consumo[0]->setStatic(idConsumo++);
         }
 
     consumo_txt.close();
@@ -236,6 +246,8 @@ void Banco::leArquivoInstituicao()
             instituicao_txt >> aux;
 
             setInstituicao((new Instituicao(idInstituicao, nome, endereco, cnpj, senha)));
+
+            _instituicao[0]->set_static(idInstituicao++);
         }
 
     instituicao_txt.close();
