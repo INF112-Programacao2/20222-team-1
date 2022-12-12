@@ -17,6 +17,10 @@ public:
 
 private:
     Ui::AdicionarDoacao *ui;
+
+private slots:
+    void on_buttonReturn_2_clicked();
+    void on_buttonRegister_clicked();
 };
 
 #endif // ADICIONARDOACAO_H
