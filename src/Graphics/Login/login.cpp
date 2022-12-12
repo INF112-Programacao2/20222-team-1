@@ -72,6 +72,8 @@ void Login::on_buttonLogin_clicked()
                  if(user != nullptr){
                      if(user->get_senha() != ui->inputSenha->text().toStdString())
                         throw std::out_of_range("Senha incorreta.");
+                     else
+                        Banco::_iuser = user;
                  }else
                      throw std::invalid_argument("Nao existe nenhuma conta com essas credenciais.");
              }else{
@@ -101,6 +103,8 @@ void Login::on_buttonLogin_clicked()
                 if(user != nullptr){
                     if(user->get_senha() != ui->inputSenha->text().toStdString())
                         throw std::out_of_range("Verifique sua senha");
+                    else
+                        Banco::_puser = user;
                 }else
                     throw std::invalid_argument("Não existe nenhuma conta com essas credenciais.");
             }

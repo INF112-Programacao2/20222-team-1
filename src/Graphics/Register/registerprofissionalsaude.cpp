@@ -21,7 +21,7 @@ void RegisterProfissionalSaude::on_buttonReturn_clicked()
 
 void RegisterProfissionalSaude::on_buttonRegistrar_clicked()
 {   // validacao
-    this.close();
+    this->close();
 
 }
 
