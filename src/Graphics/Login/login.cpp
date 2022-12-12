@@ -134,8 +134,5 @@ void Login::on_buttonRegistrarInstituicao_clicked()
     resInstituicao->show();
 
     this->hide();
-    QApplication::processEvents();
-    this->show();
-
 }
 

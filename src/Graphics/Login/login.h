@@ -6,6 +6,7 @@
 #include <iostream>
 #include <QMessageBox>
 #include <QIcon>
+#include <QEventLoop>
 #include "../Dashboard/dashboard.h"
 #include "../AlertDialog/alertdialog.h"
 #include "../Register/registerinstituicao.h"
