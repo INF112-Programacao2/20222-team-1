@@ -47,7 +47,7 @@ void Banco::leArquivoDoador()
             struct tm *dataNascimento = new struct tm;
             double peso, altura;
             struct tm *dataUltimaDoacao = new struct tm;
-            int idSangue;
+            int idSangue, sexo;
 
             int dia, mes, ano;
             std::string aux;
@@ -70,10 +70,13 @@ void Banco::leArquivoDoador()
             dataUltimaDoacao->tm_hour = 0;
             dataUltimaDoacao->tm_min = 0;
             dataUltimaDoacao->tm_sec = 0;
-            doador_txt >> idSangue;
+            doador_txt >> idSangue >> sexo;
             doador_txt >> aux;
 
-            setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue)));
+            if(sexo == 0)
+                setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::MASCULINO)));
+            else if(sexo == 1)
+                setDoador((new Doador(idPessoa, nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::FEMININO)));
         }
 
     doador_txt.close();
