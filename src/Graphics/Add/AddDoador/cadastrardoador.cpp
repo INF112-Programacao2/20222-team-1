@@ -42,8 +42,8 @@ void CadastrarDoador::on_buttonAdd_clicked()
     std::string cpf = ui->inputCPF->text().toStdString();
     int tipo = ui->comboTipoSangue->currentIndex();
     int sexo = ui->comboSexo->currentIndex();
-    double altura = (double) ui->inputAltura->text().toInt() / 100.00;
-    double peso = (double) ui->inputPeso->text().toInt() / 100.00;
+    std::string altura = ui->inputAltura->text().toStdString();
+    std::string peso = ui->inputPeso->text().toStdString();
 
     int diaNascimento = ui->dateNascimento->date().day();
     int mesNascimento = ui->dateNascimento->date().day();
@@ -62,7 +62,20 @@ void CadastrarDoador::on_buttonAdd_clicked()
         return;
     }
 
-    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), peso, altura, nullptr, tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
+    double altAux, pesAux;
+    try {
+        if(!i->isNumber(altura)) throw std::invalid_argument("A altura precisa ser um numero.");
+        if(!i->isNumber(peso)) throw std::invalid_argument("O peso precisa ser um numero.");
+
+        altAux = (double) std::stoi(altura);
+        pesAux = (double) std::stoi(peso);
+    } catch(std::invalid_argument &e){
+        dialog->SetMessage(e.what());
+        dialog->exec();
+        return;
+    }
+
+    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), pesAux/100.00, altAux/1000.00, nullptr, tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
 
     this->close();
 }
