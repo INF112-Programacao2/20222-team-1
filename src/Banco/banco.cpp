@@ -545,6 +545,10 @@ std::vector<Doacao *> Banco::getDoacoesCompativeis(int idSangue)
     return compativeis;
 }
 
+std::vector<Doador*> Banco::getDoadoresDisponiveis(){
+    return {};
+}
+
 bool Banco::isCpf(std::string palavra)
 {
     int aux = 10;

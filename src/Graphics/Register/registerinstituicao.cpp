@@ -22,7 +22,6 @@ void RegisterInstituicao::on_buttonReturn_clicked()
     this->close();
 }
 
-
 void RegisterInstituicao::on_buttonRegister_clicked()
 {
     AlertDialog *dialog = new AlertDialog(this);

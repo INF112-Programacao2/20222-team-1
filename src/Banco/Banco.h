@@ -58,6 +58,8 @@ public:
     Instituicao *isInstituicao(std::string cnpj);
 
     std::vector<Doacao*> getDoacoesCompativeis(int idSangue);
+    //filtrar disponiveis depois
+    std::vector<Doador*> getDoadoresDisponiveis();
 
     void cadastrarProfissional(ProfissionalSaude *profissional);
 
