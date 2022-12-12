@@ -5,7 +5,7 @@
 
 int Doador::_numDoador = 0;
 
-Doador::Doador(std::string nome, std::string cpf, struct tm *dataNascimento, double peso, double altura, struct tm *dataUltimaDoacao, int idSangue)
+Doador::Doador(std::string nome, std::string cpf, struct tm *dataNascimento, double peso, double altura, struct tm *dataUltimaDoacao, int idSangue, Sexo sexo)
 {
     _id = _numDoador;
     _numDoador ++;
@@ -16,9 +16,10 @@ Doador::Doador(std::string nome, std::string cpf, struct tm *dataNascimento, dou
     _altura = altura;
     _dataUltimaDoacao = dataUltimaDoacao;
     _idSangue = idSangue;
+    _sexo = sexo;
 }
 
-Doador::Doador(int id,std::string nome, std::string cpf, struct tm *dataNascimento, double peso, double altura, struct tm *dataUltimaDoacao, int idSangue)
+Doador::Doador(int id,std::string nome, std::string cpf, struct tm *dataNascimento, double peso, double altura, struct tm *dataUltimaDoacao, int idSangue, Sexo sexo)
 {
     _id = id;
     _nome = nome;
@@ -28,6 +29,7 @@ Doador::Doador(int id,std::string nome, std::string cpf, struct tm *dataNascimen
     _altura = altura;
     _dataUltimaDoacao = dataUltimaDoacao;
     _idSangue = idSangue;
+    _sexo = sexo;
 }
 
 std::string Doador::get_nome()
@@ -39,7 +41,6 @@ std::string Doador::get_cpf()
 {
     return _cpf;
 }
-
 struct tm *Doador::get_dataNascimento()
 {
     return _dataNascimento;
@@ -58,6 +59,10 @@ double Doador::get_altura()
 double Doador::get_peso()
 {
     return _peso;
+}
+
+Sexo Doador::get_sexo(){
+    return _sexo;
 }
 
 void Doador::set_nome(std::string nome)
@@ -92,6 +97,10 @@ void Doador::set_sangue(int id)
 void Doador::set_data(struct tm *dataUltimaDoacao)
 {
     _dataUltimaDoacao = dataUltimaDoacao;
+}
+
+void Doador::set_sexo(Sexo sexo){
+    _sexo = sexo;
 }
 struct tm *Doador::get_dataUltimaDoacao()
 {
