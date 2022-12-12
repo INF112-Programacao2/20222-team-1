@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#centralwidget{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255,118,118,1), stop:1 rgba(255,210,210,1));}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
     <size>
@@ -38,18 +41,19 @@
      <height>572</height>
     </size>
    </property>
-   <widget class="QFrame" name="frAdicionarConsumo">
+   <widget class="QFrame" name="frEditarDados">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>70</y>
+      <x>60</x>
+      <y>60</y>
       <width>871</width>
-      <height>481</height>
+      <height>461</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background: #FFFFFF;
-border-radius: 50px;</string>
+border-radius: 50px;
+</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -57,12 +61,12 @@ border-radius: 50px;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="txtAdicionarConsumo">
+    <widget class="QLabel" name="txtEditarDados">
      <property name="geometry">
       <rect>
        <x>310</x>
        <y>30</y>
-       <width>281</width>
+       <width>251</width>
        <height>41</height>
       </rect>
      </property>
@@ -74,21 +78,21 @@ border-radius: 50px;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">font-weight: 700;
-font-size: 30px;
+font-size: 40px;
 line-height: 36px;
 color: #000000;
 
 </string>
      </property>
      <property name="text">
-      <string>Adicionar Consumo</string>
+      <string>Editar Dados </string>
      </property>
     </widget>
     <widget class="QPushButton" name="buttonAdd">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>380</y>
+       <x>300</x>
+       <y>350</y>
        <width>251</width>
        <height>64</height>
       </rect>
@@ -103,121 +107,92 @@ color: #FFFFFF;
 </string>
      </property>
      <property name="text">
-      <string>Adicionar</string>
+      <string>Salvar Alterações</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboReceptor">
+    <widget class="QLineEdit" name="inputNome">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>130</y>
-       <width>741</width>
+       <x>200</x>
+       <y>140</y>
+       <width>541</width>
        <height>61</height>
       </rect>
      </property>
-     <property name="statusTip">
+     <property name="styleSheet">
+      <string notr="true">
+background: #FFFFFF;
+border: 0.5px solid #000000;
+border-radius: 10px;
+</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="txtNome">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>150</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-weight: 700;
+font-size: 30px;
+line-height: 19px;
+color: #000000;
+</string>
+     </property>
+     <property name="text">
+      <string>Nome: </string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="txtSenha">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>250</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-weight: 700;
+font-size: 30px;
+line-height: 19px;
+color: #000000;
+</string>
+     </property>
+     <property name="text">
+      <string>Senha: </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="inputSenha">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>240</y>
+       <width>541</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: #FFFFFF;
+border: 0.5px solid #000000;
+border-radius: 10px;
+color:#000000;</string>
+     </property>
+     <property name="text">
       <string/>
      </property>
-     <property name="styleSheet">
-      <string notr="true">border: 1px solid black;
-border-radius: 10px;</string>
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
      </property>
-    </widget>
-    <widget class="QLabel" name="txtDataConsumo">
-     <property name="geometry">
-      <rect>
-       <x>540</x>
-       <y>220</y>
-       <width>191</width>
-       <height>31</height>
-      </rect>
+     <property name="placeholderText">
+      <string>************</string>
      </property>
-     <property name="styleSheet">
-      <string notr="true">font-weight: 700;
-font-size: 22px;
-line-height: 19px;
-color: #000000;
-</string>
-     </property>
-     <property name="text">
-      <string>Data Consumo</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="txtReceptor">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>90</y>
-       <width>191</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font-weight: 700;
-font-size: 22px;
-line-height: 19px;
-color: #000000;
-
-</string>
-     </property>
-     <property name="text">
-      <string>Receptor: </string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="txtDoacao">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>220</y>
-       <width>191</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font-weight: 700;
-font-size: 22px;
-line-height: 19px;
-color: #000000;
-
-</string>
-     </property>
-     <property name="text">
-      <string>Doação: </string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="comboDoacao">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>270</y>
-       <width>361</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="statusTip">
-      <string/>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 1px solid black;
-border-radius: 10px;</string>
-     </property>
-    </widget>
-    <widget class="QDateEdit" name="dateConsumo">
-     <property name="geometry">
-      <rect>
-       <x>540</x>
-       <y>270</y>
-       <width>261</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 1px solid black;
-color: black;
-font-size: 22px;
-padding-left: 10px;
-border-radius:10px;
-</string>
+     <property name="cursorMoveStyle">
+      <enum>Qt::VisualMoveStyle</enum>
      </property>
     </widget>
    </widget>
