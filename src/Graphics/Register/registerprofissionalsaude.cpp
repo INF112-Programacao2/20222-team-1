@@ -51,6 +51,7 @@ void RegisterProfissionalSaude::on_buttonRegistrar_clicked()
     try {
         if(!i->isCpf(cpf)) throw std::invalid_argument("CPF inválido!");
         if(nome.size() < 2) throw std::invalid_argument("O nome deve ter pelo menos 2 caracteres.");
+        if(senha.size() < 5) throw std::invalid_argument("A senha deve ter pelo menos 5 caracteres.");
     } catch(std::invalid_argument &e){
         dialog->SetMessage(e.what());
         dialog->exec();
