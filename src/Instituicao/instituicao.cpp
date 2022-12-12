@@ -19,7 +19,6 @@ Instituicao::Instituicao(std::string nome, std::string endereco, std::string cnp
     _nome = nome;
     _endereco = endereco;
     _cnpj = cnpj;
-    _id = _numInstituicao;
     _senha = senha;
     _numInstituicao++;
 }
@@ -30,7 +29,6 @@ Instituicao::Instituicao(int id, std::string nome, std::string endereco, std::st
     _nome = nome;
     _endereco = endereco;
     _cnpj = cnpj;
-    _id = _numInstituicao;
     _senha = senha;
     _numInstituicao++;
 }
