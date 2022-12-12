@@ -15,6 +15,11 @@ public:
     explicit CadastrarReceptor(QWidget *parent = nullptr);
     ~CadastrarReceptor();
 
+private slots:
+    void on_buttonReturn_clicked();
+
+    void on_buttonAdd_clicked();
+
 private:
     Ui::CadastrarReceptor *ui;
 };

@@ -15,6 +15,13 @@ CadastrarDoador::~CadastrarDoador()
 
 void CadastrarDoador::on_buttonAdd_clicked()
 {
+    // vaidacao e cadastrar dados aqui
+    this->close();
+}
 
+
+void CadastrarDoador::on_buttonReturn_clicked()
+{
+    this->close();
 }
 

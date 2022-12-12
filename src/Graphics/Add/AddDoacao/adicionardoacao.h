@@ -15,12 +15,13 @@ public:
     explicit AdicionarDoacao(QWidget *parent = nullptr);
     ~AdicionarDoacao();
 
-private:
-    Ui::AdicionarDoacao *ui;
-
 private slots:
     void on_buttonReturn_2_clicked();
+
     void on_buttonRegister_clicked();
+
+private:
+    Ui::AdicionarDoacao *ui;
 };
 
 #endif // ADICIONARDOACAO_H
