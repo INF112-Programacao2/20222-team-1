@@ -1,7 +1,7 @@
 #include "registerinstituicao.h"
 #include "ui_registerinstituicao.h"
 
-Banco j(0);
+Banco j;
 
 RegisterInstituicao::RegisterInstituicao(QWidget *parent) :
     QMainWindow(parent),

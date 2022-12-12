@@ -14,19 +14,17 @@
 class Banco
 {
 private:
-    static Banco *_instance;
-    std::vector<Doador *> _doadores;
-    std::vector<Receptor *> _receptores;
-    std::vector<ProfissionalSaude *> _profissionais;
-    std::vector<Sangue *> _sangue;
-    std::vector<Doacao *> _doacao;
-    std::vector<Consumo *> _consumo;
-    std::vector<Instituicao *> _instituicao;
-    Banco();
+    //static Banco *_instance;
+    static std::vector<Doador *> _doadores;
+    static std::vector<Receptor *> _receptores;
+    static std::vector<ProfissionalSaude *> _profissionais;
+    static std::vector<Sangue *> _sangue;
+    static std::vector<Doacao *> _doacao;
+    static std::vector<Consumo *> _consumo;
+    static std::vector<Instituicao *> _instituicao;
 
 public:
-    Banco(int n);
-    Banco *getInstance();
+    Banco();
     void leArquivoDoador();
     void leArquivoReceptor();
     void leArquivoProfissional();
@@ -59,7 +57,7 @@ public:
     Receptor *isReceptor(std::string cpf);
     Instituicao *isInstituicao(std::string cnpj);
 
-    std::vector<Doacao> getDoacoesCompativeis(int idSangue);
+    std::vector<Doacao*> getDoacoesCompativeis(int idSangue);
 
     void cadastrarProfissional(ProfissionalSaude *profissional);
 

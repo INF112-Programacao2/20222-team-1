@@ -1,7 +1,7 @@
 #include "login.h"
 #include "ui_login.h"
 
-Banco i(0);
+Banco i;
 
 Login::Login(QWidget *parent) :
     QMainWindow(parent),
