@@ -245,14 +245,14 @@ void Banco::leArquivoInstituicao()
 
         std::string aux;
 
-        instituicao_txt >> idInstituicao;
+        std::getline(instituicao_txt, idInstituicao);
         if(idInstituicao == "")
             break;
         std::getline(instituicao_txt, nome);
         std::getline(instituicao_txt, endereco);
-        instituicao_txt >> cnpj;
+        std::getline(instituicao_txt, cnpj);
         std::getline(instituicao_txt, senha);
-        instituicao_txt >> aux;
+        std::getline(instituicao_txt, aux);
 
         setInstituicao((new Instituicao(stoi(idInstituicao), nome, endereco, cnpj, senha)));
 
