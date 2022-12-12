@@ -181,6 +181,12 @@ border: 0.5px solid #000000;
 border-radius: 10px;
 </string>
      </property>
+     <property name="inputMask">
+      <string>000.000.000-00</string>
+     </property>
+     <property name="placeholderText">
+      <string>000.000.000-00</string>
+     </property>
     </widget>
     <widget class="QLabel" name="txtCPF">
      <property name="geometry">
@@ -260,7 +266,7 @@ border-radius: 10px;
 </string>
      </property>
      <property name="inputMask">
-      <string/>
+      <string>0</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="inputAltura">
@@ -285,7 +291,7 @@ border-radius: 10px;
       <rect>
        <x>350</x>
        <y>180</y>
-       <width>71</width>
+       <width>141</width>
        <height>21</height>
       </rect>
      </property>
@@ -297,7 +303,7 @@ color: #000000;
 </string>
      </property>
      <property name="text">
-      <string>Altura</string>
+      <string>Altura ( cm )</string>
      </property>
     </widget>
     <widget class="QLabel" name="txtPeso">

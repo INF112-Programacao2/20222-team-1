@@ -6,7 +6,7 @@
 
 #import <ctime>
 #include <string>
-#include <QDoubleValidator>
+#include <QIntValidator>
 
 CadastrarDoador::CadastrarDoador(QWidget *parent) :
     QMainWindow(parent),
@@ -24,8 +24,8 @@ CadastrarDoador::CadastrarDoador(QWidget *parent) :
     ui->comboSexo->addItem(sexo[1]);
 
     ui->dateNascimento->setMaximumDate(QDate::currentDate());
-    ui->inputAltura->setValidator(new QDoubleValidator(50, 300, 2, this));
-    ui->inputPeso->setValidator(new QDoubleValidator(50, 1000, 2, this));
+    ui->inputAltura->setValidator(new QIntValidator(50, 300, this));
+    ui->inputPeso->setValidator(new QIntValidator(1000, 1000000, this));
 }
 
 CadastrarDoador::~CadastrarDoador()
@@ -42,8 +42,8 @@ void CadastrarDoador::on_buttonAdd_clicked()
     std::string cpf = ui->inputCPF->text().toStdString();
     int tipo = ui->comboTipoSangue->currentIndex();
     int sexo = ui->comboSexo->currentIndex();
-    double altura = ui->txtAltura->text().toDouble();
-    double peso;
+    double altura = (double) ui->inputAltura->text().toInt() / 100.00;
+    double peso = (double) ui->inputPeso->text().toInt() / 100.00;
 
     int diaNascimento = ui->dateNascimento->date().day();
     int mesNascimento = ui->dateNascimento->date().day();
@@ -56,17 +56,17 @@ void CadastrarDoador::on_buttonAdd_clicked()
     Banco* i;
     try {
         if(ui->comboTipoSangue->currentIndex() == -1) throw std::invalid_argument("Selecione um tipo sanguínio!");
-        if(i->isCpf(cpf)) throw std::invalid_argument("CPF inválido!");
+        if(!i->isCpf(cpf)) throw std::invalid_argument("CPF inválido!");
         if(nome.size() < 2) throw std::invalid_argument("O nome deve ter pelo menos 2 caracteres.");
-
-
+        if(ui->inputAltura->text() == "") throw std::invalid_argument("Digite a altura do doador.");
+        if(ui->inputPeso->text() == "") throw std::invalid_argument("Digite o peso do doador.");
     } catch(std::invalid_argument &e){
         dialog->SetMessage(e.what());
         dialog->exec();
         return;
     }
 
-    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), peso, altura, i->criaStructTm(diaUltimo, mesUltimo, anoUltimo), tipo, sexo));
+    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), peso, altura, i->criaStructTm(diaUltimo, mesUltimo, anoUltimo), tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
 
     this->close();
 }
