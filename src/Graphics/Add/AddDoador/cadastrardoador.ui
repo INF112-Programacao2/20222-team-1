@@ -164,46 +164,6 @@ color: #000000;
 color: black;
 border-radius: 10px;</string>
      </property>
-     <item>
-      <property name="text">
-       <string>A + </string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>A -</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>B +</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>B -</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>AB +</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>AB -</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>O +</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>O -</string>
-      </property>
-     </item>
     </widget>
     <widget class="QLineEdit" name="inputCPF">
      <property name="geometry">
@@ -431,16 +391,6 @@ color: #000000;
 color: black;
 border-radius: 10px;</string>
      </property>
-     <item>
-      <property name="text">
-       <string>Masculino</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Feminino</string>
-      </property>
-     </item>
     </widget>
    </widget>
    <widget class="QPushButton" name="buttonReturn">

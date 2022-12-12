@@ -66,7 +66,7 @@ void CadastrarDoador::on_buttonAdd_clicked()
         return;
     }
 
-    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), tipo, sexo));
+    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), peso, altura, i->criaStructTm(diaUltimo, mesUltimo, anoUltimo), tipo, sexo));
 
     this->close();
 }
