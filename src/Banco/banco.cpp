@@ -741,3 +741,11 @@ struct tm *Banco::criaStructTm(int dia, int mes, int ano)
 
     return tempoAux;
 }
+
+bool Banco::isNumber(std::string palavra){
+    for(int i =0; i< palavra.size(); i++){
+        if(!isdigit(palavra[i]))
+               throw std::invalid_argument("/!\\O valor digitado nao e um numero. ");
+    }
+    return true;
+}
