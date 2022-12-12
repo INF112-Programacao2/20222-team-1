@@ -1,5 +1,7 @@
 #include "adicionardoacao.h"
 #include "ui_adicionardoacao.h"
+#include "../../../Banco/Banco.h"
+#include <QString>
 #include <vector>
 
 Banco* iDoacao;
@@ -9,8 +11,12 @@ AdicionarDoacao::AdicionarDoacao(QWidget *parent) :
     ui(new Ui::AdicionarDoacao)
 {
     ui->setupUi(this);
-    std::vector<Doacao*> doadores;
-    ui->comboDoador->setItemText()
+    std::vector<Doador*> doadores = iDoacao->getDoadoresDisponiveis();
+    for (int i = 0; i < doadores.size(); i++)
+    {
+        ui->comboDoador->setItemText(doadores[i]->get_id(), QString::fromStdString(doadores[i]->get_nome()));
+    }
+
 }
 
 AdicionarDoacao::~AdicionarDoacao()
