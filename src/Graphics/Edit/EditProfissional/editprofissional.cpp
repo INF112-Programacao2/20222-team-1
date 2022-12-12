@@ -23,12 +23,12 @@ EditProfissional::~EditProfissional()
 }
 
 void EditProfissional::on_buttonReturn_clicked()
-{   
+{   AlertDialog *dialog = new AlertDialog(this);
     try{
         std::string nome = ui->inputNome->text().toStdString();
         if( nome.size() >1){
         std::string senha = ui->inputSenha->text().toStdString();
-            if(senha<5)
+            if(senha.size()<5)
                 throw std::invalid_argument("A senha precisa ter no minimo 2 caracteres. ");
             Banco::_puser->set_nome(nome);
             Banco::_puser->set_senha(senha);

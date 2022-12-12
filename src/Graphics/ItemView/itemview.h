@@ -2,6 +2,8 @@
 #define ITEMVIEW_H
 
 #include <QWidget>
+#include "../../Sangue/sangue.h"
+#include <string>
 
 namespace Ui {
 class ItemView;
@@ -16,7 +18,7 @@ public:
     ~ItemView();
     void set_id(int id);
     void set_nome(std::string nome);
-    void set_Rh(Rh rh);
+    void set_Rh(std::string rh);
 
 private:
     Ui::ItemView *ui;

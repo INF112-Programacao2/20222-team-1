@@ -54,6 +54,9 @@ void Dashboard::populateListDoadores(){
     for (int var = 0; var < doa.size(); ++var) {
         item = new QListWidgetItem();
         view = new ItemView;
+        view->set_id(doa[var]->get_id());
+        view->set_nome(doa[var]->get_nome());
+        view->set_Rh(Sangue().get_sangue_by_id(doa[var]->get_sangue()).get_nome());
         ui->doadoresList->addItem(item);
         item->setSizeHint(view->sizeHint());
         ui->doadoresList->setItemWidget(item, view);
@@ -100,7 +103,16 @@ void Dashboard::generateGrafico(){
 
 void Dashboard::on_buttonAdicionarConsumo_clicked()
 {
-    AdicionarConsumo *consumo = new AdicionarConsumo(this);
+    AlertDialog *dialog  = new AlertDialog(this);
+    AdicionarConsumo *consumo;
+    try {
+        consumo = new AdicionarConsumo(this);
+    } catch (const std::out_of_range &e) {
+        dialog->SetMessage(e.what());
+        dialog->exec();
+        return;
+    }
+
     consumo->show();
 }
 
@@ -140,14 +152,31 @@ void Dashboard::on_buttonEditarPerfil_clicked()
 
 void Dashboard::on_buttonAdicionarConsumo_2_clicked()
 {
-    AdicionarConsumo *consumo = new AdicionarConsumo(this);
+    AlertDialog *dialog  = new AlertDialog(this);
+    AdicionarConsumo *consumo;
+    try {
+        consumo = new AdicionarConsumo(this);
+    } catch (const std::out_of_range &e) {
+        dialog->SetMessage(e.what());
+        dialog->exec();
+        return;
+    }
+
     consumo->show();
 }
 
 
 void Dashboard::on_buttonAdicionarDoacao_2_clicked()
 {
-    AdicionarDoacao *doacao = new AdicionarDoacao(this);
+    AlertDialog *dialog  = new AlertDialog(this);
+    AdicionarDoacao *doacao;
+    try {
+        doacao = new AdicionarDoacao(this);
+    } catch (const std::out_of_range &e) {
+        dialog->SetMessage(e.what());
+        dialog->exec();
+        return;
+    }
     doacao->show();
 }
 

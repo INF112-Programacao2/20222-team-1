@@ -27,6 +27,7 @@
 #include "../Register/registerprofissionalsaude.h"
 #include "../Login/login.h"
 #include "../AlertDialog/alertdialog.h"
+#include "../../Sangue/sangue.h"
 
 namespace Ui {
 class Dashboard;
