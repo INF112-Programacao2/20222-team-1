@@ -84,3 +84,29 @@ void Dashboard::on_buttonEditarPerfil_clicked()
     EditProfissional *profissional = new EditProfissional(this);
     profissional->show();
 }
+
+void Dashboard::on_buttonAdicionarConsumo_2_clicked()
+{
+    AdicionarConsumo *consumo = new AdicionarConsumo(this);
+    consumo->show();
+}
+
+
+void Dashboard::on_buttonAdicionarDoacao_2_clicked()
+{
+    AdicionarDoacao *doacao = new AdicionarDoacao(this);
+    doacao->show();
+}
+
+void Dashboard::on_buttonAdicionarDoador_clicked()
+{
+    CadastrarDoador *doador = new CadastrarDoador(this);
+    doador->show();
+}
+
+
+void Dashboard::on_buttonAdicionarReceptor_clicked()
+{
+    CadastrarReceptor *receptor = new CadastrarReceptor(this);
+    receptor->show();
+}

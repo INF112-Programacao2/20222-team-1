@@ -20,6 +20,8 @@
 #include "../Add/AddDoacao/adicionardoacao.h"
 #include "../Add/AddDoador/cadastrardoador.h"
 #include "../Edit/EditProfissional/editprofissional.h"
+#include "../Add/AddReceptor/cadastrarreceptor.h"
+#include "../Add/AddDoador/cadastrardoador.h"
 
 namespace Ui {
 class Dashboard;
@@ -42,7 +44,15 @@ private slots:
 
     void on_buttonEditarPerfil_clicked();
 
-private:
+    void on_buttonAdicionarConsumo_2_clicked();
+
+    void on_buttonAdicionarDoacao_2_clicked();
+
+    void on_buttonAdicionarDoador_clicked();
+
+    void on_buttonAdicionarReceptor_clicked();
+
+    private:
     Ui::Dashboard *ui;
 };
 
