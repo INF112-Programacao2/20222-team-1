@@ -47,40 +47,46 @@ void Banco::leArquivoDoador()
         std::string idPessoa;
         std::string nome, cpf;
         struct tm *dataNascimento = new struct tm;
-        double peso, altura;
+        std::string peso, altura;
         struct tm *dataUltimaDoacao = new struct tm;
-        int idSangue, sexo;
+        std::string idSangue, sexo;
 
-        int dia, mes, ano;
+        std::string dia, mes, ano;
         std::string aux;
 
-        doador_txt >> idPessoa;
+        std::getline(doador_txt, idPessoa);
         if(idPessoa == "")
             break;
         std::getline(doador_txt, nome);
-        doador_txt >> cpf;
-        doador_txt >> dia >> mes >> ano;
-        dataNascimento->tm_mday = dia;
-        dataNascimento->tm_mon = mes;
-        dataNascimento->tm_year = ano;
+        std::getline(doador_txt, cpf);
+        std::getline(doador_txt, dia);
+        std::getline(doador_txt, mes);
+        std::getline(doador_txt, ano);
+        dataNascimento->tm_mday = stoi(dia);
+        dataNascimento->tm_mon = stoi(mes) - 1;
+        dataNascimento->tm_year = stoi(ano) - 1900;
         dataNascimento->tm_hour = 0;
         dataNascimento->tm_min = 0;
         dataNascimento->tm_sec = 0;
-        doador_txt >> peso >> altura;
-        doador_txt >> dia >> mes >> ano;
-        dataUltimaDoacao->tm_mday = dia;
-        dataUltimaDoacao->tm_mon = mes - 1;
-        dataUltimaDoacao->tm_year = ano - 1900;
+        std::getline(doador_txt, peso);
+        std::getline(doador_txt, altura);
+        std::getline(doador_txt, dia);
+        std::getline(doador_txt, mes);
+        std::getline(doador_txt, ano);
+        dataUltimaDoacao->tm_mday = stoi(dia);
+        dataUltimaDoacao->tm_mon = stoi(mes) - 1;
+        dataUltimaDoacao->tm_year = stoi(ano) - 1900;
         dataUltimaDoacao->tm_hour = 0;
         dataUltimaDoacao->tm_min = 0;
         dataUltimaDoacao->tm_sec = 0;
-        doador_txt >> idSangue >> sexo;
-        doador_txt >> aux;
+        std::getline(doador_txt, idSangue);
+        std::getline(doador_txt, sexo);
+        std::getline(doador_txt, aux);
 
-        if (sexo == 0)
-            setDoador((new Doador(stoi(idPessoa), nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::MASCULINO)));
-        else if (sexo == 1)
-            setDoador((new Doador(stoi(idPessoa), nome, cpf, dataNascimento, peso, altura, dataUltimaDoacao, idSangue, Sexo::FEMININO)));
+        if (stoi(sexo) == 0)
+            setDoador((new Doador(stoi(idPessoa), nome, cpf, dataNascimento, stod(peso), stod(altura), dataUltimaDoacao, stoi(idSangue), Sexo::MASCULINO)));
+        else if (stoi(sexo) == 1)
+            setDoador((new Doador(stoi(idPessoa), nome, cpf, dataNascimento, stod(peso), stod(altura), dataUltimaDoacao, stoi(idSangue), Sexo::FEMININO)));
         
         _doadores[0]->set_static(stoi(idPessoa)+1);
     }
@@ -97,26 +103,29 @@ void Banco::leArquivoReceptor()
         std::string idPessoa;
         std::string nome, cpf;
         struct tm *dataNascimento = new struct tm;
-        int idSangue;
+        std::string idSangue;
 
-        int dia, mes, ano;
+        std::string dia, mes, ano;
         std::string aux;
 
-        receptor_txt >> idPessoa;
+        std::getline(receptor_txt, idPessoa);
         if(idPessoa == "")
             break;
         std::getline(receptor_txt, nome);
-        receptor_txt >> cpf;
-        receptor_txt >> dia >> mes >> ano;
-        dataNascimento->tm_mday = dia;
-        dataNascimento->tm_mon = mes - 1;
-        dataNascimento->tm_year = ano - 1900;
+        std::getline(receptor_txt, cpf);
+        std::getline(receptor_txt, dia);
+        std::getline(receptor_txt, mes);
+        std::getline(receptor_txt, ano);
+        dataNascimento->tm_mday = stoi(dia);
+        dataNascimento->tm_mon = stoi(mes) - 1;
+        dataNascimento->tm_year = stoi(ano) - 1900;
         dataNascimento->tm_hour = 0;
         dataNascimento->tm_min = 0;
         dataNascimento->tm_sec = 0;
-        receptor_txt >> idSangue >> aux;
+        std::getline(receptor_txt, idSangue);
+        std::getline(receptor_txt, aux);
 
-        setReceptor((new Receptor(stoi(idPessoa), nome, cpf, dataNascimento, idSangue)));
+        setReceptor((new Receptor(stoi(idPessoa), nome, cpf, dataNascimento, stoi(idSangue))));
 
         _receptores[0]->set_static(stoi(idPessoa)+1);
     }
@@ -134,30 +143,35 @@ void Banco::leArquivoProfissional()
         std::string nome, cpf;
         struct tm *dataNascimento = new struct tm;
         std::string senha;
-        int cargo;
-        int idInstituicao;
+        std::string cargo;
+        std::string idInstituicao;
 
-        int dia, mes, ano;
+        std::string dia, mes, ano;
         std::string aux;
 
-        profissional_txt >> idPessoa;
+        std::getline(profissional_txt, idPessoa);
         if(idPessoa == "")
             break;
         std::getline(profissional_txt, nome);
-        profissional_txt >> cpf;
-        profissional_txt >> dia >> mes >> ano;
-        dataNascimento->tm_mday = dia;
-        dataNascimento->tm_mon = mes - 1;
-        dataNascimento->tm_year = ano - 1900;
+        std::getline(profissional_txt, cpf);
+        std::getline(profissional_txt, dia);
+        std::getline(profissional_txt, mes);
+        std::getline(profissional_txt, ano);
+        dataNascimento->tm_mday = stoi(dia);
+        dataNascimento->tm_mon = stoi(mes) - 1;
+        dataNascimento->tm_year = stoi(ano) - 1900;
         dataNascimento->tm_hour = 0;
         dataNascimento->tm_min = 0;
         dataNascimento->tm_sec = 0;
-        profissional_txt >> senha >> cargo >> idInstituicao >> aux;
+        std::getline(profissional_txt, senha);
+        std::getline(profissional_txt, cargo);
+        std::getline(profissional_txt, idInstituicao);
+        std::getline(profissional_txt, aux);
 
-        if (cargo == 0)
-            setProfissional((new ProfissionalSaude(stoi(idPessoa), nome, cpf, dataNascimento, senha, Cargo::MEDICX, idInstituicao)));
-        else if (cargo == 1)
-            setProfissional((new ProfissionalSaude(stoi(idPessoa), nome, cpf, dataNascimento, senha, Cargo::ENFERMEIRX, idInstituicao)));
+        if (stoi(cargo) == 0)
+            setProfissional((new ProfissionalSaude(stoi(idPessoa), nome, cpf, dataNascimento, senha, Cargo::MEDICX, stoi(idInstituicao))));
+        else if (stoi(cargo) == 1)
+            setProfissional((new ProfissionalSaude(stoi(idPessoa), nome, cpf, dataNascimento, senha, Cargo::ENFERMEIRX, stoi(idInstituicao))));
 
         _profissionais[0]->set_static(stoi(idPessoa)+1);
     }
@@ -173,26 +187,33 @@ void Banco::leArquivoDoacao()
     {
         std::string idDoacao;
         struct tm *dataColeta = new struct tm;
-        double quantidade;
-        int idInstituicao, idProfissional, idDoador;
-        bool situacao;
+        std::string quantidade;
+        std::string idInstituicao, idProfissional, idDoador;
+        std::string situacao;
 
-        int dia, mes, ano;
+        std::string dia, mes, ano;
         std::string aux;
 
-        doacao_txt >> idDoacao;
+        std::getline(doacao_txt, idDoacao);
         if(idDoacao == "")
             break;
-        doacao_txt >> dia >> mes >> ano;
-        dataColeta->tm_mday = dia;
-        dataColeta->tm_mon = mes - 1;
-        dataColeta->tm_year = ano - 1900;
+        std::getline(doacao_txt, dia);
+        std::getline(doacao_txt, mes);
+        std::getline(doacao_txt, ano);
+        dataColeta->tm_mday = stoi(dia);
+        dataColeta->tm_mon = stoi(mes) - 1;
+        dataColeta->tm_year = stoi(ano) - 1900;
         dataColeta->tm_hour = 0;
         dataColeta->tm_min = 0;
         dataColeta->tm_sec = 0;
-        doacao_txt >> quantidade >> idInstituicao >> idProfissional >> idDoador >> situacao >> aux;
+        std::getline(doacao_txt, quantidade);
+        std::getline(doacao_txt, idInstituicao);
+        std::getline(doacao_txt, idProfissional);
+        std::getline(doacao_txt, idDoador);
+        std::getline(doacao_txt, situacao);
+        std::getline(doacao_txt, aux);
 
-        setDoacao((new Doacao(stoi(idDoacao), dataColeta, quantidade, idInstituicao, idProfissional, idDoador, situacao)));
+        setDoacao((new Doacao(stoi(idDoacao), dataColeta, stod(quantidade), stoi(idInstituicao), stoi(idProfissional), stoi(idDoador), stoi(situacao))));
 
         _doacao[0]->setStatic(stoi(idDoacao)+1);
     }
@@ -207,26 +228,30 @@ void Banco::leArquivoConsumo()
     while (!consumo_txt.eof())
     {
         std::string idConsumo;
-        int idReceptor, idInstituicao, idDoacao;
+        std::string idReceptor, idInstituicao, idDoacao;
         struct tm *dataConsumo = new struct tm;
 
-        int dia, mes, ano;
+        std::string dia, mes, ano;
         std::string aux;
 
-        consumo_txt >> idConsumo;
+        std::getline(consumo_txt, idConsumo);
         if(idConsumo == "")
             break;
-        consumo_txt >> idReceptor >> idInstituicao >> idDoacao;
-        consumo_txt >> dia >> mes >> ano;
-        dataConsumo->tm_mday = dia;
-        dataConsumo->tm_mon = mes - 1;
-        dataConsumo->tm_year = ano - 1900;
+        std::getline(consumo_txt, idReceptor);
+        std::getline(consumo_txt, idInstituicao);
+        std::getline(consumo_txt, idDoacao);
+        std::getline(consumo_txt, dia);
+        std::getline(consumo_txt, mes);
+        std::getline(consumo_txt, ano);
+        dataConsumo->tm_mday = stoi(dia);
+        dataConsumo->tm_mon = stoi(mes) - 1;
+        dataConsumo->tm_year = stoi(ano) - 1900;
         dataConsumo->tm_hour = 0;
         dataConsumo->tm_min = 0;
         dataConsumo->tm_sec = 0;
-        consumo_txt >> aux;
+        std::getline(consumo_txt, aux);
 
-        setConsumo((new Consumo(stoi(idConsumo), idReceptor, idInstituicao, idDoacao, dataConsumo)));
+        setConsumo((new Consumo(stoi(idConsumo), stoi(idReceptor), stoi(idInstituicao), stoi(idDoacao), dataConsumo)));
 
         _consumo[0]->setStatic(stoi(idConsumo)+1);
     }
