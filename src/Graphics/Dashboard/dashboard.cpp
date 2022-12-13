@@ -29,7 +29,7 @@ Dashboard::Dashboard(QWidget *parent) :
 
         ui->buttonEditarPerfil->setIcon(icon);
         ui->buttonEditarPerfil->setText("Profissional Saúde");
-        ui->txtNomeInstituicao->setText(QString::fromStdString(Banco::_iuser->get_nome()));
+        //ui->txtNomeInstituicao->setText(QString::fromStdString(Banco::_iuser->get_nome()));
     }
     else{
         this->isInstituicao = false;
@@ -53,6 +53,9 @@ void Dashboard::populateListDoadores(){
 
     std::vector<Doador*> doa = i->getDoadoresByUser();
     ui->doadoresList->setUniformItemSizes(true);
+    //if(doa.size() == 0)
+
+    //else
     for (int var = 0; var < doa.size(); ++var) {
         item = new QListWidgetItem();
         view = new ItemView;
@@ -126,44 +129,48 @@ void Dashboard::populateListReceptor(){
 }
 
 void Dashboard::generateGrafico(){
-    if (Banco::_puser != nullptr){
-        Banco *i;
-        //Construir gráfico
-        QBarSet *bar1 = new QBarSet("Sangue");
+    int instituicao = 0;
+    if (Banco::_puser != nullptr)
+        instituicao = Banco::_puser->get_instituicao();
+    else
+        instituicao = Banco::_iuser->get_id();
 
-        std::vector<int> aaa =  i->getEstoque(Banco::_puser->get_instituicao());
-        *bar1 << aaa[0] << aaa[1] << aaa[2] << aaa[3] << aaa[4] << aaa[5]<< aaa[6] << aaa[7];
-        bar1->setColor(QColor("#ff0000"));
-        QBarSeries *series = new QBarSeries;
-        series->append(bar1);
+    Banco *i;
+    //Construir gráfico
+    QBarSet *bar1 = new QBarSet("Sangue");
 
-        QChart *chart = new QChart;
-        chart->addSeries(series);
-        chart->setTitle("Estoque de Sangue");
-        chart->setAnimationOptions(QChart::SeriesAnimations);
+    std::vector<int> aaa =  i->getEstoque(instituicao);
+    *bar1 << aaa[0] << aaa[1] << aaa[2] << aaa[3] << aaa[4] << aaa[5]<< aaa[6] << aaa[7];
+    bar1->setColor(QColor("#ff0000"));
+    QBarSeries *series = new QBarSeries;
+    series->append(bar1);
 
-        QStringList categories;
-        categories << "A+" << "A-" << "B+" << "B-" << "O+" << "0-" << "AB+" << "AB-";
-        QBarCategoryAxis *axisX = new QBarCategoryAxis();
-        axisX->append(categories);
-        chart->addAxis(axisX, Qt::AlignBottom);
-        series->attachAxis(axisX);
+    QChart *chart = new QChart;
+    chart->addSeries(series);
+    chart->setTitle("Estoque de Sangue");
+    chart->setAnimationOptions(QChart::SeriesAnimations);
 
-        QValueAxis *axisY = new QValueAxis();
-        axisY->setRange(0,30);
-        chart->addAxis(axisY, Qt::AlignLeft);
-        series->attachAxis(axisY);
+    QStringList categories;
+    categories << "A+" << "A-" << "B+" << "B-" << "O+" << "0-" << "AB+" << "AB-";
+    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    axisX->append(categories);
+    chart->addAxis(axisX, Qt::AlignBottom);
+    series->attachAxis(axisX);
 
-        chart->legend()->setVisible(true);
-        chart->legend()->setAlignment(Qt::AlignBottom);
+    QValueAxis *axisY = new QValueAxis();
+    axisY->setRange(0,30);
+    chart->addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisY);
 
-        QChartView *chartView = new QChartView(chart);
-        chartView->setRenderHint(QPainter::Antialiasing);
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
 
-        auto layout = new QVBoxLayout();
-        layout->addWidget(chartView);
-        this->ui->graphicsFrame->setLayout(layout);
-    }
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    auto layout = new QVBoxLayout();
+    layout->addWidget(chartView);
+    this->ui->graphicsFrame->setLayout(layout);
 
 }
 
