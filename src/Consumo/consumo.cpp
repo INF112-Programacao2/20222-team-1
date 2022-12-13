@@ -13,6 +13,7 @@ Consumo::Consumo(int idReceptor, int idInstituicao, int idDoacao, struct tm *dat
     _idInstituicao = idInstituicao;
     _idDoacao = idDoacao;
     _dataConsumo = dataConsumo;
+    bconsumo->getDoacaoById(idDoacao)->set_situacao(false);
     
 }
 
@@ -24,7 +25,6 @@ Consumo::Consumo(int id, int idReceptor, int idInstituicao, int idDoacao, struct
     _idInstituicao = idInstituicao;
     _idDoacao = idDoacao;
     _dataConsumo = dataConsumo;
-    bconsumo->getDoacaoById(idDoacao)->set_situacao(false);
 }
 
 void Consumo::set_data(struct tm *data)

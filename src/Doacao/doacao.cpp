@@ -2,6 +2,9 @@
 #include "../Instituicao/instituicao.h"
 #include "../Pessoa/pessoaIF.h"
 #include "../Doador/Doador.h"
+#include "../Banco/Banco.h"
+
+Banco* bdoacao;
 
 int Doacao::_numDoacao = 0;
 
@@ -21,6 +24,9 @@ Doacao::Doacao(struct tm *dataColeta, double quantidade, int idInstituicao, int 
 
     auxValidade = mktime(_dataColeta) + 3024000;
     _dataValidade = localtime(&auxValidade);
+    
+    bdoacao->getDoadorById(idDoador)->set_data(dataColeta);
+
 }
 
 Doacao::Doacao(int id, struct tm *dataColeta, double quantidade, int idInstituicao, int idProfissional, int idDoador, bool situacao)
@@ -117,6 +123,7 @@ int Doacao::get_id()
 
 Doacao::~Doacao()
 {
+    delete bdoacao;
     delete _dataColeta;
     delete _dataValidade;
 }
