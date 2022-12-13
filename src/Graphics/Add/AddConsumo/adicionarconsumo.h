@@ -14,7 +14,7 @@ class AdicionarConsumo : public QMainWindow
 
 public:
     explicit AdicionarConsumo(QWidget *parent = nullptr);
-    AdicionarConsumo(Consumo consumo, QWidget *parent = nullptr);
+    AdicionarConsumo(Consumo consumo, QWidget *parent2 = nullptr);
     ~AdicionarConsumo();
 
 private slots:

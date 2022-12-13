@@ -11,14 +11,14 @@
 
 Banco* iAux = new Banco();
 
-AdicionarConsumo::AdicionarConsumo(Consumo consumo, QWidget *parent = nullptr):
-    QMainWindow(parent),
+AdicionarConsumo::AdicionarConsumo(Consumo consumo, QWidget *parent2 = nullptr):
+    QMainWindow(parent2),
     ui(new Ui::AdicionarConsumo)
 {
     ui->setupUi(this);
 }
 
-AdicionarConsumo::AdicionarConsumo(QWidget *parent) :
+AdicionarConsumo::AdicionarConsumo(QWidget *parent = nullptr) :
     QMainWindow(parent),
     ui(new Ui::AdicionarConsumo)
 {
