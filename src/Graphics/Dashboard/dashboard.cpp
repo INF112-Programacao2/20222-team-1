@@ -50,7 +50,6 @@ Dashboard::Dashboard(QWidget *parent) :
     ui->txtContDoadores->setText(QString::fromStdString(contDoadores));
     ui->txtContAptos->setText(QString::fromStdString(contAptos));
     ui->txtContFora->setText(QString::fromStdString(contFora));
-    ui->txtContReceptores->setText(QString::fromStdString(std::to_string(idashboard->getReceptores().size())+" receptor(es) cadastrados"));
 
 }
 
@@ -66,24 +65,22 @@ void Dashboard::populateListDoadores(){
 
     std::vector<Doador*> doa = idashboard->getDoadores();
     ui->doadoresList->setUniformItemSizes(true);
-    if(doa.size() != 0){
-        ui->erroDoadoresSemDados->setVisible(false);
-        //ui->erroConsumoSemDados->hide();
-        for (int var = 0; var < doa.size(); ++var) {
-            item = new QListWidgetItem();
-            view = new ItemView;
-            view->set_id(doa[var]->get_id());
-            view->set_nome(doa[var]->get_nome());
-            if(Sangue().get_sangue_by_id(doa[var]->get_sangue()).get_rh_sangue() == Rh::POSITIVO)
-                view->set_Rh(Sangue().get_sangue_by_id(doa[var]->get_sangue()).get_nome()+"+");
-            else
-                view->set_Rh(Sangue().get_sangue_by_id(doa[var]->get_sangue()).get_nome()+"-");
-            ui->doadoresList->addItem(item);
-            item->setSizeHint(view->sizeHint());
-            ui->doadoresList->setItemWidget(item, view);
-        }
-    }else
-        ui->erroDoadoresSemDados->setVisible(true);
+    //if(doa.size() == 0)
+
+    //else
+    for (int var = 0; var < doa.size(); ++var) {
+        item = new QListWidgetItem();
+        view = new ItemView;
+        view->set_id(doa[var]->get_id());
+        view->set_nome(doa[var]->get_nome());
+        if(Sangue().get_sangue_by_id(doa[var]->get_sangue()).get_rh_sangue() == Rh::POSITIVO)
+            view->set_Rh(Sangue().get_sangue_by_id(doa[var]->get_sangue()).get_nome()+"+");
+        else
+            view->set_Rh(Sangue().get_sangue_by_id(doa[var]->get_sangue()).get_nome()+"-");
+        ui->doadoresList->addItem(item);
+        item->setSizeHint(view->sizeHint());
+        ui->doadoresList->setItemWidget(item, view);
+    }
 }
 
 void Dashboard::populateListConsumo(){
@@ -94,21 +91,16 @@ void Dashboard::populateListConsumo(){
 
     std::vector<Consumo*> doa = idashboard->getConsumosByUser();
     ui->consumoList->setUniformItemSizes(true);
-    if(doa.size() != 0){
-        ui->erroConsumoSemDados->setVisible(false);
-        for (int var = 0; var < doa.size(); ++var) {
-            item = new QListWidgetItem();
-            view = new ItemView;
-            view->set_id(doa[var]->get_id());
-            view->set_nome(idashboard->getReceptorById(doa[var]->get_receptor())->get_nome());
-            view->set_Rh("");
-            ui->consumoList->addItem(item);
-            item->setSizeHint(view->sizeHint());
-            ui->consumoList->setItemWidget(item, view);
-        }
-    }else
-        ui->erroConsumoSemDados->setVisible(true);
-
+    for (int var = 0; var < doa.size(); ++var) {
+        item = new QListWidgetItem();
+        view = new ItemView;
+        view->set_id(doa[var]->get_id());
+        view->set_nome(idashboard->getReceptorById(doa[var]->get_receptor())->get_nome());
+        view->set_Rh("");
+        ui->consumoList->addItem(item);
+        item->setSizeHint(view->sizeHint());
+        ui->consumoList->setItemWidget(item, view);
+    }
 }
 
 void Dashboard::populateListDoacao(){
@@ -118,20 +110,16 @@ void Dashboard::populateListDoacao(){
 
     std::vector<Doacao*> doa = idashboard->getDoacoesByUser();
     ui->doacoesList->setUniformItemSizes(true);
-    if(doa.size() != 0){
-        ui->erroDoacoesSemDados->setVisible(false);
-        for (int var = 0; var < doa.size(); ++var) {
-            item = new QListWidgetItem();
-            view = new ItemView;
-            view->set_id(doa[var]->get_id());
-            view->set_nome(idashboard->getDoadorById(doa[var]->get_doador())->get_nome());
-            view->set_Rh(std::to_string(doa[var]->get_quantidade()));
-            ui->doacoesList->addItem(item);
-            item->setSizeHint(view->sizeHint());
-            ui->doacoesList->setItemWidget(item, view);
-        }
-    }else
-        ui->erroDoacoesSemDados->setVisible(true);
+    for (int var = 0; var < doa.size(); ++var) {
+        item = new QListWidgetItem();
+        view = new ItemView;
+        view->set_id(doa[var]->get_id());
+        view->set_nome(idashboard->getDoadorById(doa[var]->get_doador())->get_nome());
+        view->set_Rh(std::to_string(doa[var]->get_quantidade()));
+        ui->doacoesList->addItem(item);
+        item->setSizeHint(view->sizeHint());
+        ui->doacoesList->setItemWidget(item, view);
+    }
 }
 
 void Dashboard::populateListReceptor(){
@@ -141,21 +129,16 @@ void Dashboard::populateListReceptor(){
 
     std::vector<Receptor*> doa = idashboard->getReceptores();
     ui->receptoresList->setUniformItemSizes(true);
-    
-    if(doa.size() != 0){
-        ui->erroReceptoresSemDados->setVisible(false);
-        for (int var = 0; var < doa.size(); ++var) {
-            item = new QListWidgetItem();
-            view = new ItemView;
-            view->set_id(doa[var]->get_id());
-            view->set_nome(doa[var]->get_nome());
-            view->set_Rh("");
-            ui->receptoresList->addItem(item);
-            item->setSizeHint(view->sizeHint());
-            ui->receptoresList->setItemWidget(item, view);
-        }
-    }else
-        ui->erroReceptoresSemDados->setVisible(true);
+    for (int var = 0; var < doa.size(); ++var) {
+        item = new QListWidgetItem();
+        view = new ItemView;
+        view->set_id(doa[var]->get_id());
+        view->set_nome(doa[var]->get_nome());
+        view->set_Rh("");
+        ui->receptoresList->addItem(item);
+        item->setSizeHint(view->sizeHint());
+        ui->receptoresList->setItemWidget(item, view);
+    }
 }
 
 void Dashboard::generateGrafico(){
