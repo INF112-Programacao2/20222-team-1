@@ -85,7 +85,7 @@ background-color: #FFD2D2;
 }</string>
      </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabHome">
       <property name="minimumSize">
@@ -496,7 +496,7 @@ color:#ffffff;
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="txtContDoadores_3">
+       <widget class="QLabel" name="txtProfissionaisSaude">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -1009,7 +1009,7 @@ color:#ffffff;
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="txtContDoadores_2">
+       <widget class="QLabel" name="txtContReceptores">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -1186,6 +1186,42 @@ color:#ffffff;
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
+      </widget>
+      <widget class="QFrame" name="frame_6">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>190</y>
+         <width>281</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="txtContDoacoes">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>261</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size:30px;</string>
+        </property>
+        <property name="text">
+         <string>150 
+Cadastrados</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="tabConsumo">
