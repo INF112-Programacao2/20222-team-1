@@ -55,7 +55,7 @@ void Banco::leArquivoDoador()
         std::string aux;
 
         std::getline(doador_txt, idPessoa);
-        if(idPessoa.size() < 0)
+        if(idPessoa == "")
             break;
         std::getline(doador_txt, nome);
         std::getline(doador_txt, cpf);
