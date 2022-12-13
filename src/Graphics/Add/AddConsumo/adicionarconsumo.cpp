@@ -24,7 +24,7 @@ AdicionarConsumo::AdicionarConsumo(QWidget *parent) :
     std::vector<Doacao*> doacoes = iAux->getDoacoesByUser();
     if(doacoes.size()>0){
         for (int i = 0; i < (int) doacoes.size(); i++){
-            aux = iAux->getDoadorById(doacoes[i]->getDoador());
+            aux = iAux->getDoadorById(doacoes[i]->get_doador());
             sangueAux = sangue->get_sangue_by_id(aux->get_sangue());
             QString s;
             s.push_back(QString::fromStdString(aux->get_nome()));
@@ -69,7 +69,7 @@ void AdicionarConsumo::on_buttonAdd_clicked()
     int mes = ui->dateConsumo->date().day();
     int ano = ui->dateConsumo->date().year();
 
-    iAux->setConsumo(new Consumo(receptor, Banco::_puser->get_idInstituicao(), doacao, iAux->criaStructTm(dia, mes, ano)));
+    iAux->setConsumo(new Consumo(receptor, Banco::_puser->get_instituicao(), doacao, iAux->criaStructTm(dia, mes, ano)));
 
     Dashboard *dashboard = new Dashboard;
     dashboard->show();

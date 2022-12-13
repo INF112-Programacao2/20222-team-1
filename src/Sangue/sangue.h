@@ -13,7 +13,7 @@ enum Rh
 class Sangue
 {
 private:
-    static std::vector<Sangue> _instance;
+    static std::vector<Sangue*> _instance;
     static int _numSangue;
     int _id;
     std::string _nome;

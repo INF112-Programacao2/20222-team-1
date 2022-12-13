@@ -22,13 +22,14 @@ public:
     Consumo(int idReceptor, int idInstituicao, int idDoacao, struct tm *dataConsumo);
     Consumo(int id, int idReceptor, int idInstituicao, int idDoacao, struct tm *dataConsumo);
     ~Consumo();
+
     int get_id();
-    int get_idReceptor();
-    int get_idInstituicao();
-    void setData(struct tm *data);
-    void setStatic(int n);
-    int get_idDoacao() const;
-    struct tm *getData() const;
+    int get_receptor();
+    int get_instituicao();
+    void set_data(struct tm *data);
+    void set_static(int n);
+    int get_doacao() const;
+    struct tm *get_data() const;
 };
 
 #endif

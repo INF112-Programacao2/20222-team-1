@@ -29,7 +29,7 @@ public:
     int get_id();
     std::string get_nome();
     std::string get_cpf();
-    struct tm *get_dataNascimento();
+    struct tm *get_data_nascimento();
     Sexo get_sexo();
 
     void set_nome(std::string nome);
@@ -43,7 +43,7 @@ public:
     double get_altura();
     double get_peso();
     // Revisar esse retorno
-    struct tm *get_dataUltimaDoacao();
+    struct tm *get_data_ultima_doacao();
     int get_sangue() const;
 
     bool is_apto();

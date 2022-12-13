@@ -3,18 +3,18 @@
 #include "sangue.h"
 
 int Sangue::_numSangue = 0; 
-std::vector<Sangue> Sangue::_instance = std::vector<Sangue>();
+std::vector<Sangue*> Sangue::_instance = std::vector<Sangue*>();
 
 Sangue::Sangue(){
     if(Sangue::_instance.size() == 0){
-        Sangue::_instance.push_back( Sangue("A", Rh::POSITIVO));
-        Sangue::_instance.push_back( Sangue("A", Rh::NEGATIVO));
-        Sangue::_instance.push_back( Sangue("B", Rh::POSITIVO));
-        Sangue::_instance.push_back( Sangue("B", Rh::NEGATIVO));
-        Sangue::_instance.push_back( Sangue("AB", Rh::POSITIVO));
-        Sangue::_instance.push_back( Sangue("AB", Rh::NEGATIVO));
-        Sangue::_instance.push_back( Sangue("O", Rh::POSITIVO));
-        Sangue::_instance.push_back( Sangue("O", Rh::NEGATIVO));
+        Sangue::_instance.push_back(new Sangue("A", Rh::POSITIVO));
+        Sangue::_instance.push_back(new Sangue("A", Rh::NEGATIVO));
+        Sangue::_instance.push_back(new Sangue("B", Rh::POSITIVO));
+        Sangue::_instance.push_back(new Sangue("B", Rh::NEGATIVO));
+        Sangue::_instance.push_back(new Sangue("AB", Rh::POSITIVO));
+        Sangue::_instance.push_back(new Sangue("AB", Rh::NEGATIVO));
+        Sangue::_instance.push_back(new Sangue("O", Rh::POSITIVO));
+        Sangue::_instance.push_back(new Sangue("O", Rh::NEGATIVO));
     }
 }
 
@@ -47,8 +47,8 @@ int Sangue::get_id(){
 
 Sangue Sangue::get_sangue_by_id(int id){
     for(int i = 0; i < Sangue::_instance.size(); i++)
-        if(Sangue::_instance[i].get_id() == id)
-            return _instance[i];
+        if(Sangue::_instance[i]->get_id() == id)
+            return *_instance[i];
     return {};
 }
 

@@ -10,8 +10,6 @@ Banco *binstituicao = new Banco();
 
 int Instituicao::_numInstituicao = 0;
 
-Instituicao::~Instituicao() {}
-
 Instituicao::Instituicao(std::string nome, std::string endereco, std::string cnpj, std::string senha)
 {
     _id = _numInstituicao;
@@ -75,4 +73,8 @@ int Instituicao::get_id()
 void Instituicao::cadastrarProfissional(std::string nome, std::string cpf, struct tm *data, std::string senha, Cargo cargo)
 {
     binstituicao->cadastrarProfissional(new ProfissionalSaude(nome, cpf, data, senha, cargo, _id));
+}
+
+Instituicao::~Instituicao() {
+    delete binstituicao;
 }

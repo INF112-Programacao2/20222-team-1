@@ -41,7 +41,7 @@ std::string Doador::get_cpf()
 {
     return _cpf;
 }
-struct tm *Doador::get_dataNascimento()
+struct tm *Doador::get_data_nascimento()
 {
     return _dataNascimento;
 }
@@ -102,7 +102,7 @@ void Doador::set_data(struct tm *dataUltimaDoacao)
 void Doador::set_sexo(Sexo sexo){
     _sexo = sexo;
 }
-struct tm *Doador::get_dataUltimaDoacao()
+struct tm *Doador::get_data_ultima_doacao()
 {
     return _dataUltimaDoacao;
 }
@@ -145,4 +145,6 @@ bool Doador::is_apto()
 
 Doador::~Doador()
 {
+    delete _dataUltimaDoacao;
+    delete _dataNascimento;
 }

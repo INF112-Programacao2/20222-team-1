@@ -40,7 +40,7 @@ std::string ProfissionalSaude::get_cpf()
 {
     return _cpf;
 }
-struct tm *ProfissionalSaude::get_dataNascimento()
+struct tm *ProfissionalSaude::get_data_nascimento()
 {
     return _dataNascimento;
 }
@@ -56,7 +56,7 @@ Cargo ProfissionalSaude::get_cargo()
 {
     return _cargo;
 }
-int ProfissionalSaude::get_idInstituicao()
+int ProfissionalSaude::get_instituicao()
 {
     return _idInstituicao;
 }
@@ -78,4 +78,5 @@ void ProfissionalSaude::set_cargo(Cargo cargo)
 }
 ProfissionalSaude::~ProfissionalSaude()
 {
+    delete _dataNascimento;
 }

@@ -23,13 +23,13 @@ public:
 
     int get_id();
     std::string get_cpf();
-    struct tm *get_dataNascimento();
+    struct tm *get_data_nascimento();
     //std::string get_login();
     std::string get_senha();
     std::string get_nome();
     Cargo get_cargo();
-    int get_idProfissional();
-    int get_idInstituicao();
+    int get_profissional();
+    int get_instituicao();
 
     void set_nome(std::string nome);
     void set_static(int n);

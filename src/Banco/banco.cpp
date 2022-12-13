@@ -16,17 +16,17 @@ std::vector<Doador *> Banco::_doadores = std::vector<Doador *>();
 std::vector<Receptor *> Banco::_receptores = std::vector<Receptor *>();
 std::vector<ProfissionalSaude *> Banco::_profissionais = std::vector<ProfissionalSaude *>();
 std::vector<Sangue *> Banco::_sangue = std::vector<Sangue *>();
-std::vector<Doacao *> Banco::_doacao = std::vector<Doacao *>();
-std::vector<Consumo *> Banco::_consumo = std::vector<Consumo *>();
+std::vector<Doacao *> Banco::_doacoes = std::vector<Doacao *>();
+std::vector<Consumo *> Banco::_consumos = std::vector<Consumo *>();
 std::vector<Instituicao *> Banco::_instituicao = std::vector<Instituicao *>();
 ProfissionalSaude*Banco:: _puser = nullptr;
 Instituicao* Banco::_iuser = nullptr;
 
 Banco::Banco()
 {
-    if (Banco::_consumo.size() == 0)
+    if (Banco::_doacoes.size() == 0)
         leArquivoConsumo();
-    if (Banco::_doacao.size() == 0)
+    if (Banco::_consumos.size() == 0)
         leArquivoDoacao();
     if (Banco::_doadores.size() == 0)
         leArquivoDoador();
@@ -220,7 +220,7 @@ void Banco::leArquivoDoacao()
 
         setDoacao((new Doacao(stoi(idDoacao), dataColeta, stod(quantidade), stoi(idInstituicao), stoi(idProfissional), stoi(idDoador), stoi(situacao))));
 
-        _doacao[0]->setStatic(stoi(idDoacao)+1);
+        _doacoes[0]->set_static(stoi(idDoacao)+1);
     }
 
     doacao_txt.close();
@@ -258,7 +258,7 @@ void Banco::leArquivoConsumo()
 
         setConsumo((new Consumo(stoi(idConsumo), stoi(idReceptor), stoi(idInstituicao), stoi(idDoacao), dataConsumo)));
 
-        _consumo[0]->setStatic(stoi(idConsumo)+1);
+        _consumos[0]->set_static(stoi(idConsumo)+1);
     }
 
     consumo_txt.close();
@@ -301,15 +301,15 @@ void Banco::fechaArquivoDoador()
         resposta.push_back(std::to_string(_doadores[i]->get_id()));
         resposta.push_back(_doadores[i]->get_nome());
         resposta.push_back(_doadores[i]->get_cpf());
-        resposta.push_back(std::to_string(_doadores[i]->get_dataNascimento()->tm_mday));
-        resposta.push_back(std::to_string(_doadores[i]->get_dataNascimento()->tm_mon+1));
-        resposta.push_back(std::to_string(_doadores[i]->get_dataNascimento()->tm_year+1900));
+        resposta.push_back(std::to_string(_doadores[i]->get_data_nascimento()->tm_mday));
+        resposta.push_back(std::to_string(_doadores[i]->get_data_nascimento()->tm_mon+1));
+        resposta.push_back(std::to_string(_doadores[i]->get_data_nascimento()->tm_year+1900));
         resposta.push_back(std::to_string(_doadores[i]->get_peso()));
         resposta.push_back(std::to_string(_doadores[i]->get_altura()));
-        if(_doadores[i]->get_dataUltimaDoacao() != nullptr){
-            resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_mday));
-            resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_mon+1));
-            resposta.push_back(std::to_string(_doadores[i]->get_dataUltimaDoacao()->tm_year+1900));
+        if(_doadores[i]->get_data_ultima_doacao() != nullptr){
+            resposta.push_back(std::to_string(_doadores[i]->get_data_ultima_doacao()->tm_mday));
+            resposta.push_back(std::to_string(_doadores[i]->get_data_ultima_doacao()->tm_mon+1));
+            resposta.push_back(std::to_string(_doadores[i]->get_data_ultima_doacao()->tm_year+1900));
         }
         else{
             resposta.push_back("NULL");
@@ -341,9 +341,9 @@ void Banco::fechaArquivoReceptor()
         resposta.push_back(std::to_string(_receptores[i]->get_id()));
         resposta.push_back(_receptores[i]->get_nome());
         resposta.push_back(_receptores[i]->get_cpf());
-        resposta.push_back(std::to_string(_receptores[i]->get_dataNascimento()->tm_mday));
-        resposta.push_back(std::to_string(_receptores[i]->get_dataNascimento()->tm_mon+1));
-        resposta.push_back(std::to_string(_receptores[i]->get_dataNascimento()->tm_year+1900));
+        resposta.push_back(std::to_string(_receptores[i]->get_data_nascimento()->tm_mday));
+        resposta.push_back(std::to_string(_receptores[i]->get_data_nascimento()->tm_mon+1));
+        resposta.push_back(std::to_string(_receptores[i]->get_data_nascimento()->tm_year+1900));
         resposta.push_back(std::to_string(_receptores[i]->get_sangue()));
         resposta.push_back("------------------------------");
     }
@@ -368,12 +368,12 @@ void Banco::fechaArquivoProfissional()
         resposta.push_back(std::to_string(_profissionais[i]->get_id()));
         resposta.push_back(_profissionais[i]->get_nome());
         resposta.push_back(_profissionais[i]->get_cpf());
-        resposta.push_back(std::to_string(_profissionais[i]->get_dataNascimento()->tm_mday));
-        resposta.push_back(std::to_string(_profissionais[i]->get_dataNascimento()->tm_mon+1));
-        resposta.push_back(std::to_string(_profissionais[i]->get_dataNascimento()->tm_year+1900));
+        resposta.push_back(std::to_string(_profissionais[i]->get_data_nascimento()->tm_mday));
+        resposta.push_back(std::to_string(_profissionais[i]->get_data_nascimento()->tm_mon+1));
+        resposta.push_back(std::to_string(_profissionais[i]->get_data_nascimento()->tm_year+1900));
         resposta.push_back(_profissionais[i]->get_senha());
         resposta.push_back(std::to_string(_profissionais[i]->get_cargo()));
-        resposta.push_back(std::to_string(_profissionais[i]->get_idInstituicao()));
+        resposta.push_back(std::to_string(_profissionais[i]->get_instituicao()));
         resposta.push_back("------------------------------");
     }
 
@@ -392,17 +392,17 @@ void Banco::fechaArquivoDoacao()
 {
     std::vector<std::string> resposta;
 
-    for (int i = 0; i < _doacao.size(); i++)
+    for (int i = 0; i < _doacoes.size(); i++)
     {
-        resposta.push_back(std::to_string(_doacao[i]->get_id()));
-        resposta.push_back(std::to_string(_doacao[i]->getDataColeta()->tm_mday));
-        resposta.push_back(std::to_string(_doacao[i]->getDataColeta()->tm_mon+1));
-        resposta.push_back(std::to_string(_doacao[i]->getDataColeta()->tm_year+1900));
-        resposta.push_back(std::to_string(_doacao[i]->getQuantidade()));
-        resposta.push_back(std::to_string(_doacao[i]->getInstituicao()));
-        resposta.push_back(std::to_string(_doacao[i]->getProfissional()));
-        resposta.push_back(std::to_string(_doacao[i]->getDoador()));
-        resposta.push_back(std::to_string(_doacao[i]->getSituacao()));
+        resposta.push_back(std::to_string(_doacoes[i]->get_id()));
+        resposta.push_back(std::to_string(_doacoes[i]->get_data_coleta()->tm_mday));
+        resposta.push_back(std::to_string(_doacoes[i]->get_data_coleta()->tm_mon+1));
+        resposta.push_back(std::to_string(_doacoes[i]->get_data_coleta()->tm_year+1900));
+        resposta.push_back(std::to_string(_doacoes[i]->get_quantidade()));
+        resposta.push_back(std::to_string(_doacoes[i]->get_instituicao()));
+        resposta.push_back(std::to_string(_doacoes[i]->get_profissional()));
+        resposta.push_back(std::to_string(_doacoes[i]->get_doador()));
+        resposta.push_back(std::to_string(_doacoes[i]->get_situacao()));
         resposta.push_back("------------------------------");
     }
 
@@ -421,15 +421,15 @@ void Banco::fechaArquivoConsumo()
 {
     std::vector<std::string> resposta;
 
-    for (int i = 0; i < _consumo.size(); i++)
+    for (int i = 0; i < _consumos.size(); i++)
     {
-        resposta.push_back(std::to_string(_consumo[i]->get_id()));
-        resposta.push_back(std::to_string(_consumo[i]->get_idReceptor()));
-        resposta.push_back(std::to_string(_consumo[i]->get_idInstituicao()));
-        resposta.push_back(std::to_string(_consumo[i]->get_idDoacao()));
-        resposta.push_back(std::to_string(_consumo[i]->getData()->tm_mday));
-        resposta.push_back(std::to_string(_consumo[i]->getData()->tm_mon+1));
-        resposta.push_back(std::to_string(_consumo[i]->getData()->tm_year+1900));
+        resposta.push_back(std::to_string(_consumos[i]->get_id()));
+        resposta.push_back(std::to_string(_consumos[i]->get_receptor()));
+        resposta.push_back(std::to_string(_consumos[i]->get_instituicao()));
+        resposta.push_back(std::to_string(_consumos[i]->get_doacao()));
+        resposta.push_back(std::to_string(_consumos[i]->get_data()->tm_mday));
+        resposta.push_back(std::to_string(_consumos[i]->get_data()->tm_mon+1));
+        resposta.push_back(std::to_string(_consumos[i]->get_data()->tm_year+1900));
         resposta.push_back("------------------------------");
     }
 
@@ -496,12 +496,12 @@ void Banco::setProfissional(ProfissionalSaude *profissional)
 
 void Banco::setConsumo(Consumo *consumo)
 {
-    Banco::_consumo.push_back(consumo);
+    Banco::_consumos.push_back(consumo);
 }
 
 void Banco::setDoacao(Doacao *doacao)
 {
-    Banco::_doacao.push_back(doacao);
+    Banco::_doacoes.push_back(doacao);
 }
 
 void Banco::setInstituicao(Instituicao *instituicao)
@@ -541,10 +541,10 @@ ProfissionalSaude *Banco::getProfissionalById(int id)
 
 Consumo *Banco::getConsumoById(int id)
 {
-    for (int i = 0; i < Banco::_consumo.size(); i++)
+    for (int i = 0; i < Banco::_consumos.size(); i++)
     {
-        if (Banco::_consumo[i]->get_id() == id)
-            return Banco::_consumo[i];
+        if (Banco::_consumos[i]->get_id() == id)
+            return Banco::_consumos[i];
     }
     return nullptr;
 }
@@ -555,6 +555,15 @@ Instituicao *Banco::getInstituicaoById(int id)
     {
         if (Banco::_instituicao[i]->get_id() == id)
             return Banco::_instituicao[i];
+    }
+    return nullptr;
+}
+
+Doacao *Banco::getDoacaoById(int id){
+    for (int i = 0; i < Banco::_doacoes.size(); i++)
+    {
+        if (Banco::_doacoes[i]->get_id() == id)
+            return Banco::_doacoes[i];
     }
     return nullptr;
 }
@@ -607,10 +616,10 @@ void Banco::cadastrarProfissional(ProfissionalSaude *profissional)
 std::vector<Doacao *> Banco::getDoacoesCompativeis(int idSangue)
 {
     std::vector<Doacao *> compativeis;
-    for (int i = 0; i < Banco::_doacao.size(); i++)
+    for (int i = 0; i < Banco::_doacoes.size(); i++)
     {
-        if (getDoadorById(Banco::_doacao[i]->getDoador())->get_sangue() == idSangue)
-            compativeis.push_back(_doacao[i]);
+        if (getDoadorById(Banco::_doacoes[i]->get_doador())->get_sangue() == idSangue)
+            compativeis.push_back(_doacoes[i]);
     }
     return compativeis;
 }
@@ -639,13 +648,13 @@ std::vector<ProfissionalSaude*> Banco::getProfissionaisByUser(){
     int idInstituicao = 0;
 
     if(_puser != nullptr)
-        idInstituicao = _puser->get_idInstituicao();
+        idInstituicao = _puser->get_instituicao();
     else
         idInstituicao =_iuser->get_id();
     
     for (int i = 0; i < _profissionais.size(); i++)
     {
-        if(_profissionais[i]->get_idInstituicao() == idInstituicao)
+        if(_profissionais[i]->get_instituicao() == idInstituicao)
             profissionais.push_back(_profissionais[i]);
     }
     return profissionais;
@@ -656,14 +665,14 @@ std::vector<Doacao*> Banco::getDoacoesByUser(){
     int idInstituicao = 0;
 
     if(_puser != nullptr)
-        idInstituicao = _puser->get_idInstituicao();
+        idInstituicao = _puser->get_instituicao();
     else
         idInstituicao =_iuser->get_id();
     
-    for (int i = 0; i < _doacao.size(); i++)
+    for (int i = 0; i < _doacoes.size(); i++)
     {
-        if(_doacao[i]->getInstituicao() == idInstituicao && _doacao[i]->getSituacao())
-            doacoes.push_back(_doacao[i]);
+        if(_doacoes[i]->get_instituicao() == idInstituicao && _doacoes[i]->get_situacao())
+            doacoes.push_back(_doacoes[i]);
     }
     return doacoes;
 }
@@ -673,14 +682,14 @@ std::vector<Consumo*> Banco::getConsumosByUser(){
     int idInstituicao = 0;
 
     if(_puser != nullptr)
-        idInstituicao = _puser->get_idInstituicao();
+        idInstituicao = _puser->get_instituicao();
     else
         idInstituicao =_iuser->get_id();
     
-    for (int i = 0; i < _consumo.size(); i++)
+    for (int i = 0; i < _consumos.size(); i++)
     {
-        if(_consumo[i]->get_idInstituicao() == idInstituicao)
-            consumos.push_back(_consumo[i]);
+        if(_consumos[i]->get_instituicao() == idInstituicao)
+            consumos.push_back(_consumos[i]);
     }
     return consumos;
 }
@@ -854,20 +863,20 @@ bool Banco::isNumber(std::string palavra){
 
 std::vector<int> Banco::getEstoque(int idInstituicao){
     std::vector<int> estoque(8);
-    for (int i = 0; i < _doacao.size(); i++)
+    for (int i = 0; i < _doacoes.size(); i++)
     {
-        if(_doacao[i]->getInstituicao() == idInstituicao && _doacao[i]->getSituacao())
-                estoque[getDoadorById(_doacao[i]->getDoador())->get_sangue()] =+1;
+        if(_doacoes[i]->get_instituicao() == idInstituicao && _doacoes[i]->get_situacao())
+                estoque[getDoadorById(_doacoes[i]->get_doador())->get_sangue()] =+1;
     }
     return estoque;
 }
 
 std::vector<int> Banco::getEstoque(){
     std::vector<int> estoque(8);
-    for (int i = 0; i < _doacao.size(); i++)
+    for (int i = 0; i < _doacoes.size(); i++)
     {
-        if(_doacao[i]->getSituacao())
-                estoque[getDoadorById(_doacao[i]->getDoador())->get_sangue()] =+1;
+        if(_doacoes[i]->get_situacao())
+                estoque[getDoadorById(_doacoes[i]->get_doador())->get_sangue()] =+1;
     }
     return estoque;
 }

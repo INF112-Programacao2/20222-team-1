@@ -40,71 +40,72 @@ Doacao::Doacao(int id, struct tm *dataColeta, double quantidade, int idInstituic
     _dataValidade = localtime(&auxValidade);
 }
 
-void Doacao::setDataColeta(struct tm *dataColeta)
+void Doacao::set_data_coleta(struct tm *dataColeta)
 {
     _dataColeta = dataColeta;
 }
-void Doacao::setQuantidade(double quantidade)
+
+void Doacao::set_quantidade(double quantidade)
 {
     _quantidade = quantidade;
 }
 
-void Doacao::setSituacao(bool situacao)
+void Doacao::set_situacao(bool situacao)
 {
     _situacao = situacao;
 }
 
-void Doacao::setStatic(int n)
+void Doacao::set_static(int n)
 {
     Doacao::_numDoacao = n;
 }
 
-void Doacao::setInstituicao(int idInstituicao)
+void Doacao::set_instituicao(int idInstituicao)
 {
     _idInstituicao = idInstituicao;
 }
 
-void Doacao::setProfissional(int idProfissional)
+void Doacao::set_profissional(int idProfissional)
 {
     _idProfissional = idProfissional;
 }
 
-void Doacao::setDoador(int idDoador)
+void Doacao::set_doador(int idDoador)
 {
     _idDoador = idDoador;
 }
 
-struct tm *Doacao::getDataColeta()
+struct tm *Doacao::get_data_coleta()
 {
     return _dataColeta;
 }
 
-struct tm *Doacao::getDataValidade()
+struct tm *Doacao::get_data_validade()
 {
     return _dataValidade;
 }
 
-double Doacao::getQuantidade()
+double Doacao::get_quantidade()
 {
     return _quantidade;
 }
 
-bool Doacao::getSituacao()
+bool Doacao::get_situacao()
 {
     return _situacao;
 }
 
-int Doacao::getInstituicao()
+int Doacao::get_instituicao()
 {
     return _idInstituicao;
 }
 
-int Doacao::getProfissional()
+int Doacao::get_profissional()
 {
     return _idProfissional;
 }
 
-int Doacao::getDoador()
+int Doacao::get_doador()
 {
     return _idDoador;
 }
@@ -116,4 +117,6 @@ int Doacao::get_id()
 
 Doacao::~Doacao()
 {
+    delete _dataColeta;
+    delete _dataValidade;
 }

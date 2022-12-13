@@ -35,7 +35,7 @@ Dashboard::Dashboard(QWidget *parent) :
         this->isInstituicao = false;
           Banco *i;
 
-        ui->txtNomeInstituicao->setText(QString::fromStdString(i->getInstituicaoById(Banco::_puser->get_idInstituicao())->get_nome()));
+        ui->txtNomeInstituicao->setText(QString::fromStdString(i->getInstituicaoById(Banco::_puser->get_instituicao())->get_nome()));
         ui->txtNomeProfissional->setText(QString::fromStdString(Banco::_puser->get_nome()));
     }
 }
@@ -77,7 +77,7 @@ void Dashboard::populateListConsumo(){
         item = new QListWidgetItem();
         view = new ItemView;
         view->set_id(doa[var]->get_id());
-        view->set_nome(i->getReceptorById(doa[var]->get_idReceptor())->get_nome());
+        view->set_nome(i->getReceptorById(doa[var]->get_receptor())->get_nome());
         view->set_Rh("");
         ui->consumoList->addItem(item);
         item->setSizeHint(view->sizeHint());
@@ -131,7 +131,7 @@ void Dashboard::generateGrafico(){
         //Construir gráfico
         QBarSet *bar1 = new QBarSet("Sangue");
 
-        std::vector<int> aaa =  i->getEstoque(Banco::_puser->get_idInstituicao());
+        std::vector<int> aaa =  i->getEstoque(Banco::_puser->get_instituicao());
         *bar1 << aaa[0] << aaa[1] << aaa[2] << aaa[3] << aaa[4] << aaa[5]<< aaa[6] << aaa[7];
         bar1->setColor(QColor("#ff0000"));
         QBarSeries *series = new QBarSeries;

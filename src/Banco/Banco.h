@@ -19,8 +19,8 @@ private:
     static std::vector<Receptor *> _receptores;
     static std::vector<ProfissionalSaude *> _profissionais;
     static std::vector<Sangue *> _sangue;
-    static std::vector<Doacao *> _doacao;
-    static std::vector<Consumo *> _consumo;
+    static std::vector<Doacao *> _doacoes;
+    static std::vector<Consumo *> _consumos;
     static std::vector<Instituicao *> _instituicao;
 
 public:
@@ -53,6 +53,7 @@ public:
     Doador *getDoadorById(int id);
     ProfissionalSaude *getProfissionalById(int id);
     Consumo *getConsumoById(int id);
+    Doacao *getDoacaoById(int id);
     Instituicao *getInstituicaoById(int id);
 
     ProfissionalSaude *isProfissional(std::string cpf);

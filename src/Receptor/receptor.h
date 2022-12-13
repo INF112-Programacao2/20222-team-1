@@ -19,7 +19,7 @@ public:
     int get_id();
     std::string get_nome();
     std::string get_cpf();
-    struct tm *get_dataNascimento();
+    struct tm *get_data_nascimento();
     int get_sangue() const;
 
     virtual void set_nome(std::string nome);

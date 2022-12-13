@@ -23,21 +23,21 @@ public:
     Doacao(struct tm *dataColeta, double quantidade, int idInstituicao, int idProfissional, int idDoador);
     Doacao(int id, struct tm *dataColeta, double quantidade, int idInstituicao, int idProfissional, int idDoador, bool situacao);
 
-    void setDataColeta(struct tm *dataColeta);
-    void setQuantidade(double quantidade);
-    void setSituacao(bool situacao);
-    void setInstituicao(int idInstituicao);
-    void setProfissional(int idProfissional);
-    void setDoador(int idDoador);
-    void setStatic(int n);
+    void set_data_coleta(struct tm *dataColeta);
+    void set_quantidade(double quantidade);
+    void set_situacao(bool situacao);
+    void set_instituicao(int idInstituicao);
+    void set_profissional(int idProfissional);
+    void set_doador(int idDoador);
+    void set_static(int n);
 
-    struct tm *getDataColeta();
-    struct tm *getDataValidade();
-    double getQuantidade();
-    bool getSituacao();
-    int getInstituicao();
-    int getProfissional();
-    int getDoador();
+    struct tm *get_data_coleta();
+    struct tm *get_data_validade();
+    double get_quantidade();
+    bool get_situacao();
+    int get_instituicao();
+    int get_profissional();
+    int get_doador();
     int get_id();
 
     ~Doacao();

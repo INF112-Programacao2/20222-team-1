@@ -38,7 +38,7 @@ std::string Receptor::get_cpf()
     return _cpf;
 }
 
-struct tm *Receptor::get_dataNascimento()
+struct tm *Receptor::get_data_nascimento()
 {
     return _dataNascimento;
 }
@@ -60,4 +60,5 @@ int Receptor::get_id()
 
 Receptor::~Receptor()
 {
+    delete _dataNascimento;
 }
