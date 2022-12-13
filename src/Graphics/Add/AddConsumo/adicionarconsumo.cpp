@@ -40,7 +40,7 @@ AdicionarConsumo::AdicionarConsumo(QWidget *parent) :
         throw std::out_of_range("Nao ha doacoes disponiveis. ");
     }
 
-    std::vector<Receptor*> receptores = iAux->getReceptoresByUser();
+    std::vector<Receptor*> receptores = iAux->getReceptores();
     if(receptores.size()>0){
         for (int i = 0; i < (int) receptores.size(); i++){
             sangueAux = sangue->get_sangue_by_id(receptores[i]->get_sangue());

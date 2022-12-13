@@ -6,6 +6,7 @@
 #include "../../Dashboard/dashboard.h"
 #include <iostream>
 #include <QString>
+#include <QDateTime>
 #include <vector>
 
 Banco* iDoacao;
@@ -24,6 +25,7 @@ AdicionarDoacao::AdicionarDoacao(QWidget *parent) :
     else{
         throw std::out_of_range("Nao ha doadores aptos a usar. ");
     }
+    ui->dateColeta->setDateTime(QDateTime::currentDateTime());
 }
 
 AdicionarDoacao::~AdicionarDoacao()

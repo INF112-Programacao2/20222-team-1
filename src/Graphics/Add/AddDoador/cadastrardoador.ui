@@ -70,8 +70,8 @@ color: #000000;
     <widget class="QPushButton" name="buttonAdd">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>370</y>
+       <x>560</x>
+       <y>360</y>
        <width>251</width>
        <height>64</height>
       </rect>
@@ -289,8 +289,8 @@ border-radius: 10px;</string>
     <widget class="QLabel" name="txtSexo">
      <property name="geometry">
       <rect>
-       <x>600</x>
-       <y>340</y>
+       <x>320</x>
+       <y>320</y>
        <width>61</width>
        <height>21</height>
       </rect>
@@ -309,7 +309,7 @@ color: #000000;
     <widget class="QComboBox" name="comboSexo">
      <property name="geometry">
       <rect>
-       <x>600</x>
+       <x>320</x>
        <y>370</y>
        <width>201</width>
        <height>61</height>

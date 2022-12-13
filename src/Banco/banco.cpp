@@ -635,11 +635,11 @@ std::vector<Doador *> Banco::getDoadoresDisponiveis()
     return disponiveis;
 }
 
-std::vector<Doador*> Banco::getDoadoresByUser(){
+std::vector<Doador*> Banco::getDoadores(){
     return _doadores;
 }
 
-std::vector<Receptor*> Banco::getReceptoresByUser(){
+std::vector<Receptor*> Banco::getReceptores(){
     return _receptores;
 }
 

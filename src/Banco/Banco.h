@@ -65,8 +65,8 @@ public:
     //filtrar disponiveis depois
     std::vector<Doador*> getDoadoresDisponiveis();
     
-    std::vector<Doador*> getDoadoresByUser();
-    std::vector<Receptor*> getReceptoresByUser();
+    std::vector<Doador*> getDoadores();
+    std::vector<Receptor*> getReceptores();
     std::vector<ProfissionalSaude*> getProfissionaisByUser();
     std::vector<Doacao*> getDoacoesByUser();
     std::vector<Consumo*> getConsumosByUser();

@@ -1,6 +1,8 @@
 #include "dashboard.h"
 #include "ui_dashboard.h"
 
+Banco *idashboard;
+
 Dashboard::Dashboard(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Dashboard)
@@ -33,11 +35,18 @@ Dashboard::Dashboard(QWidget *parent) :
     }
     else{
         this->isInstituicao = false;
-          Banco *i;
 
-        ui->txtNomeInstituicao->setText(QString::fromStdString(i->getInstituicaoById(Banco::_puser->get_instituicao())->get_nome()));
+        ui->txtNomeInstituicao->setText(QString::fromStdString(idashboard->getInstituicaoById(Banco::_puser->get_instituicao())->get_nome()));
         ui->txtNomeProfissional->setText(QString::fromStdString(Banco::_puser->get_nome()));
     }
+
+    std::string contDoadores = std::to_string(idashboard->getDoadores().size())+" doador(es)";
+    std::string contAptos = std::to_string(idashboard->getDoadoresDisponiveis().size())+" apt(os) a doar";
+    std::string contFora = std::to_string(idashboard->getDoadores().size()-idashboard->getDoadoresDisponiveis().size())+" inapto(s)";
+    ui->txtContDoadores->setText(QString::fromStdString(contDoadores));
+    ui->txtContAptos->setText(QString::fromStdString(contAptos));
+    ui->txtContFora->setText(QString::fromStdString(contFora));
+
 }
 
 Dashboard::~Dashboard()
@@ -46,12 +55,11 @@ Dashboard::~Dashboard()
 }
 
 void Dashboard::populateListDoadores(){
-    Banco *i;
 
     QListWidgetItem *item;
     ItemView *view;
 
-    std::vector<Doador*> doa = i->getDoadoresByUser();
+    std::vector<Doador*> doa = idashboard->getDoadores();
     ui->doadoresList->setUniformItemSizes(true);
     //if(doa.size() == 0)
 
@@ -61,7 +69,10 @@ void Dashboard::populateListDoadores(){
         view = new ItemView;
         view->set_id(doa[var]->get_id());
         view->set_nome(doa[var]->get_nome());
-        view->set_Rh(Sangue().get_sangue_by_id(doa[var]->get_sangue()).get_nome());
+        if(Sangue().get_sangue_by_id(doa[var]->get_sangue()).get_rh_sangue() == Rh::POSITIVO)
+            view->set_Rh(Sangue().get_sangue_by_id(doa[var]->get_sangue()).get_nome()+"+");
+        else
+            view->set_Rh(Sangue().get_sangue_by_id(doa[var]->get_sangue()).get_nome()+"-");
         ui->doadoresList->addItem(item);
         item->setSizeHint(view->sizeHint());
         ui->doadoresList->setItemWidget(item, view);
@@ -74,13 +85,13 @@ void Dashboard::populateListConsumo(){
     QListWidgetItem *item;
     ItemView *view;
 
-    std::vector<Consumo*> doa = i->getConsumosByUser();
+    std::vector<Consumo*> doa = idashboard->getConsumosByUser();
     ui->consumoList->setUniformItemSizes(true);
     for (int var = 0; var < doa.size(); ++var) {
         item = new QListWidgetItem();
         view = new ItemView;
         view->set_id(doa[var]->get_id());
-        view->set_nome(i->getReceptorById(doa[var]->get_receptor())->get_nome());
+        view->set_nome(idashboard->getReceptorById(doa[var]->get_receptor())->get_nome());
         view->set_Rh("");
         ui->consumoList->addItem(item);
         item->setSizeHint(view->sizeHint());
@@ -89,18 +100,17 @@ void Dashboard::populateListConsumo(){
 }
 
 void Dashboard::populateListDoacao(){
-    Banco *i;
 
     QListWidgetItem *item;
     ItemView *view;
 
-    std::vector<Doacao*> doa = i->getDoacoesByUser();
+    std::vector<Doacao*> doa = idashboard->getDoacoesByUser();
     ui->doacoesList->setUniformItemSizes(true);
     for (int var = 0; var < doa.size(); ++var) {
         item = new QListWidgetItem();
         view = new ItemView;
         view->set_id(doa[var]->get_id());
-        view->set_nome(i->getInstituicaoById(doa[var]->get_instituicao())->get_nome());
+        view->set_nome(idashboard->getInstituicaoById(doa[var]->get_instituicao())->get_nome());
         view->set_Rh(std::to_string(doa[var]->get_quantidade()));
         ui->doacoesList->addItem(item);
         item->setSizeHint(view->sizeHint());
@@ -109,12 +119,11 @@ void Dashboard::populateListDoacao(){
 }
 
 void Dashboard::populateListReceptor(){
-    Banco *i;
 
     QListWidgetItem *item;
     ItemView *view;
 
-    std::vector<Receptor*> doa = i->getReceptoresByUser();
+    std::vector<Receptor*> doa = idashboard->getReceptores();
     ui->receptoresList->setUniformItemSizes(true);
     for (int var = 0; var < doa.size(); ++var) {
         item = new QListWidgetItem();
@@ -139,7 +148,7 @@ void Dashboard::generateGrafico(){
     //Construir gráfico
     QBarSet *bar1 = new QBarSet("Sangue");
 
-    std::vector<int> aaa =  i->getEstoque(instituicao);
+    std::vector<int> aaa =  idashboard->getEstoque(instituicao);
     *bar1 << aaa[0] << aaa[1] << aaa[2] << aaa[3] << aaa[4] << aaa[5]<< aaa[6] << aaa[7];
     bar1->setColor(QColor("#ff0000"));
     QBarSeries *series = new QBarSeries;
@@ -190,7 +199,6 @@ void Dashboard::on_buttonAdicionarConsumo_clicked()
     this->close();
 }
 
-
 void Dashboard::on_buttonAdicionarDoacao_clicked()
 {
     AlertDialog *dialog  = new AlertDialog(this);
@@ -207,11 +215,9 @@ void Dashboard::on_buttonAdicionarDoacao_clicked()
     this->close();
 }
 
-
 void Dashboard::on_buttonConsultarBanco_clicked()
 {
 }
-
 
 void Dashboard::on_buttonEditarPerfil_clicked()
 {
@@ -241,7 +247,6 @@ void Dashboard::on_buttonAdicionarConsumo_2_clicked()
     this->close();
 }
 
-
 void Dashboard::on_buttonAdicionarDoacao_2_clicked()
 {
     AlertDialog *dialog  = new AlertDialog(this);
@@ -263,7 +268,6 @@ void Dashboard::on_buttonAdicionarDoador_clicked()
     doador->show();
     this->close();
 }
-
 
 void Dashboard::on_buttonAdicionarReceptor_clicked()
 {
