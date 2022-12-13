@@ -2,6 +2,7 @@
 #define ADICIONARCONSUMO_H
 
 #include <QMainWindow>
+#include "../../../Consumo/consumo.h"
 
 namespace Ui {
 class AdicionarConsumo;
@@ -13,6 +14,7 @@ class AdicionarConsumo : public QMainWindow
 
 public:
     explicit AdicionarConsumo(QWidget *parent = nullptr);
+    AdicionarConsumo(Consumo consumo, QWidget *parent = nullptr);
     ~AdicionarConsumo();
 
 private slots:
