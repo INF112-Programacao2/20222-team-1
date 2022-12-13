@@ -97,8 +97,8 @@ void Dashboard::populateListDoacao(){
         item = new QListWidgetItem();
         view = new ItemView;
         view->set_id(doa[var]->get_id());
-        view->set_nome(i->getInstituicaoById(doa[var]->getInstituicao())->get_nome());
-        view->set_Rh(std::to_string(doa[var]->getQuantidade()));
+        view->set_nome(i->getInstituicaoById(doa[var]->get_instituicao())->get_nome());
+        view->set_Rh(std::to_string(doa[var]->get_quantidade()));
         ui->doacoesList->addItem(item);
         item->setSizeHint(view->sizeHint());
         ui->doacoesList->setItemWidget(item, view);
