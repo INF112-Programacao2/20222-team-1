@@ -85,7 +85,7 @@ background-color: #FFD2D2;
 }</string>
      </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tabHome">
       <property name="minimumSize">
@@ -1009,7 +1009,7 @@ color:#ffffff;
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="txtContDoadores_2">
+       <widget class="QLabel" name="txtContReceptores">
         <property name="geometry">
          <rect>
           <x>10</x>
