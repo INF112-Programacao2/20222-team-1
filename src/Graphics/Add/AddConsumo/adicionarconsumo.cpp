@@ -9,16 +9,16 @@
 #include "../../../Sangue/sangue.h"
 #include "../../Dashboard/dashboard.h"
 
-Banco* iAux = new Banco();
+Banco* iAux;
 
-AdicionarConsumo::AdicionarConsumo(Consumo consumo, QWidget *parent2 = nullptr):
-    QMainWindow(parent2),
+AdicionarConsumo::AdicionarConsumo(Consumo consumo, QWidget *parent):
+    QMainWindow(parent),
     ui(new Ui::AdicionarConsumo)
 {
     ui->setupUi(this);
 }
 
-AdicionarConsumo::AdicionarConsumo(QWidget *parent = nullptr) :
+AdicionarConsumo::AdicionarConsumo(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::AdicionarConsumo)
 {
