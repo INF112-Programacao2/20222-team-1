@@ -44,12 +44,16 @@ AdicionarConsumo::AdicionarConsumo(QWidget *parent) :
     if(receptores.size()>0){
         for (int i = 0; i < (int) receptores.size(); i++){
             sangueAux = sangue->get_sangue_by_id(receptores[i]->get_sangue());
-            ui->comboReceptor->insertItem(sangueAux.get_id(), QString::fromStdString(sangueAux.get_nome()));
+            if(sangueAux.get_rh_sangue() == Rh::POSITIVO)
+                ui->comboReceptor->insertItem(sangueAux.get_id(), QString::fromStdString(receptores[i]->get_nome()+" - "+sangueAux.get_nome()+"+"));
+            else
+                ui->comboReceptor->insertItem(sangueAux.get_id(), QString::fromStdString(receptores[i]->get_nome()+" - "+sangueAux.get_nome()+"-"));
         }
     } else {
         throw std::out_of_range("Nao ha ninguem precisando de uma doacao. ");
     }
 
+    ui->dateConsumo->setDateTime(QDateTime::currentDateTime());
     ui->dateConsumo->setMaximumDate(QDate::currentDate());
 
 }

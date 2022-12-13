@@ -68,15 +68,15 @@ void CadastrarDoador::on_buttonAdd_clicked()
         if(!i->isNumber(altura)) throw std::invalid_argument("A altura precisa ser um numero.");
         if(!i->isNumber(peso)) throw std::invalid_argument("O peso precisa ser um numero.");
 
-        altAux = (double) std::stoi(altura);
-        pesAux = (double) std::stoi(peso);
+        altAux = std::stod(altura);
+        pesAux = std::stod(peso);
     } catch(std::invalid_argument &e){
         dialog->SetMessage(e.what());
         dialog->exec();
         return;
     }
 
-    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), pesAux/100.00, altAux/1000.00, nullptr, tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
+    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), pesAux/1000.00, altAux/100.00, nullptr, tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
 
     Dashboard *dashboard = new Dashboard;
     dashboard->show();

@@ -24,9 +24,9 @@ Instituicao* Banco::_iuser = nullptr;
 
 Banco::Banco()
 {
-    if (Banco::_doacoes.size() == 0)
-        leArquivoConsumo();
     if (Banco::_consumos.size() == 0)
+        leArquivoConsumo();
+    if (Banco::_doacoes.size() == 0)
         leArquivoDoacao();
     if (Banco::_doadores.size() == 0)
         leArquivoDoador();
@@ -55,7 +55,7 @@ void Banco::leArquivoDoador()
         std::string aux;
 
         std::getline(doador_txt, idPessoa);
-        if(idPessoa == "")
+        if(idPessoa.size() < 0)
             break;
         std::getline(doador_txt, nome);
         std::getline(doador_txt, cpf);
@@ -629,7 +629,7 @@ std::vector<Doador *> Banco::getDoadoresDisponiveis()
     std::vector<Doador *> disponiveis;
     for (int i = 0; i < Banco::_doadores.size(); i++)
     {
-        if (!Banco::_doadores[i]->is_apto())
+        if (Banco::_doadores[i]->is_apto())
             disponiveis.push_back(_doadores[i]);
     }
     return disponiveis;

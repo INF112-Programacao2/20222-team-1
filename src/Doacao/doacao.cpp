@@ -37,7 +37,6 @@ Doacao::Doacao(int id, struct tm *dataColeta, double quantidade, int idInstituic
     _idDoador = idDoador;
     _dataColeta = dataColeta;
     _quantidade = quantidade;
-    _idInstituicao = idInstituicao;
     _situacao = situacao;
 
     time_t auxValidade;

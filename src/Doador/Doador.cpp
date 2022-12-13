@@ -123,7 +123,8 @@ bool Doador::is_apto()
     if (idadeatual < idade18 || idadeatual > idade60)
         return false;
 
-    if(_sexo == MASCULINO){
+    if(_dataUltimaDoacao != nullptr){
+    if(_sexo == Sexo::MASCULINO){
         time_t ultimadoacaoaux, now;
         ultimadoacaoaux = 7776000;
         now = difftime(time(&now), mktime(_dataUltimaDoacao));
@@ -131,14 +132,14 @@ bool Doador::is_apto()
         if(now < ultimadoacaoaux)
             return false;
     }
-    if(_sexo == FEMININO){
+    if(_sexo == Sexo::FEMININO){
         time_t ultimadoacaoaux, now;
         ultimadoacaoaux = 10368000;
         now = difftime(time(&now), mktime(_dataUltimaDoacao));
     
         if(now < ultimadoacaoaux)
             return false;
-    }
+    }}
 
     return true;
 }
