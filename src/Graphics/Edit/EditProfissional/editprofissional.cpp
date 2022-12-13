@@ -24,13 +24,26 @@ EditProfissional::~EditProfissional()
 }
 
 void EditProfissional::on_buttonReturn_clicked()
-{   AlertDialog *dialog = new AlertDialog(this);
+{  
+    
+    Dashboard *dashboard = new Dashboard;
+    dashboard->show();
+    this->close();
+}
+
+
+void EditProfissional::on_buttonAdd_clicked()
+{
+    AlertDialog *dialog = new AlertDialog(this);
+
+    //validar e cadastrar aquiAlertDialog *dialog = new AlertDialog(this);
     try{
         std::string nome = ui->inputNome->text().toStdString();
         if( nome.size() >1){
         std::string senha = ui->inputSenha->text().toStdString();
             if(senha.size()<5)
                 throw std::invalid_argument("A senha precisa ter no minimo 2 caracteres. ");
+            
             Banco::_puser->set_nome(nome);
             Banco::_puser->set_senha(senha);
         }
@@ -54,13 +67,6 @@ void EditProfissional::on_buttonReturn_clicked()
     
     Dashboard *dashboard = new Dashboard;
     dashboard->show();
-    this->close();
-}
-
-
-void EditProfissional::on_buttonAdd_clicked()
-{
-    //validar e cadastrar aqui
     this->close();
 }
 

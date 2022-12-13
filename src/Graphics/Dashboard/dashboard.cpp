@@ -228,6 +228,8 @@ void Dashboard::on_buttonEditarPerfil_clicked()
     else{
         EditProfissional *profissional = new EditProfissional;
         profissional->show();
+        this->close();
+
     }
 }
 
