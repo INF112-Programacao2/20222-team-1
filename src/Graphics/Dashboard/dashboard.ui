@@ -50,7 +50,7 @@
       <height>572</height>
      </size>
     </property>
-    <widget class="QTabWidget" name="tabWidget">
+    <widget class="QTabWidget" name="tabs">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -85,7 +85,7 @@ background-color: #FFD2D2;
 }</string>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="tabHome">
       <property name="minimumSize">
@@ -101,7 +101,9 @@ background-color: #FFD2D2;
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:#fff;</string>
+       <string notr="true">QWidget#tabHome{
+	background-color:#fff;
+}</string>
       </property>
       <attribute name="title">
        <string>Home</string>
@@ -110,9 +112,9 @@ background-color: #FFD2D2;
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>20</y>
+         <y>10</y>
          <width>591</width>
-         <height>31</height>
+         <height>45</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -129,7 +131,7 @@ background-color: #FFD2D2;
          <x>30</x>
          <y>60</y>
          <width>591</width>
-         <height>31</height>
+         <height>35</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -300,12 +302,34 @@ color:#ffffff;
          <height>391</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">border:none;</string>
+       </property>
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QLabel" name="erroHomeSemDados">
+        <property name="geometry">
+         <rect>
+          <x>6</x>
+          <y>6</y>
+          <width>541</width>
+          <height>381</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size:25px</string>
+        </property>
+        <property name="text">
+         <string>Não há dados disponíveis.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QPushButton" name="pushButton">
        <property name="geometry">
@@ -333,6 +357,211 @@ color:#ffffff;
        </property>
        <property name="text">
         <string>SAIR</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabProfissionais">
+      <property name="styleSheet">
+       <string notr="true">QWidget#tabProfissionais{
+	background-color:#fff;
+}</string>
+      </property>
+      <attribute name="title">
+       <string>Profissionais da Saúde</string>
+      </attribute>
+      <widget class="QLabel" name="erroDoadoresSemDados_2">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>90</y>
+         <width>541</width>
+         <height>381</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:25px</string>
+       </property>
+       <property name="text">
+        <string>Não há dados disponíveis.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>10</y>
+         <width>300</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 18px;</string>
+       </property>
+       <property name="text">
+        <string>Nome Completo</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>41</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>41</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:18px</string>
+       </property>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="doadoresList_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>651</width>
+         <height>461</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border:none;</string>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustToContents</enum>
+       </property>
+       <property name="resizeMode">
+        <enum>QListView::Adjust</enum>
+       </property>
+       <property name="spacing">
+        <number>1</number>
+       </property>
+       <property name="gridSize">
+        <size>
+         <width>631</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="uniformItemSizes">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_5">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>90</y>
+         <width>281</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="txtContDoadores_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>261</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size:30px;</string>
+        </property>
+        <property name="text">
+         <string>150 
+Cadastrados</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>10</y>
+         <width>300</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 18px;</string>
+       </property>
+       <property name="text">
+        <string>Cargo</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="erroProfissionaisSemDados">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>90</y>
+         <width>541</width>
+         <height>381</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:25px</string>
+       </property>
+       <property name="text">
+        <string>Não há dados disponíveis.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </widget>
@@ -416,6 +645,9 @@ color:#ffffff;
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="styleSheet">
+        <string notr="true">border:none;</string>
+       </property>
        <property name="sizeAdjustPolicy">
         <enum>QAbstractScrollArea::AdjustToContents</enum>
        </property>
@@ -439,10 +671,13 @@ color:#ffffff;
        <property name="geometry">
         <rect>
          <x>390</x>
-         <y>20</y>
-         <width>101</width>
-         <height>17</height>
+         <y>10</y>
+         <width>121</width>
+         <height>30</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 18px;</string>
        </property>
        <property name="text">
         <string>Tipo sanguinio</string>
@@ -588,6 +823,25 @@ color:#ffffff;
          <normaloff>:/assets/icons/add.png</normaloff>:/assets/icons/add.png</iconset>
        </property>
       </widget>
+      <widget class="QLabel" name="erroDoadoresSemDados">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>90</y>
+         <width>541</width>
+         <height>381</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:25px</string>
+       </property>
+       <property name="text">
+        <string>Não há dados disponíveis.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tabReceptor">
       <property name="styleSheet">
@@ -638,6 +892,9 @@ color:#ffffff;
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border:none;</string>
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QAbstractScrollArea::AdjustToContents</enum>
@@ -718,6 +975,61 @@ color:#ffffff;
          <normaloff>:/assets/icons/add.png</normaloff>:/assets/icons/add.png</iconset>
        </property>
       </widget>
+      <widget class="QLabel" name="erroReceptoresSemDados">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>90</y>
+         <width>541</width>
+         <height>381</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:25px</string>
+       </property>
+       <property name="text">
+        <string>Não há dados disponíveis.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_4">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>200</y>
+         <width>281</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="txtContDoadores_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>261</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size:30px;</string>
+        </property>
+        <property name="text">
+         <string>150 
+Cadastrados</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
      </widget>
      <widget class="QWidget" name="tabDoacao">
       <property name="enabled">
@@ -745,6 +1057,9 @@ color:#ffffff;
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border:none</string>
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QAbstractScrollArea::AdjustToContents</enum>
@@ -853,6 +1168,25 @@ color:#ffffff;
          <normaloff>:/assets/icons/add.png</normaloff>:/assets/icons/add.png</iconset>
        </property>
       </widget>
+      <widget class="QLabel" name="erroDoacoesSemDados">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>90</y>
+         <width>541</width>
+         <height>381</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:25px</string>
+       </property>
+       <property name="text">
+        <string>Não há dados disponíveis.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tabConsumo">
       <property name="styleSheet">
@@ -877,6 +1211,9 @@ color:#ffffff;
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: none;</string>
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QAbstractScrollArea::AdjustToContents</enum>
@@ -983,6 +1320,25 @@ color:#ffffff;
        <property name="icon">
         <iconset resource="../../../resouces.qrc">
          <normaloff>:/assets/icons/add.png</normaloff>:/assets/icons/add.png</iconset>
+       </property>
+      </widget>
+      <widget class="QLabel" name="erroConsumoSemDados">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>90</y>
+         <width>541</width>
+         <height>381</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:25px</string>
+       </property>
+       <property name="text">
+        <string>Não há dados disponíveis.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </widget>
