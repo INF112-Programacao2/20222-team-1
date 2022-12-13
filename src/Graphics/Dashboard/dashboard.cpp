@@ -22,6 +22,10 @@ Dashboard::Dashboard(QWidget *parent) :
         ui->buttonAdicionarDoacao_2->hide();
         ui->buttonAdicionarConsumo_2->hide();
         ui->buttonAdicionarDoador->hide();
+        ui->tabs->removeTab(2);
+        ui->tabs->removeTab(2);
+        ui->tabDoador->hide();
+        ui->tabReceptor->hide();
 
         ui->txtNomeProfissional->setText(QString::fromStdString(Banco::_iuser->get_nome()));
         ui->txtNomeInstituicao->setText(QString::fromStdString(Banco::_iuser->get_cnpj()));
@@ -31,13 +35,13 @@ Dashboard::Dashboard(QWidget *parent) :
 
         ui->buttonEditarPerfil->setIcon(icon);
         ui->buttonEditarPerfil->setText("Profissional Saúde");
-        //ui->txtNomeInstituicao->setText(QString::fromStdString(Banco::_iuser->get_nome()));
     }
     else{
         this->isInstituicao = false;
 
         ui->txtNomeInstituicao->setText(QString::fromStdString(idashboard->getInstituicaoById(Banco::_puser->get_instituicao())->get_nome()));
         ui->txtNomeProfissional->setText(QString::fromStdString(Banco::_puser->get_nome()));
+        ui->tabs->removeTab(1);
     }
 
     std::string contDoadores = std::to_string(idashboard->getDoadores().size())+" doador(es)";
