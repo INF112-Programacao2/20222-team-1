@@ -61,6 +61,7 @@ void CadastrarDoador::on_buttonAdd_clicked()
     try {
         if(ui->comboTipoSangue->currentIndex() == -1) throw std::invalid_argument("Selecione um tipo sanguínio!");
         if(!i->isCpf(cpf)) throw std::invalid_argument("CPF inválido!");
+        if(i->isDoador(cpf)!= nullptr) throw std::invalid_argument("Credenciais ja cadastradas!");
         if(nome.size() < 2) throw std::invalid_argument("O nome deve ter pelo menos 2 caracteres.");
         if(ui->inputAltura->text() == "") throw std::invalid_argument("Digite a altura do doador.");
         if(ui->inputPeso->text() == "") throw std::invalid_argument("Digite o peso do doador.");
@@ -83,7 +84,7 @@ void CadastrarDoador::on_buttonAdd_clicked()
         return;
     }
 
-    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), pesAux/1000.00, altAux/100.00, nullptr, tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
+    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), pesAux/100.00, altAux/100.00, nullptr, tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
 
     Dashboard *dashboard = new Dashboard;
     dashboard->show();
