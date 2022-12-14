@@ -56,4 +56,7 @@ Esse projeto é baseado em interface gráfica e utiliza QTCreator como engine.
 - [Obter licença educacional QTCreator](https://www.qt.io/qt-educational-license#application)
 
 ### Diagrama de Classe
+O diagrama de classes do projeto
  ![Classes](/assets/project/diagrama.png)
+A classe "Banco" é responsavel por mausear os dados seja atraves da leitura e fechamento de arquivos ou filtragem dos dados. 
+ ![Banco](/assets/project/banco.png)
