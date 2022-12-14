@@ -11,7 +11,7 @@
 
 Banco* iDoacao;
 
-AdicionarDoacao::AdicionarDoacao(Doacao doacao, Qwidget *parent):
+AdicionarDoacao::AdicionarDoacao(Doacao doacao, QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::AdicionarDoacao)
 {

@@ -1,6 +1,7 @@
 #ifndef ADICIONARDOACAO_H
 #define ADICIONARDOACAO_H
 
+#include "../../../Doacao/doacao.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -13,7 +14,7 @@ class AdicionarDoacao : public QMainWindow
 
 public:
     explicit AdicionarDoacao(QWidget *parent = nullptr);
-    AdicionarDoacao(Doacao doacao, Qwidget *parent = nullptr);
+    AdicionarDoacao(Doacao doacao, QWidget *parent = nullptr);
     ~AdicionarDoacao();
 
 private slots:

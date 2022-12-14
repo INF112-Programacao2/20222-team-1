@@ -2,7 +2,7 @@
 #define CADASTRARRECEPTOR_H
 
 #include <QMainWindow>
-
+#include "../../../Receptor/receptor.h"
 namespace Ui {
 class CadastrarReceptor;
 }
@@ -13,7 +13,7 @@ class CadastrarReceptor : public QMainWindow
 
 public:
     explicit CadastrarReceptor(QWidget *parent = nullptr);
-    CadastrarReceptor(Receptor receptor, Qwidget *parent = nullptr);
+    CadastrarReceptor(Receptor receptor, QWidget *parent = nullptr);
     ~CadastrarReceptor();
 
 private slots:

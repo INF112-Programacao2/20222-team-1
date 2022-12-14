@@ -10,7 +10,7 @@
 #include <string>
 #include <exception>
 
-CadastrarReceptor::CadastrarReceptor(Receptor receptor, Qwidget *parent):
+CadastrarReceptor::CadastrarReceptor(Receptor receptor, QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::CadastrarReceptor)
 {

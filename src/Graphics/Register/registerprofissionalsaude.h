@@ -2,6 +2,7 @@
 #define REGISTERPROFISSIONALSAUDE_H
 
 #include <QMainWindow>
+#include "../../ProfissionalSaude/profissionalSaude.h"
 
 namespace Ui {
 class RegisterProfissionalSaude;
@@ -13,7 +14,7 @@ class RegisterProfissionalSaude : public QMainWindow
 
 public:
     explicit RegisterProfissionalSaude(QWidget *parent = nullptr);
-    RegisterProfissionalSaude(ProfissionalSaude profissional, Qwidget *parent = nullptr);
+    RegisterProfissionalSaude(ProfissionalSaude profissional, QWidget *parent = nullptr);
     ~RegisterProfissionalSaude();
 
 private slots:

@@ -2,7 +2,7 @@
 #define CADASTRARDOADOR_H
 
 #include <QMainWindow>
-
+#include "../../../Doador/Doador.h"
 namespace Ui {
 class CadastrarDoador;
 }
@@ -13,7 +13,7 @@ class CadastrarDoador : public QMainWindow
 
 public:
     explicit CadastrarDoador(QWidget *parent = nullptr);
-    CadastrarDoador(Doador doador, Qwidget *parent = nullptr);
+    CadastrarDoador(Doador doador, QWidget *parent = nullptr);
     ~CadastrarDoador();
 
 private slots:

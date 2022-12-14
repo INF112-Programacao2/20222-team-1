@@ -9,7 +9,7 @@
 #include <string>
 #include <QIntValidator>
 
-CadastrarDoador::CadastrarDoador(Doador doador, Qwidget *parent):
+CadastrarDoador::CadastrarDoador(Doador doador, QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::CadastrarDoador)
 {
