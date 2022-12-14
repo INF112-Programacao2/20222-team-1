@@ -32,8 +32,8 @@ CadastrarDoador::CadastrarDoador(QWidget *parent) :
     ui->comboSexo->addItem(sexo[1]);
 
     ui->dateNascimento->setMaximumDate(QDate::currentDate());
-    ui->inputAltura->setValidator(new QIntValidator(50, 300, this));
-    ui->inputPeso->setValidator(new QIntValidator(1000, 1000000, this));
+    //ui->inputAltura->setValidator(new QIntValidator(50, 300, this));
+    //ui->inputPeso->setValidator(new QIntValidator(1000, 1000000, this));
 }
 
 CadastrarDoador::~CadastrarDoador()
@@ -64,7 +64,9 @@ void CadastrarDoador::on_buttonAdd_clicked()
         if(i->isDoador(cpf)!= nullptr) throw std::invalid_argument("Credenciais ja cadastradas!");
         if(nome.size() < 2) throw std::invalid_argument("O nome deve ter pelo menos 2 caracteres.");
         if(ui->inputAltura->text() == "") throw std::invalid_argument("Digite a altura do doador.");
+        else if(i->isNumber(altura) && std::stoi(altura) <300 && std::stoi(altura) >50) throw std::invalid_argument("Digite a altura do doador.");
         if(ui->inputPeso->text() == "") throw std::invalid_argument("Digite o peso do doador.");
+        else if(i->isNumber(peso) && std::stoi(peso) <1000000 && std::stoi(altura) >1000) throw std::invalid_argument("Digite a altura do doador.");
     } catch(std::invalid_argument &e){
         dialog->SetMessage(e.what());
         dialog->exec();
