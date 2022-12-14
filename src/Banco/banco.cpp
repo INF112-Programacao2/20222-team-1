@@ -477,6 +477,35 @@ Banco::~Banco()
     fechaArquivoInstituicao();
     fechaArquivoProfissional();
     fechaArquivoReceptor();
+
+    for(int i=0; i<(int)_doadores.size(); i++){
+        if(_doadores[i] != nullptr) delete _doadores[i];
+    } 
+
+    for(int i=0; i<(int)_receptores.size(); i++){
+        if(_receptores[i] != nullptr) delete _receptores[i];
+    } 
+
+    for(int i=0; i<(int)_profissionais.size(); i++){
+        if(_profissionais[i] != nullptr) delete _profissionais[i];
+    } 
+
+    for(int i=0; i<(int)_sangue.size(); i++){
+        if(_sangue[i] != nullptr) delete _sangue[i];
+    } 
+
+    for(int i=0; i<(int)_doacoes.size(); i++){
+        if(_doacoes[i] != nullptr) delete _doacoes[i];
+    } 
+    
+    for(int i=0; i<(int)_consumos.size(); i++){
+        if(_consumos[i] != nullptr) delete _consumos[i];
+    }
+
+    for(int i=0; i<(int)_instituicao.size(); i++){
+        if(_instituicao[i] != nullptr) delete _instituicao[i];
+    }
+
 }
 
 void Banco::setReceptor(Receptor *receptor)
