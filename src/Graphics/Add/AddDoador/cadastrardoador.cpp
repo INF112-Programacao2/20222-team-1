@@ -9,6 +9,13 @@
 #include <string>
 #include <QIntValidator>
 
+CadastrarDoador::CadastrarDoador(Doador doador, Qwidget *parent):
+    QMainWindow(parent),
+    ui(new Ui::CadastrarDoador)
+{
+    ui->setupUi(this);
+}
+
 CadastrarDoador::CadastrarDoador(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::CadastrarDoador)

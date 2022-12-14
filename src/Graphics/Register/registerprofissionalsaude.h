@@ -13,6 +13,7 @@ class RegisterProfissionalSaude : public QMainWindow
 
 public:
     explicit RegisterProfissionalSaude(QWidget *parent = nullptr);
+    RegisterProfissionalSaude(ProfissionalSaude profissional, Qwidget *parent = nullptr);
     ~RegisterProfissionalSaude();
 
 private slots:

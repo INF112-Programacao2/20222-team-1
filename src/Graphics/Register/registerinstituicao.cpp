@@ -3,6 +3,13 @@
 
 Banco* j;
 
+RegisterInstituicao::RegisterInstituicao(Instituicao instituicao, Qwidget *parent):
+    QMainWindow(parent),
+    ui(new Ui::RegisterInstituicao)
+{
+    ui->setupUi(this);
+}
+
 RegisterInstituicao::RegisterInstituicao(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::RegisterInstituicao)

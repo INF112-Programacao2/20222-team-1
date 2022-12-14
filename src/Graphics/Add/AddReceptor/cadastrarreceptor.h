@@ -13,6 +13,7 @@ class CadastrarReceptor : public QMainWindow
 
 public:
     explicit CadastrarReceptor(QWidget *parent = nullptr);
+    CadastrarReceptor(Receptor receptor, Qwidget *parent = nullptr);
     ~CadastrarReceptor();
 
 private slots:

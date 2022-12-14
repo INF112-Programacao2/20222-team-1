@@ -17,6 +17,7 @@ class RegisterInstituicao : public QMainWindow
 
 public:
     explicit RegisterInstituicao(QWidget *parent = nullptr);
+    RegisterInstituicao(Instituicao instituicao, Qwidget *parent = nullptr);
     ~RegisterInstituicao();
 
 private slots:

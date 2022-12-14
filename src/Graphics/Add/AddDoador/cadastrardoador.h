@@ -13,6 +13,7 @@ class CadastrarDoador : public QMainWindow
 
 public:
     explicit CadastrarDoador(QWidget *parent = nullptr);
+    CadastrarDoador(Doador doador, Qwidget *parent = nullptr);
     ~CadastrarDoador();
 
 private slots:

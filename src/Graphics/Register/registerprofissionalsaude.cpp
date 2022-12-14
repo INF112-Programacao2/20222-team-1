@@ -8,6 +8,14 @@
 #include <string>
 #include <exception>
 
+ RegisterProfissionalSaude::RegisterProfissionalSaude(ProfissionalSaude profissional, Qwidget *parent):
+    QMainWindow(parent),
+    ui(new Ui::RegisterProfissionalSaude)
+{
+    ui->setupUi(this);
+}
+
+
 RegisterProfissionalSaude::RegisterProfissionalSaude(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::RegisterProfissionalSaude)
