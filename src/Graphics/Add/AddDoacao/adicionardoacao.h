@@ -13,6 +13,7 @@ class AdicionarDoacao : public QMainWindow
 
 public:
     explicit AdicionarDoacao(QWidget *parent = nullptr);
+    AdicionarDoacao(Doacao doacao, Qwidget *parent = nullptr);
     ~AdicionarDoacao();
 
 private slots:

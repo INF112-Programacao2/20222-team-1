@@ -10,6 +10,13 @@
 #include <string>
 #include <exception>
 
+CadastrarReceptor::CadastrarReceptor(Receptor receptor, Qwidget *parent):
+    QMainWindow(parent),
+    ui(new Ui::CadastrarReceptor)
+{
+    ui->setupUi(this);
+}
+
 CadastrarReceptor::CadastrarReceptor(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::CadastrarReceptor)
