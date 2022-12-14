@@ -46,7 +46,9 @@ Esse projeto está equipado com um Makefile capaz de instalar as dependências n
 
 ```bash
 sudo apt install -y make 
-sudo make && make run
+sudo make config
+make
+make run
 ```
 
 ### Contribuindo
