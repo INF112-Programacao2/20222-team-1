@@ -86,7 +86,7 @@ void CadastrarDoador::on_buttonAdd_clicked()
         return;
     }
 
-    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), pesAux/100.00, altAux/100.00, nullptr, tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
+    i->setDoador(new Doador(nome, cpf, i->criaStructTm(diaNascimento, mesNascimento, anoNascimento), pesAux/1000.00, altAux/100.00, nullptr, tipo, ((sexo) ? Sexo::FEMININO : Sexo::MASCULINO)));
 
     Dashboard *dashboard = new Dashboard;
     dashboard->show();
