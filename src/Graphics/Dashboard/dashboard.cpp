@@ -50,7 +50,8 @@ Dashboard::Dashboard(QWidget *parent) :
     ui->txtContDoadores->setText(QString::fromStdString(contDoadores));
     ui->txtContAptos->setText(QString::fromStdString(contAptos));
     ui->txtContFora->setText(QString::fromStdString(contFora));
-    ui->txtContFora->setText(QString::fromStdString(idashboard->getReceptores().size()+" inapto(s)"));
+    ui->txtContReceptores->setText(QString::fromStdString(std::to_string(idashboard->getReceptores().size())+" receptor(es)"));
+    ui->txtContDoacoes->setText(QString::fromStdString(std::to_string(idashboard->getDoacoesByUser().size())+" doacao(es)"));
 
 }
 
@@ -66,7 +67,7 @@ void Dashboard::populateListDoadores(){
 
     std::vector<Doador*> doa = idashboard->getDoadores();
     ui->doadoresList->setUniformItemSizes(true);
-    if(doa.size() == 0){
+    if(doa.size() != 0){
         ui->erroDoadoresSemDados->setVisible(false);
         for (int var = 0; var < doa.size(); ++var) {
             item = new QListWidgetItem();
@@ -93,7 +94,7 @@ void Dashboard::populateListConsumo(){
 
     std::vector<Consumo*> doa = idashboard->getConsumosByUser();
     ui->consumoList->setUniformItemSizes(true);
-    if(doa.size() == 0){
+    if(doa.size() != 0){
         ui->erroConsumoSemDados->setVisible(false);
         for (int var = 0; var < doa.size(); ++var) {
             item = new QListWidgetItem();
@@ -116,7 +117,7 @@ void Dashboard::populateListDoacao(){
 
     std::vector<Doacao*> doa = idashboard->getDoacoesByUser();
     ui->doacoesList->setUniformItemSizes(true);
-    if(doa.size() == 0){
+    if(doa.size() != 0){
         ui->erroDoacoesSemDados->setVisible(false);
         for (int var = 0; var < doa.size(); ++var) {
             item = new QListWidgetItem();
@@ -139,7 +140,7 @@ void Dashboard::populateListReceptor(){
 
     std::vector<Receptor*> doa = idashboard->getReceptores();
     ui->receptoresList->setUniformItemSizes(true);
-    if(doa.size() == 0){
+    if(doa.size() != 0){
         ui->erroReceptoresSemDados->setVisible(false);
         for (int var = 0; var < doa.size(); ++var) {
             item = new QListWidgetItem();
