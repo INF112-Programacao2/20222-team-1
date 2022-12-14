@@ -8,7 +8,6 @@ class Receptor : public PessoaIF
 {
 private:
     static int _numReceptor;
-    int _id;
     int _idSangue;
 
 public:
